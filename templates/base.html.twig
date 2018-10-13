@@ -19,7 +19,9 @@
                 <div class="main-inner">
                     <div class="container">
                         <div class="row">
-                            {{ include('inc/widgets/widget-category.html.twig') }}
+                            {{ render(controller(
+                                'App\\Controller\\CategoriesServicesController::categories'
+                            )) }}
                             {% block body %}{% endblock %}
                         </div>
                     </div>
