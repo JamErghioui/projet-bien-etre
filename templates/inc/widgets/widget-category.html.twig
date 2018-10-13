@@ -1,0 +1,12 @@
+<div class="col-sm-4 col-lg-3">
+    <div class="sidebar">
+        <div class="widget">
+            <h2 class="widgettitle">Categories</h2>
+            <ul class="menu">
+                {% for category in categories %}
+                    <li><a href="{{ path('category', { id : category.id }) }}">{{ category.Name }}</a></li>
+                {% endfor %}
+            </ul>
+        </div>
+    </div>
+</div>
