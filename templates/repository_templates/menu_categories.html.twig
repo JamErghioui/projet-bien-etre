@@ -1,0 +1,73 @@
+<div class="col-sm-4 col-lg-3">
+    <div class="sidebar">
+        <!-- Menu Category -->
+        <div class="widget">
+            <h2 class="widgettitle">Categories</h2>
+            <ul class="menu">
+                {% for categorie in categories %}
+                    <li><a href="{{ path('category', { id : categorie.id }) }}">{{ categorie.Name }}</a></li>
+                {% endfor %}
+            </ul>
+        </div>
+        <!-- Widget last Vendors -->
+        <div class="widget">
+            <h2 class="widgettitle">Recent Vendors</h2>
+
+            <div class="cards-small">
+                <div class="card-small">
+                    <div class="card-small-image">
+                        <a href="listing-detail.html">
+                            <img src="{{ asset('assets/img/tmp/product-2.jpg') }}" alt="Tasty Brazil Coffee">
+                        </a>
+                    </div><!-- /.card-small-image -->
+
+                    <div class="card-small-content">
+                        <h3><a href="listing-detail.html">Tasty Brazil Coffee</a></h3>
+                        <h4><a href="listing-detail.html">New York / Village</a></h4>
+
+                        <div class="card-small-price">$180 / person</div>
+                    </div><!-- /.card-small-content -->
+                </div><!-- /.card-small -->
+            </div><!-- /.cards-small -->
+
+
+
+            <div class="cards-small">
+                <div class="card-small">
+                    <div class="card-small-image">
+                        <a href="listing-detail.html">
+                            <img src="{{ asset('assets/img/tmp/product-3.jpg') }}" alt="Healthy Breakfast">
+                        </a>
+                    </div><!-- /.card-small-image -->
+
+                    <div class="card-small-content">
+                        <h3><a href="listing-detail.html">Healthy Breakfast</a></h3>
+                        <h4><a href="listing-detail.html">New York / Village</a></h4>
+
+                        <div class="card-small-price">$180 / person</div>
+                    </div><!-- /.card-small-content -->
+                </div><!-- /.card-small -->
+            </div><!-- /.cards-small -->
+
+
+
+            <div class="cards-small">
+                <div class="card-small">
+                    <div class="card-small-image">
+                        <a href="listing-detail.html">
+                            <img src="{{ asset('assets/img/tmp/product-4.jpg') }}" alt="Coffee &amp; Newspaper">
+                        </a>
+                    </div><!-- /.card-small-image -->
+
+                    <div class="card-small-content">
+                        <h3><a href="listing-detail.html">Coffee &amp; Newspaper</a></h3>
+                        <h4><a href="listing-detail.html">New York / Village</a></h4>
+
+                        <div class="card-small-price">$180 / person</div>
+                    </div><!-- /.card-small-content -->
+                </div><!-- /.card-small -->
+            </div><!-- /.cards-small -->
+
+        </div>
+    </div>
+</div>

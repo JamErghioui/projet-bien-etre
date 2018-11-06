@@ -16,24 +16,23 @@ class ServicesController extends AbstractController
      */
     public function index(CategoryRepository $catrepo)
     {
-        $categories = $catrepo->findAll();
-        return $this->render('services/index.html.twig',[
-            'categories' => $categories
+        $highlight = $catrepo->findOneBy([
+            'Highlight' => true
+        ]);
+        return $this->render('services_templates/index.html.twig',[
+            'category' => $highlight
         ]);
     }
 
     /**
      * @Route("/category/{id}", name="category")
-     * @param CategoryRepository $catrepo
      * @param Category $category
      * @return \Symfony\Component\HttpFoundation\Response
      */
-    public function category(CategoryRepository $catrepo, Category $category)
+    public function category(Category $category)
     {
-        $categories = $catrepo->findAll();
-        return $this->render('services/category.html.twig',[
-            'category' => $category,
-            'categories' => $categories
+        return $this->render('services_templates/category.html.twig',[
+            'category' => $category
         ]);
     }
 }

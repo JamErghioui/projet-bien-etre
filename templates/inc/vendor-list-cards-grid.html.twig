@@ -1,0 +1,37 @@
+<div class="col-sm-8 col-lg-9">
+    <div class="content">
+        <div class="cards-simple-wrapper">
+            <div class="row">
+                {% for row in category.vendors %}
+                <div class="col-sm-6 col-lg-4">
+                    <div class="card-simple" data-background-image="https://res.cloudinary.com/dptzlt8ik/image/upload/v1540383628/Bien-Etre/yoga-cover.jpg">
+                        <div class="card-simple-background">
+                            <div class="card-simple-content">
+                                <h2><a href="listing-detail.html">{{ row.name }}</a></h2>
+                                <div class="card-simple-rating">
+                                    <i class="fa fa-star"></i>
+                                    <i class="fa fa-star"></i>
+                                    <i class="fa fa-star"></i>
+                                    <i class="fa fa-star"></i>
+                                    <i class="fa fa-star"></i>
+                                </div><!-- /.card-rating -->
+
+                                <div class="card-simple-actions">
+                                    <a href="#" class="fa fa-star-o"></a>
+                                    <a href="listing-detail.html" class="fa fa-search"></a>
+                                    <a href="#" class="fa fa-heart-o"></a>
+                                </div><!-- /.card-simple-actions -->
+                            </div><!-- /.card-simple-content -->
+
+                            <div class="card-simple-label">Vendor</div>
+
+                            <div class="card-simple-price">$100 / night</div>
+
+                        </div><!-- /.card-simple-background -->
+                    </div><!-- /.card-simple -->
+                </div><!-- /.col-* -->
+                {% endfor %}
+            </div><!-- /.row -->
+        </div><!-- /.cards-simple-wrapper -->
+    </div>
+</div>

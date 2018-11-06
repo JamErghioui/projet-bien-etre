@@ -6,6 +6,9 @@ use Doctrine\ORM\Mapping as ORM;
 
 /**
  * @ORM\Entity(repositoryClass="App\Repository\UserRepository")
+ * @ORM\InheritanceType("JOINED")
+ * @ORM\DiscriminatorColumn(name="user_type", type="string")
+ * @ORM\DiscriminatorMap({"user" = "User", "vendor" = "Vendor"})
  */
 class User
 {
@@ -50,11 +53,6 @@ class User
      * @ORM\Column(type="string", length=255)
      */
     private $password;
-
-    /**
-     * @ORM\Column(type="string", length=255)
-     */
-    private $user_type;
 
     /**
      * @ORM\ManyToOne(targetEntity="App\Entity\Postal", inversedBy="users")
@@ -159,18 +157,6 @@ class User
     public function setPassword(string $password): self
     {
         $this->password = $password;
-
-        return $this;
-    }
-
-    public function getUserType(): ?string
-    {
-        return $this->user_type;
-    }
-
-    public function setUserType(string $user_type): self
-    {
-        $this->user_type = $user_type;
 
         return $this;
     }

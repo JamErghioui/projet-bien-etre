@@ -2,6 +2,8 @@
 
 namespace App\Entity;
 
+use Doctrine\Common\Collections\ArrayCollection;
+use Doctrine\Common\Collections\Collection;
 use Doctrine\ORM\Mapping as ORM;
 
 /**
@@ -35,6 +37,16 @@ class Category
      * @ORM\Column(type="boolean")
      */
     private $Validity;
+
+    /**
+     * @ORM\ManyToMany(targetEntity="App\Entity\Vendor", mappedBy="category")
+     */
+    private $vendors;
+
+    public function __construct()
+    {
+        $this->vendors = new ArrayCollection();
+    }
 
     public function getId(): ?int
     {
@@ -85,6 +97,34 @@ class Category
     public function setValidity(bool $Validity): self
     {
         $this->Validity = $Validity;
+
+        return $this;
+    }
+
+    /**
+     * @return Collection|Vendor[]
+     */
+    public function getVendors(): Collection
+    {
+        return $this->vendors;
+    }
+
+    public function addVendor(Vendor $vendor): self
+    {
+        if (!$this->vendors->contains($vendor)) {
+            $this->vendors[] = $vendor;
+            $vendor->addCategory($this);
+        }
+
+        return $this;
+    }
+
+    public function removeVendor(Vendor $vendor): self
+    {
+        if ($this->vendors->contains($vendor)) {
+            $this->vendors->removeElement($vendor);
+            $vendor->removeCategory($this);
+        }
 
         return $this;
     }

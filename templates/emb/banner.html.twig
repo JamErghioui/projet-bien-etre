@@ -1,0 +1,37 @@
+<div class="mt-80 mb80">
+    <div class="detail-banner" style="background-image: url({{ asset('assets/img/tmp/banner.jpg') }});">
+        <div class="container">
+            <div class="detail-banner-left">
+                <div class="detail-banner-info">
+                    <div class="detail-label">Restaurant</div>
+                    <div class="detail-verified">Verified</div>
+                </div><!-- /.detail-banner-info -->
+
+                <h2 class="detail-title">
+                    {% block bannertitle %}{% endblock %}
+                </h2>
+
+                <div class="detail-banner-address">
+                    {% block bannerdescription %}{% endblock %}
+                </div><!-- /.detail-banner-address -->
+
+                <div class="detail-banner-rating">
+                    <i class="fa fa-star"></i>
+                    <i class="fa fa-star"></i>
+                    <i class="fa fa-star"></i>
+                    <i class="fa fa-star"></i>
+                    <i class="fa fa-star-half-o"></i>
+                </div><!-- /.detail-banner-rating -->
+
+                <div class="detail-banner-btn bookmark">
+                    <i class="fa fa-bookmark-o"></i> <span data-toggle="Bookmarked">Bookmark</span>
+                </div><!-- /.detail-claim -->
+
+                <div class="detail-banner-btn heart">
+                    <i class="fa fa-heart-o"></i> <span data-toggle="I Love It">Give Heart</span>
+                </div><!-- /.detail-claim -->
+
+            </div><!-- /.detail-banner-left -->
+        </div><!-- /.container -->
+    </div><!-- /.detail-banner -->
+</div>
