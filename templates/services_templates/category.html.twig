@@ -4,6 +4,7 @@
 
 {% block banner %}
     {% embed 'emb/banner.html.twig' %}
+        {% block bannertype %}Category{% endblock %}
         {% block bannertitle %}{{ category.Name }}{% endblock %}
         {% block bannerdescription %}{{ category.Description|raw }}{% endblock %}
     {% endembed %}

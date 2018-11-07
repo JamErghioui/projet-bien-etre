@@ -19,13 +19,13 @@ class VendorFixtures extends Fixture
 
         for($i=1 ; $i<=3 ; $i++){
 
-            $description = "<p>";
-            $description.= join($faker->paragraphs(mt_rand(3, 6)), '</p><p>');
-            $description.= "</p>";
+           //$description = "<p>";
+            //$description.= join($faker->paragraphs(mt_rand(3, 6)), '</p><p>');
+            //$description.= "</p>";
 
             $category = new Category();
             $category->setName($faker->sentence(mt_rand(2, 3)))
-                ->setDescription($description)
+                ->setDescription($faker->sentence)
                 ->setHighlight(false)
                 ->setValidity(true);
             $manager->persist($category);

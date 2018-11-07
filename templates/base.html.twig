@@ -14,25 +14,19 @@
     </head>
     <body>
         <div class="page-wrapper">
-
-            <!-- Header -->
+            <!-- Header navbar -->
             {{ include('inc/header.html.twig') }}
-
             <div class="main">
                 <div class="main-inner">
                     <div class="content">
-
                         <!-- Banner -->
                         {% block banner %}{% endblock %}
-
                         <div class="container">
                             <div class="row">
-
                                 <!-- Side-menu Categories -->
                                 {{ render(controller(
                                     'App\\Controller\\RepositoryController::menu_categories'
                                 )) }}
-
                                 {% block body %}{% endblock %}
                             </div>
                         </div>
