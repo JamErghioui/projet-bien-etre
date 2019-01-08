@@ -19,22 +19,50 @@ class VendorRepository extends ServiceEntityRepository
         parent::__construct($registry, Vendor::class);
     }
 
-//    /**
-//     * @return Vendor[] Returns an array of Vendor objects
-//     */
-    /*
-    public function findByExampleField($value)
+    /**
+     * @param $value
+     * @return Vendor[] Returns an array of Vendor objects
+     */
+    public function findLast($value)
     {
         return $this->createQueryBuilder('v')
-            ->andWhere('v.exampleField = :val')
-            ->setParameter('val', $value)
-            ->orderBy('v.id', 'ASC')
-            ->setMaxResults(10)
+            ->orderBy('v.id', 'DESC')
+            ->setMaxResults($value)
             ->getQuery()
-            ->getResult()
-        ;
+            ->getResult();
     }
-    */
+
+    /**
+     * @param $name
+     * @param $category
+     * @param $district
+     * @return Vendor[] Returns an array of Vendor objects
+     */
+    public function findSearch($name,$category,$district)
+    {
+        $qb = $this->createQueryBuilder('v')
+            ->orderBy('v.name', 'ASC');
+
+            if(!empty($name)){
+                $qb->andWhere('v.name LIKE :name')
+                ->setParameter(':name', "%$name%");
+            }
+
+            if(!empty($category)){
+                $qb->innerJoin('v.category', 'cat', 'WITH', "cat.id LIKE :category")
+                ->setParameter(':category', "%$category%");
+            }
+
+            if(!empty($district)){
+                $qb->innerJoin('v.district', 'dis', 'WITH', "dis.id LIKE :district")
+                    ->setParameter(':district', "%$district%");
+            }
+
+            return $qb
+
+            ->getQuery()
+            ->getResult();
+    }
 
     /*
     public function findOneBySomeField($value): ?Vendor

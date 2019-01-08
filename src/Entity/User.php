@@ -55,22 +55,22 @@ class User
     private $password;
 
     /**
-     * @ORM\ManyToOne(targetEntity="App\Entity\Postal", inversedBy="users")
+     * @ORM\ManyToOne(targetEntity="App\Entity\District")
      * @ORM\JoinColumn(nullable=false)
      */
-    private $postal_code;
+    private $district;
 
     /**
-     * @ORM\ManyToOne(targetEntity="App\Entity\Locality", inversedBy="users")
+     * @ORM\ManyToOne(targetEntity="App\Entity\ZipCode")
      * @ORM\JoinColumn(nullable=false)
      */
-    private $locality_name;
+    private $zipcode;
 
     /**
-     * @ORM\ManyToOne(targetEntity="App\Entity\Town", inversedBy="users")
+     * @ORM\ManyToOne(targetEntity="App\Entity\Locality")
      * @ORM\JoinColumn(nullable=false)
      */
-    private $town_name;
+    private $locality;
 
     public function getId(): ?int
     {
@@ -161,38 +161,38 @@ class User
         return $this;
     }
 
-    public function getPostalCode(): ?Postal
+    public function getDistrict(): ?District
     {
-        return $this->postal_code;
+        return $this->district;
     }
 
-    public function setPostalCode(?Postal $postal_code): self
+    public function setDistrict(?District $district): self
     {
-        $this->postal_code = $postal_code;
+        $this->district = $district;
 
         return $this;
     }
 
-    public function getLocalityName(): ?Locality
+    public function getZipcode(): ?ZipCode
     {
-        return $this->locality_name;
+        return $this->zipcode;
     }
 
-    public function setLocalityName(?Locality $locality_name): self
+    public function setZipcode(?ZipCode $zipcode): self
     {
-        $this->locality_name = $locality_name;
+        $this->zipcode = $zipcode;
 
         return $this;
     }
 
-    public function getTownName(): ?Town
+    public function getLocality(): ?Locality
     {
-        return $this->town_name;
+        return $this->locality;
     }
 
-    public function setTownName(?Town $town_name): self
+    public function setLocality(?Locality $locality): self
     {
-        $this->town_name = $town_name;
+        $this->locality = $locality;
 
         return $this;
     }

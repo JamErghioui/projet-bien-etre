@@ -1,0 +1,31 @@
+<div class="background-white p20">
+
+    <form method="get" action="?">
+
+        <div class="form-group">
+            <label for="">Keyword</label>
+            <input type="text" class="form-control" name="name" value="{{ query.name }}">
+        </div><!-- /.form-group -->
+
+        <div class="form-group">
+            <label for="">Category</label>
+            <select name="category" class="form-control" title="Select Category">
+                {% for category in categories %}
+                    <option value="{{ category.id }}">{{ category.name }}</option>
+                {% endfor %}
+            </select>
+        </div><!-- /.form-group -->
+
+        <div class="form-group">
+            <label for="">District</label>
+            <select name="district" class="form-control" title="Select District">
+                {% for district in districts %}
+                    <option value="{{ district.id }}">{{ district.name }}</option>
+                {% endfor %}
+            </select>
+        </div><!-- /.form-group -->
+
+        <button class="btn btn-primary btn-block" type="submit">Search</button>
+
+    </form>
+</div>

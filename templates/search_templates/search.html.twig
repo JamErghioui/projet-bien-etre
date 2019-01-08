@@ -1,0 +1,17 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Search{% endblock %}
+
+{% block banner %}{{ include('inc/search-banner.html.twig') }}{% endblock %}
+
+{% block widget %}
+    <!-- Search Widget -->
+    {{ include('search_templates/search_widget.html.twig') }}
+    <!-- Fin Search Widget-->
+{% endblock %}
+
+{% block body %}
+    <!-- Vendors Cards-->
+    {{ include('inc/vendor-list-cards-search.html.twig') }}
+    <!-- Fin Vendors Cards-->
+{% endblock %}

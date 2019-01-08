@@ -5,9 +5,9 @@ namespace App\Entity;
 use Doctrine\ORM\Mapping as ORM;
 
 /**
- * @ORM\Entity(repositoryClass="App\Repository\LocalityRepository")
+ * @ORM\Entity(repositoryClass="App\Repository\DistrictRepository")
  */
-class Locality
+class District
 {
     /**
      * @ORM\Id()
@@ -20,12 +20,6 @@ class Locality
      * @ORM\Column(type="string", length=255)
      */
     private $name;
-
-    /**
-     * @ORM\ManyToOne(targetEntity="App\Entity\ZipCode")
-     * @ORM\JoinColumn(nullable=false)
-     */
-    private $zipcode;
 
     public function getId(): ?int
     {
@@ -40,18 +34,6 @@ class Locality
     public function setName(string $name): self
     {
         $this->name = $name;
-
-        return $this;
-    }
-
-    public function getZipcode(): ?ZipCode
-    {
-        return $this->zipcode;
-    }
-
-    public function setZipcode(?ZipCode $zipcode): self
-    {
-        $this->zipcode = $zipcode;
 
         return $this;
     }

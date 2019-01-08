@@ -23,10 +23,18 @@
                         {% block banner %}{% endblock %}
                         <div class="container">
                             <div class="row">
-                                <!-- Side-menu Categories -->
-                                {{ render(controller(
-                                    'App\\Controller\\RepositoryController::menu_categories'
-                                )) }}
+                                <div class="col-sm-4 col-lg-3">
+                                    {% block widget %}
+                                        <!-- Side-menu Categories -->
+                                        {{ render(controller(
+                                            'App\\Controller\\RepositoryController::menu_categories'
+                                        )) }}
+                                        <!-- Side-widget LastVendors -->
+                                        {{ render(controller(
+                                            'App\\Controller\\RepositoryController::last_vendors'
+                                        )) }}
+                                    {% endblock %}
+                                </div>
                                 {% block body %}{% endblock %}
                             </div>
                         </div>
