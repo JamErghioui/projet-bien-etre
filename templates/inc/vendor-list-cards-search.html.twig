@@ -1,33 +1,31 @@
-<div class="col-sm-8 col-lg-9">
-    <div class="content">
-        {% if vendors|length >= 1 %}
-        <div class="cards-simple-wrapper">
-            <div class="row">
-                {% for vendor in vendors %}
-                    <div class="col-sm-6 col-lg-4">
-                        <div class="card-simple" data-background-image="https://res.cloudinary.com/dptzlt8ik/image/upload/v1540383628/Bien-Etre/yoga-cover.jpg">
-                            <div class="card-simple-background">
+<div class="content">
+    {% if vendors|length >= 1 %}
+    <div class="cards-simple-wrapper">
+        <div class="row">
+            {% for vendor in vendors %}
+                <div class="col-sm-6 col-lg-4">
+                    <div class="card-simple" data-background-image="https://res.cloudinary.com/dptzlt8ik/image/upload/v1547065039/Bien-Etre/by_housevisit_2560.jpg">
+                        <div class="card-simple-background">
 
-                                <div class="card-simple-content">
-                                    <h2><a href="listing-detail.html">{{ vendor.name }}</a></h2>
+                            <div class="card-simple-content">
+                                <h2><a href="{{ path('vendor', { id : vendor.id }) }}">{{ vendor.name }}</a></h2>
 
-                                    <div class="card-simple-actions">
-                                        <a href="#" class="fa fa-star-o"></a>
-                                        <a href="listing-detail.html" class="fa fa-search"></a>
-                                        <a href="#" class="fa fa-heart-o"></a>
-                                    </div><!-- /.card-simple-actions -->
+                                <div class="card-simple-actions">
+                                    <a href="#" class="fa fa-star-o"></a>
+                                    <a href="{{ path('vendor', { id : vendor.id }) }}" class="fa fa-search"></a>
+                                    <a href="#" class="fa fa-heart-o"></a>
+                                </div><!-- /.card-simple-actions -->
 
-                                </div><!-- /.card-simple-content -->
+                            </div><!-- /.card-simple-content -->
 
-                                <div class="card-simple-label">Vendor</div>
+                            <div class="card-simple-label">Vendor</div>
 
-                                <div class="card-simple-price">{{ vendor.district.name }}</div>
-                            </div><!-- /.card-simple-background -->
-                        </div><!-- /.card-simple -->
-                    </div><!-- /.col-* -->
-                {% endfor %}
-            </div><!-- /.row -->
-        </div><!-- /.cards-simple-wrapper -->
-        {% endif %}
-    </div>
+                            <a href="{{ path('search') }}?district={{ vendor.district.id }}"><div class="card-simple-price">{{ vendor.district.name }}</div></a>
+                        </div><!-- /.card-simple-background -->
+                    </div><!-- /.card-simple -->
+                </div><!-- /.col-* -->
+            {% endfor %}
+        </div><!-- /.row -->
+    </div><!-- /.cards-simple-wrapper -->
+    {% endif %}
 </div>

@@ -8,13 +8,13 @@
             <div class="card-small">
                 <div class="card-small-image">
                     <a href="listing-detail.html">
-                        <img src="https://res.cloudinary.com/dptzlt8ik/image/upload/v1540383628/Bien-Etre/yoga-cover.jpg" alt="Image">
+                        <img src="https://res.cloudinary.com/dptzlt8ik/image/upload/v1547065039/Bien-Etre/by_housevisit_2560.jpg" alt="Image">
                     </a>
                 </div><!-- /.card-small-image -->
 
                 <div class="card-small-content">
-                    <h3><a href="listing-detail.html">{{ vendor.name }}</a></h3>
-                    <h4><a href="listing-detail.html">Vendor</a></h4>
+                    <h3><a href="{{ path('vendor', { id : vendor.id }) }}">{{ vendor.name }}</a></h3>
+                    <h4><a href="#">Vendor</a></h4>
 
                     <div class="card-small-price">{{ vendor.phone }}</div>
                 </div><!-- /.card-small-content -->

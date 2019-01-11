@@ -38,29 +38,16 @@
 
                         <ul class="header-nav-primary nav nav-pills collapse navbar-collapse">
                             <li >
-                                <a href="#">Home <i class="fa fa-chevron-down"></i></a>
-
-                                <ul class="sub-menu">
-                                    <li><a href="index-video.html">Video v1</a></li>
-                                    <li><a href="index-video-transparent-header.html">Video v2</a></li>
-                                    <li><a href="index-google-map.html">Google Map V1</a></li>
-                                    <li><a href="index-google-map-transparent-header.html">Google Map v2</a></li>
-                                    <li><a href="index-image.html">Image v1</a></li>
-                                    <li><a href="index.html">Image v2</a></li>
-                                    <li><a href="index-bootstrap-slider.html">Boxed Slider</a></li>
-                                </ul>
+                                <a href="{{ path('home') }}">Home</a>
                             </li>
 
                             <li >
-                                <a href="#">Listing <i class="fa fa-chevron-down"></i></a>
+                                <a href="#">Categories <i class="fa fa-chevron-down"></i></a>
 
                                 <ul class="sub-menu">
-                                    <li><a href="listing-detail.html">Detail</a></li>
-                                    <li><a href="listing-map.html">Row + Map</a></li>
-                                    <li><a href="listing-grid.html">Grid</a></li>
-                                    <li><a href="listing-grid-sidebar.html">Grid Sidebar</a></li>
-                                    <li><a href="listing-row.html">Row</a></li>
-                                    <li><a href="listing-row-sidebar.html">Row Sidebar</a></li>
+                                    {{ render(controller(
+                                        'App\\Controller\\RepositoryController::list_categories'
+                                    )) }}
                                 </ul>
                             </li>
 

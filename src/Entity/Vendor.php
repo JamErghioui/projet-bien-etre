@@ -11,12 +11,6 @@ use Doctrine\ORM\Mapping as ORM;
  */
 class Vendor extends User
 {
-    /**
-     * @ORM\Id()
-     * @ORM\GeneratedValue()
-     * @ORM\Column(type="integer")
-     */
-    private $id;
 
     /**
      * @ORM\Column(type="string", length=255)
@@ -53,10 +47,6 @@ class Vendor extends User
         $this->category = new ArrayCollection();
     }
 
-    public function getId(): ?int
-    {
-        return $this->id;
-    }
 
     public function getContactMail(): ?string
     {

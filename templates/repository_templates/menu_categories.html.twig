@@ -3,9 +3,9 @@
     <div class="widget">
         <h2 class="widgettitle">Categories</h2>
         <ul class="menu">
-            {% for categorie in categories %}
-                <li><a href="{{ path('category', { id : categorie.id }) }}">{{ categorie.Name }}</a></li>
-            {% endfor %}
+            {{ render(controller(
+                'App\\Controller\\RepositoryController::list_categories'
+            )) }}
         </ul>
     </div>
 </div>

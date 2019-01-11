@@ -4,14 +4,18 @@
 
 {% block banner %}{{ include('inc/search-banner.html.twig') }}{% endblock %}
 
-{% block widget %}
-    <!-- Search Widget -->
-    {{ include('search_templates/search_widget.html.twig') }}
-    <!-- Fin Search Widget-->
-{% endblock %}
-
 {% block body %}
-    <!-- Vendors Cards-->
-    {{ include('inc/vendor-list-cards-search.html.twig') }}
-    <!-- Fin Vendors Cards-->
+    <div class="row">
+        <div class="col-sm-4 col-lg-3">
+            <!-- Search Widget -->
+            {{ include('search_templates/search_widget.html.twig') }}
+            <!-- Fin Search Widget-->
+        </div>
+
+        <div class="col-sm-8 col-lg-9">
+            <!-- Vendors Cards-->
+            {{ include('inc/vendor-list-cards-search.html.twig') }}
+            <!-- Fin Vendors Cards-->
+        </div>
+    </div>
 {% endblock %}

@@ -13,11 +13,11 @@ class RepositoryController extends AbstractController
      * @param CategoryRepository $catrepo
      * @return \Symfony\Component\HttpFoundation\Response
      */
-    public function menu_categories(CategoryRepository $catrepo)
+    public function list_categories(CategoryRepository $catrepo)
     {
         $categories = $catrepo->findAll();
 
-        return $this->render('repository_templates/menu_categories.html.twig', [
+        return $this->render('repository_templates/list_categories.html.twig', [
             'categories' => $categories,
         ]);
     }
@@ -28,7 +28,7 @@ class RepositoryController extends AbstractController
      */
     public function last_vendors(VendorRepository $vendorepo)
     {
-        $vendors = $vendorepo->findLast(4);
+        $vendors = $vendorepo->findLast(3);
 
         return $this->render('repository_templates/last_vendors.html.twig',[
             'vendors' => $vendors

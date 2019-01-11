@@ -3,6 +3,7 @@
 namespace App\Controller;
 
 use App\Entity\Category;
+use App\Entity\Vendor;
 use App\Repository\CategoryRepository;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\Routing\Annotation\Route;
@@ -34,6 +35,18 @@ class ServicesController extends AbstractController
     {
         return $this->render('services_templates/category.html.twig',[
             'category' => $category
+        ]);
+    }
+
+    /**
+     * @Route("/vendor/{id}", name="vendor")
+     * @param Vendor $vendor
+     * @return \Symfony\Component\HttpFoundation\Response
+     */
+    public function vendor(Vendor $vendor)
+    {
+        return $this->render('services_templates/vendor.html.twig',[
+            'vendor' => $vendor
         ]);
     }
 }

@@ -17,7 +17,6 @@ class SearchController extends AbstractController
      */
     public function searchForm(Request $request, VendorRepository $vendor, CategoryRepository $category, DistrictRepository $district)
     {
-        dump($request->query);
         $categories = $category->findAll();
         $districts = $district->findAll();
 

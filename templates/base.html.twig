@@ -3,6 +3,9 @@
     <head>
         <meta charset="UTF-8">
         <title>{% block title %}Welcome!{% endblock %}</title>
+        <meta charset="UTF-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1, minimum-scale=1, maximum-scale=1">
         <link href="http://fonts.googleapis.com/css?family=Nunito:300,400,700" rel="stylesheet" type="text/css">
         <link href="{{ asset('assets/libraries/font-awesome/css/font-awesome.min.css') }}" rel="stylesheet" type="text/css">
         <link href="{{ asset('assets/libraries/owl.carousel/assets/owl.carousel.css') }}" rel="stylesheet" type="text/css" >
@@ -22,23 +25,9 @@
                         <!-- Banner -->
                         {% block banner %}{% endblock %}
                         <div class="container">
-                            <div class="row">
-                                <div class="col-sm-4 col-lg-3">
-                                    {% block widget %}
-                                        <!-- Side-menu Categories -->
-                                        {{ render(controller(
-                                            'App\\Controller\\RepositoryController::menu_categories'
-                                        )) }}
-                                        <!-- Side-widget LastVendors -->
-                                        {{ render(controller(
-                                            'App\\Controller\\RepositoryController::last_vendors'
-                                        )) }}
-                                    {% endblock %}
-                                </div>
-                                {% block body %}{% endblock %}
-                            </div>
+                            <!-- Body -->
+                            {% block body %}{% endblock %}
                         </div>
-
                     </div>
                 </div>
             </div>
