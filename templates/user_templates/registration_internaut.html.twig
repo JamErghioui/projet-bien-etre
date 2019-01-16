@@ -1,0 +1,23 @@
+<div class="page-title">
+    <h1>New Internaut</h1>
+</div><!-- /.page-title -->
+{{ form_start(RegistrationInternautForm) }}
+<div class="form-group">
+    {{ form_row(RegistrationInternautForm.username, { 'attr' : { 'class' : 'form-control' }}) }}
+</div>
+<div class="form-group">
+    {{ form_row(RegistrationInternautForm.email, { 'attr' : { 'class' : 'form-control' }}) }}
+</div>
+<div class="form-group">
+    {{ form_row(RegistrationInternautForm.password, { 'attr' : { 'class' : 'form-control' }}) }}
+</div>
+<div class="form-group">
+    {{ form_row(RegistrationInternautForm.confirm_password, { 'attr' : { 'class' : 'form-control' }}) }}
+</div>
+<div class="form-group">
+    {{ form_row(RegistrationInternautForm.newsLetter, { 'label' : 'Newsletter', 'attr' : { 'class' : 'form-control' }}) }}
+</div>
+<div class="form-group">
+    <button type="submit" class="btn btn-primary pull-right">Register</button>
+</div>
+{{ form_end(RegistrationInternautForm) }}

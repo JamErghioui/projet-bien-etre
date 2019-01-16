@@ -16,7 +16,7 @@ class VendorFixtures extends Fixture implements DependentFixtureInterface
 
         $faker = Faker\Factory::create();
 
-        for($i=1 ; $i<=3 ; $i++){
+        for($i=1 ; $i<=5 ; $i++){
 
             $category = new Category();
             $category->setName($faker->sentence(mt_rand(2, 3)))
@@ -25,7 +25,7 @@ class VendorFixtures extends Fixture implements DependentFixtureInterface
                 ->setValidity(true);
             $manager->persist($category);
 
-            for($j=1 ; $j<=5 ; $j++) {
+            for($j=1 ; $j<=10 ; $j++) {
 
                 $vendor = new Vendor();
 
@@ -41,7 +41,7 @@ class VendorFixtures extends Fixture implements DependentFixtureInterface
                     ->setLocality($this->getReference('Ixelles4'));
 
                 $vendor->setContactMail($faker->companyEmail)
-                    ->setName($faker->name)
+                    ->setUsername($faker->name)
                     ->setPhone($faker->phoneNumber)
                     ->setVat($faker->bankAccountNumber)
                     ->setWebsite($faker->url)

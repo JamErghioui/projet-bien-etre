@@ -18,24 +18,47 @@ class Vendor extends User
     private $contact_mail;
 
     /**
-     * @ORM\Column(type="string", length=255)
-     */
-    private $name;
-
-    /**
-     * @ORM\Column(type="string", length=255)
+     * @ORM\Column(type="string", length=255, nullable=true)
      */
     private $phone;
 
     /**
-     * @ORM\Column(type="string", length=255)
+     * @ORM\Column(type="string", length=255, nullable=true)
      */
     private $vat;
 
     /**
-     * @ORM\Column(type="string", length=255)
+     * @ORM\Column(type="string", length=255, nullable=true)
      */
     private $website;
+
+    /**
+     * @ORM\Column(type="string", length=255, nullable=true)
+     */
+    private $door_number;
+
+    /**
+     * @ORM\Column(type="string", length=255, nullable=true)
+     */
+    private $street;
+
+    /**
+     * @ORM\ManyToOne(targetEntity="App\Entity\District")
+     * @ORM\JoinColumn(nullable=true)
+     */
+    private $district;
+
+    /**
+     * @ORM\ManyToOne(targetEntity="App\Entity\ZipCode")
+     * @ORM\JoinColumn(nullable=true)
+     */
+    private $zipcode;
+
+    /**
+     * @ORM\ManyToOne(targetEntity="App\Entity\Locality")
+     * @ORM\JoinColumn(nullable=true)
+     */
+    private $locality;
 
     /**
      * @ORM\ManyToMany(targetEntity="App\Entity\Category", inversedBy="vendors")
@@ -56,18 +79,6 @@ class Vendor extends User
     public function setContactMail(string $contact_mail): self
     {
         $this->contact_mail = $contact_mail;
-
-        return $this;
-    }
-
-    public function getName(): ?string
-    {
-        return $this->name;
-    }
-
-    public function setName(string $name): self
-    {
-        $this->name = $name;
 
         return $this;
     }
@@ -104,6 +115,66 @@ class Vendor extends User
     public function setWebsite(string $website): self
     {
         $this->website = $website;
+
+        return $this;
+    }
+
+    public function getDoorNumber(): ?string
+    {
+        return $this->door_number;
+    }
+
+    public function setDoorNumber(string $door_number): self
+    {
+        $this->door_number = $door_number;
+
+        return $this;
+    }
+
+    public function getStreet(): ?string
+    {
+        return $this->street;
+    }
+
+    public function setStreet(string $street): self
+    {
+        $this->street = $street;
+
+        return $this;
+    }
+
+    public function getDistrict(): ?District
+    {
+        return $this->district;
+    }
+
+    public function setDistrict(?District $district): self
+    {
+        $this->district = $district;
+
+        return $this;
+    }
+
+    public function getZipcode(): ?ZipCode
+    {
+        return $this->zipcode;
+    }
+
+    public function setZipcode(?ZipCode $zipcode): self
+    {
+        $this->zipcode = $zipcode;
+
+        return $this;
+    }
+
+    public function getLocality(): ?Locality
+    {
+        return $this->locality;
+    }
+
+    public function setLocality(?Locality $locality): self
+    {
+        $this->locality = $locality;
 
         return $this;
     }

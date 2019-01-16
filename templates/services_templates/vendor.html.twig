@@ -1,11 +1,11 @@
 {% extends 'base.html.twig' %}
 
-{% block title %}{{ vendor.name }}{% endblock %}
+{% block title %}{{ vendor.username }}{% endblock %}
 
 {% block banner %}
     {% embed 'emb/banner.html.twig' %}
         {% block bannertype %}Vendor{% endblock %}
-        {% block bannertitle %}{{ vendor.name }}{% endblock %}
+        {% block bannertitle %}{{ vendor.username }}{% endblock %}
         {% block bannerdescription %}{% endblock %}
     {% endembed %}
 {% endblock %}
@@ -175,7 +175,7 @@
             </div>
             <!-- About -->
             <div class="widget">
-                <h2 class="widgettitle">About <span class="text-secondary">{{ vendor.name }}</span></h2>
+                <h2 class="widgettitle">About <span class="text-secondary">{{ vendor.username }}</span></h2>
                 <div class="background-white p20">
                     <div class="detail-vcard">
                         <div class="detail-logo">

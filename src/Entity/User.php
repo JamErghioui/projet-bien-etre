@@ -3,14 +3,16 @@
 namespace App\Entity;
 
 use Doctrine\ORM\Mapping as ORM;
+use Symfony\Component\Security\Core\User\UserInterface;
+use Symfony\Component\Validator\Constraints as Assert;
 
 /**
  * @ORM\Entity(repositoryClass="App\Repository\UserRepository")
  * @ORM\InheritanceType("JOINED")
  * @ORM\DiscriminatorColumn(name="user_type", type="string")
- * @ORM\DiscriminatorMap({"user" = "User", "vendor" = "Vendor"})
+ * @ORM\DiscriminatorMap({"user" = "User", "vendor" = "Vendor", "internaut" = "Internaut"})
  */
-class User
+class User implements UserInterface
 {
     /**
      * @ORM\Id()
@@ -20,19 +22,9 @@ class User
     protected $id;
 
     /**
-     * @ORM\Column(type="string", length=255)
-     */
-    private $door_number;
-
-    /**
-     * @ORM\Column(type="string", length=255)
-     */
-    private $street;
-
-    /**
      * @ORM\Column(type="boolean")
      */
-    private $banned;
+    protected $banned = false;
 
     /**
      * @ORM\Column(type="string", length=255)
@@ -42,7 +34,7 @@ class User
     /**
      * @ORM\Column(type="boolean")
      */
-    private $sub_conf;
+    protected $sub_conf = false;
 
     /**
      * @ORM\Column(type="date")
@@ -51,54 +43,28 @@ class User
 
     /**
      * @ORM\Column(type="string", length=255)
+     * @Assert\Length(min="7", minMessage="Minimum 7 caractères")
      */
     private $password;
 
     /**
-     * @ORM\ManyToOne(targetEntity="App\Entity\District")
-     * @ORM\JoinColumn(nullable=false)
+     * @Assert\EqualTo(propertyPath="password", message="Password et Confirmation ne sont pas identiques")
      */
-    private $district;
+    public $confirm_password;
 
     /**
-     * @ORM\ManyToOne(targetEntity="App\Entity\ZipCode")
-     * @ORM\JoinColumn(nullable=false)
+     * @ORM\Column(type="string", length=255)
      */
-    private $zipcode;
+    private $username;
 
     /**
-     * @ORM\ManyToOne(targetEntity="App\Entity\Locality")
-     * @ORM\JoinColumn(nullable=false)
+     * @ORM\Column(type="string", length=255, nullable=true)
      */
-    private $locality;
+    private $confirmToken;
 
     public function getId(): ?int
     {
         return $this->id;
-    }
-
-    public function getDoorNumber(): ?string
-    {
-        return $this->door_number;
-    }
-
-    public function setDoorNumber(string $door_number): self
-    {
-        $this->door_number = $door_number;
-
-        return $this;
-    }
-
-    public function getStreet(): ?string
-    {
-        return $this->street;
-    }
-
-    public function setStreet(string $street): self
-    {
-        $this->street = $street;
-
-        return $this;
     }
 
     public function getBanned(): ?bool
@@ -161,38 +127,41 @@ class User
         return $this;
     }
 
-    public function getDistrict(): ?District
+    public function getUsername(): ?string
     {
-        return $this->district;
+        return $this->username;
     }
 
-    public function setDistrict(?District $district): self
+    public function setUsername(string $username): self
     {
-        $this->district = $district;
+        $this->username = $username;
 
         return $this;
     }
 
-    public function getZipcode(): ?ZipCode
+    public function getRoles()
+{
+    // TODO: Implement getRoles() method.
+}
+
+    public function getSalt()
     {
-        return $this->zipcode;
+        // TODO: Implement getSalt() method.
     }
 
-    public function setZipcode(?ZipCode $zipcode): self
+    public function eraseCredentials()
     {
-        $this->zipcode = $zipcode;
-
-        return $this;
+        // TODO: Implement eraseCredentials() method.
     }
 
-    public function getLocality(): ?Locality
+    public function getConfirmToken(): ?string
     {
-        return $this->locality;
+        return $this->confirmToken;
     }
 
-    public function setLocality(?Locality $locality): self
+    public function setConfirmToken(?string $confirmToken): self
     {
-        $this->locality = $locality;
+        $this->confirmToken = $confirmToken;
 
         return $this;
     }
