@@ -29,7 +29,7 @@ class User implements UserInterface
     /**
      * @ORM\Column(type="string", length=255)
      */
-    private $email;
+    protected $email;
 
     /**
      * @ORM\Column(type="boolean")
@@ -39,13 +39,13 @@ class User implements UserInterface
     /**
      * @ORM\Column(type="date")
      */
-    private $sub_date;
+    protected $sub_date;
 
     /**
      * @ORM\Column(type="string", length=255)
      * @Assert\Length(min="7", minMessage="Minimum 7 caractères")
      */
-    private $password;
+    protected $password;
 
     /**
      * @Assert\EqualTo(propertyPath="password", message="Password et Confirmation ne sont pas identiques")
@@ -55,12 +55,12 @@ class User implements UserInterface
     /**
      * @ORM\Column(type="string", length=255)
      */
-    private $username;
+    protected $username;
 
     /**
      * @ORM\Column(type="string", length=255, nullable=true)
      */
-    private $confirmToken;
+    protected $confirmToken;
 
     public function getId(): ?int
     {

@@ -97,8 +97,11 @@ class UserController extends AbstractController
                 switch ($type) {
                     case "internaut":
                         $internaut = new Internaut();
-                        $internaut->setId($user_id);
-                        $internaut->setNewsLetter(false);
+                        $internaut->setId($user_id)
+                            ->setUsername($user_username)
+                            ->setEmail($user_email)
+                            ->setPassword($user_password)
+                            ->setSubDate($user_sub_date);
 
                         $manager->persist($internaut);
                         $manager->flush();
