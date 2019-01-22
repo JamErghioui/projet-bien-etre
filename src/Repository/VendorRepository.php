@@ -33,19 +33,19 @@ class VendorRepository extends ServiceEntityRepository
     }
 
     /**
-     * @param $name
+     * @param $username
      * @param $category
      * @param $district
      * @return Vendor[] Returns an array of Vendor objects
      */
-    public function findSearch($name,$category,$district)
+    public function findSearch($username,$category,$district)
     {
         $qb = $this->createQueryBuilder('v')
-            ->orderBy('v.name', 'ASC');
+            ->orderBy('v.username', 'ASC');
 
-            if(!empty($name)){
-                $qb->andWhere('v.name LIKE :name')
-                ->setParameter(':name', "%$name%");
+            if(!empty($username)){
+                $qb->andWhere('v.username LIKE :username')
+                ->setParameter(':username', "%$username%");
             }
 
             if(!empty($category)){

@@ -10,7 +10,7 @@ use Doctrine\ORM\Mapping as ORM;
 class Internaut extends User
 {
     /**
-     * @ORM\Column(type="boolean")
+     * @ORM\Column(type="boolean", nullable=true)
      */
     private $newsLetter;
 
