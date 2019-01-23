@@ -2,9 +2,9 @@
 
 namespace App\Controller;
 
-use App\Entity\Internaut;
 use App\Entity\User;
 use App\Form\UserType;
+use App\Service\UserConverter;
 use Doctrine\Common\Persistence\ObjectManager;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Request;
@@ -81,38 +81,18 @@ class UserController extends AbstractController
      * @param User $user
      * @param $type
      * @param ObjectManager $manager
+     * @param UserConverter $converter
      * @return \Symfony\Component\HttpFoundation\Response
      */
-    public function mailConfirmation(User $user, $type, ObjectManager $manager)
+    public function mailConfirmation(User $user, $type, UserConverter $converter, ObjectManager $manager)
     {
 
-        $user_id        = $user->getId();
-        $user_username  = $user->getUsername();
-        $user_email     = $user->getEmail();
-        $user_password  = $user->getPassword();
-        $user_sub_date  = $user->getSubDate();
+        $newUser = $converter->convertUser($user, $type);
 
-        if($user) {
-            if ($user) {
-                switch ($type) {
-                    case "internaut":
-                        $user = new Internaut();
-                        $user->setId($user_id)
-                            ->setUsername($user_username)
-                            ->setEmail($user_email)
-                            ->setPassword($user_password)
-                            ->setSubDate($user_sub_date);
+        $manager->persist($newUser);
+        $manager->remove($user);
+        $manager->flush();
 
-                        $manager->persist($user);
-                        $manager->flush();
-                        break;
-                }
-            }
-        }
-
-        return $this->render('user_templates/login.html.twig', [
-            'user-exist' => $user,
-            'user_id' => $user_id
-        ]);
+        return $this->render('user_templates/login.html.twig');
     }
 }
