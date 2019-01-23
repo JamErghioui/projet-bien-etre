@@ -96,14 +96,14 @@ class UserController extends AbstractController
             if ($user) {
                 switch ($type) {
                     case "internaut":
-                        $internaut = new Internaut();
-                        $internaut->setId($user_id)
+                        $user = new Internaut();
+                        $user->setId($user_id)
                             ->setUsername($user_username)
                             ->setEmail($user_email)
                             ->setPassword($user_password)
                             ->setSubDate($user_sub_date);
 
-                        $manager->persist($internaut);
+                        $manager->persist($user);
                         $manager->flush();
                         break;
                 }

@@ -16,12 +16,14 @@ class VendorFixtures extends Fixture implements DependentFixtureInterface
 
         $faker = Faker\Factory::create();
 
+        $highlight = true;
+
         for($i=1 ; $i<=5 ; $i++){
 
             $category = new Category();
             $category->setName($faker->sentence(mt_rand(2, 3)))
                 ->setDescription($faker->sentence)
-                ->setHighlight(false)
+                ->setHighlight($highlight)
                 ->setValidity(true);
             $manager->persist($category);
 
@@ -49,6 +51,8 @@ class VendorFixtures extends Fixture implements DependentFixtureInterface
 
                 $manager->persist($vendor);
             }
+
+            $highlight = false;
         }
         $manager->flush();
     }
