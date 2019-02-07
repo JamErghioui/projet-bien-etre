@@ -3,6 +3,7 @@
 namespace App\Entity;
 
 use Doctrine\ORM\Mapping as ORM;
+use Symfony\Bridge\Doctrine\Validator\Constraints\UniqueEntity;
 use Symfony\Component\Security\Core\User\UserInterface;
 use Symfony\Component\Validator\Constraints as Assert;
 
@@ -11,6 +12,7 @@ use Symfony\Component\Validator\Constraints as Assert;
  * @ORM\InheritanceType("JOINED")
  * @ORM\DiscriminatorColumn(name="user_type", type="string")
  * @ORM\DiscriminatorMap({"user" = "User", "vendor" = "Vendor", "internaut" = "Internaut"})
+ * @UniqueEntity(fields={"email"}, message="Cet email est déjà utilisé")
  */
 class User implements UserInterface
 {
@@ -28,6 +30,7 @@ class User implements UserInterface
 
     /**
      * @ORM\Column(type="string", length=255)
+     * @Assert\Email
      */
     protected $email;
 
@@ -148,7 +151,7 @@ class User implements UserInterface
 
     public function getRoles()
 {
-    // TODO: Implement getRoles() method.
+        return ['ROLE_USER'];
 }
 
     public function getSalt()

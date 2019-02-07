@@ -10,29 +10,26 @@ class UserConverter{
 
     function convertUser(User $user, $type)
     {
-        if($user) {
+        if($user && $type) {
 
             switch ($type) {
 
                 case "internaut":
                     $newUser = new Internaut();
-                    $newUser->setUsername($user->getUsername())
-                        ->setEmail($user->getEmail())
-                        ->setPassword($user->getPassword())
-                        ->setSubDate(new \DateTime());
-                    return $newUser;
+
                     break;
 
                 case "vendor":
                     $newUser = new Vendor();
-                    $newUser->setUsername($user->getUsername())
-                        ->setEmail($user->getEmail())
-                        ->setPassword($user->getPassword())
-                        ->setSubDate(new \DateTime());
-                    return $newUser;
+
                     break;
 
             }
+            $newUser->setUsername($user->getUsername())
+                ->setEmail($user->getEmail())
+                ->setPassword($user->getPassword())
+                ->setSubDate(new \DateTime());
+            return $newUser;
         }else{
             return false;
         }

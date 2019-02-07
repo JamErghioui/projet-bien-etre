@@ -14,7 +14,7 @@ use Symfony\Component\Security\Core\Encoder\UserPasswordEncoderInterface;
 class UserController extends AbstractController
 {
     /**
-     * @Route("/registration/user", name="user_registration")
+     * @Route("/registration", name="user_registration")
      * @param Request $request
      * @param ObjectManager $manager
      * @param UserPasswordEncoderInterface $encoder
@@ -68,12 +68,29 @@ class UserController extends AbstractController
                 ;
             $mailer->send($message);
 
-            //return $this->redirectToRoute('home');
+            return $this->redirectToRoute('user_login');
         }
 
         return $this->render('user_templates/registration.html.twig',[
             'RegistrationUserForm' => $form->createView()
         ]);
+    }
+
+    /**
+     * @Route("/login", name="user_login")
+     * @return \Symfony\Component\HttpFoundation\Response
+     */
+    public function userLogin()
+    {
+        return $this->render('user_templates/login.html.twig');
+    }
+
+    /**
+     * @Route("/logout", name="user_logout")
+     */
+    public function userLogout()
+    {
+
     }
 
     /**
@@ -87,11 +104,13 @@ class UserController extends AbstractController
     public function mailConfirmation(User $user, $type, UserConverter $converter, ObjectManager $manager)
     {
 
-        $newUser = $converter->convertUser($user, $type);
+        if($user){
+            $newUser = $converter->convertUser($user, $type);
 
-        $manager->persist($newUser);
-        $manager->remove($user);
-        $manager->flush();
+            $manager->persist($newUser);
+            $manager->remove($user);
+            $manager->flush();
+        }
 
         return $this->render('user_templates/login.html.twig');
     }

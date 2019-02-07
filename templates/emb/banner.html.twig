@@ -15,21 +15,23 @@
                     {% block bannerdescription %}{% endblock %}
                 </div><!-- /.detail-banner-address -->
 
-                <div class="detail-banner-rating">
-                    <i class="fa fa-star"></i>
-                    <i class="fa fa-star"></i>
-                    <i class="fa fa-star"></i>
-                    <i class="fa fa-star"></i>
-                    <i class="fa fa-star-half-o"></i>
-                </div><!-- /.detail-banner-rating -->
+                {% if vendor is defined %}
+                    <div class="detail-banner-rating">
+                        <i class="fa fa-star"></i>
+                        <i class="fa fa-star"></i>
+                        <i class="fa fa-star"></i>
+                        <i class="fa fa-star"></i>
+                        <i class="fa fa-star-half-o"></i>
+                    </div>
 
-                <div class="detail-banner-btn bookmark">
-                    <i class="fa fa-bookmark-o"></i> <span data-toggle="Bookmarked">Bookmark</span>
-                </div><!-- /.detail-claim -->
+                    <div class="detail-banner-btn bookmark">
+                        <i class="fa fa-envelope"></i> <span data-toggle="Bookmarked">Contact</span>
+                    </div><!-- /.detail-claim -->
 
-                <div class="detail-banner-btn heart">
-                    <i class="fa fa-heart-o"></i> <span data-toggle="I Love It">Give Heart</span>
-                </div><!-- /.detail-claim -->
+                    <div class="detail-banner-btn heart">
+                        <i class="fa fa-heart-o"></i> <span data-toggle="I Love It">Give Heart</span>
+                    </div><!-- /.detail-claim -->
+                {% endif %}
 
             </div><!-- /.detail-banner-left -->
         </div><!-- /.container -->
