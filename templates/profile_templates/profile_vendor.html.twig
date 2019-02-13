@@ -1,0 +1,35 @@
+{{ form_start(form) }}
+<h3 class="page-title">
+    User Information
+    <button type="submit" class="btn btn-primary btn-xs pull-right">Save</button>
+</h3>
+<div class="row">
+    <div class="form-group col-sm-6">
+        {{ form_row(form.username,{ 'attr' : { 'class' : 'form-control' }}) }}
+    </div><!-- /.form-group -->
+    <div class="form-group col-sm-6">
+        {{ form_row(form.contact_mail,{ 'attr' : { 'class' : 'form-control' }}) }}
+    </div><!-- /.form-group -->
+    <div class="form-group col-sm-6">
+        {{ form_row(form.phone,{ 'attr' : { 'class' : 'form-control' }}) }}
+    </div><!-- /.form-group -->
+    <div class="form-group col-sm-6">
+        {{ form_row(form.vat,{ 'attr' : { 'class' : 'form-control' }}) }}
+    </div><!-- /.form-group -->
+    <div class="form-group col-sm-12">
+        {{ form_row(form.website,{ 'attr' : { 'class' : 'form-control' }}) }}
+    </div><!-- /.form-group -->
+    <div class="form-group col-sm-4">
+        {{ form_row(form.door_number,{ 'attr' : { 'class' : 'form-control' }}) }}
+    </div><!-- /.form-group -->
+    <div class="form-group col-sm-8">
+        {{ form_row(form.street,{ 'attr' : { 'class' : 'form-control' }}) }}
+    </div><!-- /.form-group -->
+    <div class="form-group col-sm-4">
+        {{ form_row(form.district,{ 'attr' : { 'class' : 'form-control' }}) }}
+    </div><!-- /.form-group -->
+    <div class="form-group col-sm-12">
+        {{ form_row(form.category) }}
+    </div><!-- /.form-group -->
+</div>
+{{ form_end(form) }}

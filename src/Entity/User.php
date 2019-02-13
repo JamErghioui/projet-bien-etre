@@ -37,7 +37,7 @@ class User implements UserInterface
     /**
      * @ORM\Column(type="boolean")
      */
-    protected $sub_conf = false;
+    protected $is_visible = false;
 
     /**
      * @ORM\Column(type="date")
@@ -101,14 +101,14 @@ class User implements UserInterface
         return $this;
     }
 
-    public function getSubConf(): ?bool
+    public function getIsVisible(): ?bool
     {
-        return $this->sub_conf;
+        return $this->is_visible;
     }
 
-    public function setSubConf(bool $sub_conf): self
+    public function setIsVisible(bool $sub_conf): self
     {
-        $this->sub_conf = $sub_conf;
+        $this->is_visible = $sub_conf;
 
         return $this;
     }

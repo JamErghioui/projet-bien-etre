@@ -1,0 +1,22 @@
+{% block stylesheets %}
+    <style>
+        input[type=checkbox]{
+            display: block;
+        }
+    </style>
+{% endblock %}
+{{ form_start(form) }}
+    <h3 class="page-title">
+        User Information
+        <button type="submit" class="btn btn-primary btn-xs pull-right">Save</button>
+    </h3>
+    <div class="row">
+        <div class="form-group col-sm-6">
+            {{ form_row(form.username,{ 'attr' : { 'class' : 'form-control' }}) }}
+        </div><!-- /.form-group -->
+
+        <div class="form-group col-sm-6">
+                {{ form_row(form.newsLetter,{ 'attr' : { 'class' : 'form-control' }}) }}
+        </div><!-- /.form-group -->
+    </div>
+{{ form_end(form) }}

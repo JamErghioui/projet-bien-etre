@@ -3,7 +3,7 @@
 
     <h2 class="widgettitle">Recent Vendors</h2>
 
-    {% for vendor in vendors %}
+    {% for vendor in vendors if vendor.isVisible %}
         <div class="cards-small">
             <div class="card-small">
                 <div class="card-small-image">

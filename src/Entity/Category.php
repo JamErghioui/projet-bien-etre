@@ -21,22 +21,22 @@ class Category
     /**
      * @ORM\Column(type="text")
      */
-    private $Description;
+    private $description;
 
     /**
      * @ORM\Column(type="boolean")
      */
-    private $Highlight;
+    private $highlight;
 
     /**
      * @ORM\Column(type="string", length=255)
      */
-    private $Name;
+    private $name;
 
     /**
      * @ORM\Column(type="boolean")
      */
-    private $Validity;
+    private $validity;
 
     /**
      * @ORM\ManyToMany(targetEntity="App\Entity\Vendor", mappedBy="category")
@@ -55,48 +55,48 @@ class Category
 
     public function getDescription(): ?string
     {
-        return $this->Description;
+        return $this->description;
     }
 
-    public function setDescription(string $Description): self
+    public function setDescription(string $description): self
     {
-        $this->Description = $Description;
+        $this->description = $description;
 
         return $this;
     }
 
     public function getHighlight(): ?bool
     {
-        return $this->Highlight;
+        return $this->highlight;
     }
 
-    public function setHighlight(bool $Highlight): self
+    public function setHighlight(bool $highlight): self
     {
-        $this->Highlight = $Highlight;
+        $this->highlight = $highlight;
 
         return $this;
     }
 
     public function getName(): ?string
     {
-        return $this->Name;
+        return $this->name;
     }
 
-    public function setName(string $Name): self
+    public function setName(string $name): self
     {
-        $this->Name = $Name;
+        $this->name = $name;
 
         return $this;
     }
 
     public function getValidity(): ?bool
     {
-        return $this->Validity;
+        return $this->validity;
     }
 
-    public function setValidity(bool $Validity): self
+    public function setValidity(bool $validity): self
     {
-        $this->Validity = $Validity;
+        $this->validity = $validity;
 
         return $this;
     }

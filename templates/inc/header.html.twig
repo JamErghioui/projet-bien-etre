@@ -24,8 +24,13 @@
                         </ul><!-- /.header-nav-social -->
 
                         <ul class="header-nav-secondary nav nav-pills">
-                            <li><a href="{{ path('user_login') }}">Login</a></li>
-                            <li><a href="{{ path('user_registration') }}">Register</a></li>
+                            {% if app.user %}
+                                <li><a href="{{ path('profile') }}">{{ app.user.username }} <i class="fa fa-user" aria-hidden="true"></i></a></li>
+                                <li><a href="{{ path('user_logout') }}">Logout <i class="fa fa-sign-out" aria-hidden="true"></i></a></li>
+                            {% else %}
+                                <li><a href="{{ path('user_login') }}">Login</a></li>
+                                <li><a href="{{ path('user_registration') }}">Register</a></li>
+                            {% endif %}
                         </ul>
                     </div><!-- /.header-top -->
 

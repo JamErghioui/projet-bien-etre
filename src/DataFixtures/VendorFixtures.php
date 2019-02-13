@@ -35,7 +35,7 @@ class VendorFixtures extends Fixture implements DependentFixtureInterface
                     ->setStreet($faker->streetName)
                     ->setBanned(false)
                     ->setEmail($faker->email)
-                    ->setSubConf(false)
+                    ->setIsVisible(true)
                     ->setSubDate($faker->dateTime)
                     ->setPassword($faker->password)
                     ->setDistrict($this->getReference('Bruxelles'))

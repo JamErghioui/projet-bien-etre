@@ -18,7 +18,7 @@ class ServicesController extends AbstractController
     public function index(CategoryRepository $catrepo)
     {
         $highlight = $catrepo->findOneBy([
-            'Highlight' => true
+            'highlight' => true
         ]);
 
         return $this->render('services_templates/index.html.twig',[

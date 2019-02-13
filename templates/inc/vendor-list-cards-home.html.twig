@@ -1,7 +1,7 @@
 <div class="content">
     <div class="cards-simple-wrapper">
         <div class="row">
-            {% for vendor in category.vendors %}
+            {% for vendor in category.vendors if vendor.isVisible %}
             <div class="col-sm-6 col-lg-4">
                 <div class="card-simple" data-background-image="https://res.cloudinary.com/dptzlt8ik/image/upload/v1547065039/Bien-Etre/by_housevisit_2560.jpg">
                     <div class="card-simple-background">

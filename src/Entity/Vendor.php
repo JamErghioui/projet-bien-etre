@@ -13,7 +13,7 @@ class Vendor extends User
 {
 
     /**
-     * @ORM\Column(type="string", length=255)
+     * @ORM\Column(type="string", length=255, nullable=true)
      */
     private $contact_mail;
 
@@ -65,9 +65,15 @@ class Vendor extends User
      */
     private $category;
 
+    /**
+     * @ORM\OneToMany(targetEntity="App\Entity\Comment", mappedBy="vendor", orphanRemoval=true)
+     */
+    private $comments;
+
     public function __construct()
     {
         $this->category = new ArrayCollection();
+        $this->comments = new ArrayCollection();
     }
 
 
@@ -200,6 +206,37 @@ class Vendor extends User
     {
         if ($this->category->contains($category)) {
             $this->category->removeElement($category);
+        }
+
+        return $this;
+    }
+
+    /**
+     * @return Collection|Comment[]
+     */
+    public function getComments(): Collection
+    {
+        return $this->comments;
+    }
+
+    public function addComment(Comment $comment): self
+    {
+        if (!$this->comments->contains($comment)) {
+            $this->comments[] = $comment;
+            $comment->setVendor($this);
+        }
+
+        return $this;
+    }
+
+    public function removeComment(Comment $comment): self
+    {
+        if ($this->comments->contains($comment)) {
+            $this->comments->removeElement($comment);
+            // set the owning side to null (unless already changed)
+            if ($comment->getVendor() === $this) {
+                $comment->setVendor(null);
+            }
         }
 
         return $this;

@@ -1,0 +1,41 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Edit your profile{% endblock %}
+
+{% block body %}
+    <div class="row">
+        <div class="col-sm-4 col-lg-3">
+            <div class="sidebar">
+                <div class="widget">
+                    <div class="user-photo">
+                        <a href="#">
+                            <img src="https://res.cloudinary.com/dptzlt8ik/image/upload/v1547130102/Bien-Etre/square.jpg" alt="User Photo">
+                            <span class="user-photo-action">Click here to reupload</span>
+                        </a>
+                    </div><!-- /.user-photo -->
+                </div><!-- /.widget -->
+                <div class="widget">
+                    <ul class="menu-advanced">
+                        <li class="active"><a href="#"><i class="fa fa-user"></i> Edit Profile</a></li>
+                        <li><a href="#"><i class="fa fa-key"></i> Password</a></li>
+                        <li><a href="{{ path('user_logout') }}"><i class="fa fa-sign-out"></i> Logout</a></li>
+                    </ul>
+                </div><!-- /.widget -->
+            </div><!-- /.sidebar -->
+        </div><!-- /.col-* -->
+        <div class="col-sm-8 col-lg-9">
+            <div class="content">
+                <div class="page-title">
+                    <h1>Edit Profile</h1>
+                </div><!-- /.page-title -->
+                <div class="background-white p20 mb30">
+                    {% if class == 'Internaut' %}
+                        {{ include('profile_templates/profile_internaut.html.twig') }}
+                    {% elseif class == 'Vendor' %}
+                        {{ include('profile_templates/profile_vendor.html.twig') }}
+                    {% endif %}
+                </div>
+            </div><!-- /.content -->
+        </div><!-- /.col-* -->
+</div><!-- /.row -->
+{% endblock %}
