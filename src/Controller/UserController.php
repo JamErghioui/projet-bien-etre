@@ -4,6 +4,7 @@ namespace App\Controller;
 
 use App\Entity\User;
 use App\Form\UserType;
+use App\Service\Mailer;
 use App\Service\UserConverter;
 use Doctrine\Common\Persistence\ObjectManager;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
@@ -18,11 +19,10 @@ class UserController extends AbstractController
      * @param Request $request
      * @param ObjectManager $manager
      * @param UserPasswordEncoderInterface $encoder
-     * @param \Swift_Mailer $mailer
+     * @param Mailer $mailer
      * @return \Symfony\Component\HttpFoundation\Response
-     * @throws \Exception
      */
-    public function userRegistration(Request $request, ObjectManager $manager, UserPasswordEncoderInterface $encoder, \Swift_Mailer $mailer)
+    public function userRegistration(Request $request, ObjectManager $manager, UserPasswordEncoderInterface $encoder, Mailer $mailer)
     {
         $user = new User();
 
@@ -46,27 +46,11 @@ class UserController extends AbstractController
             $manager->persist($user);
             $manager->flush();
 
-            // Get Info from User
-            $email = $user->getEmail();
-            $username = $user->getUsername();
+            // Get Type from User
             $type = $request->request->get('user')['choose'];
 
-            $url = "http://127.0.0.1:8000/confirmation/$type/$token";
-
             // Mail Builder
-            $message = (new \Swift_Message("Confirmation d'inscription"))
-                ->setSubject('Confirmation')
-                ->setFrom(['BienEtreTest@gmail.com' => 'Bien-Être'])
-                ->setTo([$email => $username])
-                ->setBody("<h3>Bienvenue sur Bien-Être, $username</h3>
-                                <p>Merci de confirmer votre inscription en cliquant sur le lien ci-dessous.</p>
-                                <a href='$url'><button style='display: inline-block ;color: #ffffff; background: #2f4984; padding: 8px 16px; border-radius: 10px; text-shadow: 0 1px 1px #000000'>Confirmation</button></a><br>
-                                <p style='text-align: center'><em style='font-size: small; color: grey'>Si vous n'êtes pas à l'origine de cette inscription, ne faites rien.</em></p><br>
-                                <p style='text-align: center'><a href='#'><img src='https://res.cloudinary.com/dptzlt8ik/image/upload/v1547757926/Bien-Etre/logo.png' alt='logo'></a></p>",
-                    'text/html'
-                )
-                ;
-            $mailer->send($message);
+            $mailer->sendConfirmation($user,$type);
 
             return $this->redirectToRoute('user_login');
         }
