@@ -35,11 +35,6 @@ class User implements UserInterface
     protected $email;
 
     /**
-     * @ORM\Column(type="boolean")
-     */
-    protected $is_visible = false;
-
-    /**
      * @ORM\Column(type="date")
      */
     protected $sub_date;
@@ -97,18 +92,6 @@ class User implements UserInterface
     public function setEmail(string $email): self
     {
         $this->email = $email;
-
-        return $this;
-    }
-
-    public function getIsVisible(): ?bool
-    {
-        return $this->is_visible;
-    }
-
-    public function setIsVisible(bool $sub_conf): self
-    {
-        $this->is_visible = $sub_conf;
 
         return $this;
     }

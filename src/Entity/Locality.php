@@ -2,6 +2,8 @@
 
 namespace App\Entity;
 
+use Doctrine\Common\Collections\ArrayCollection;
+use Doctrine\Common\Collections\Collection;
 use Doctrine\ORM\Mapping as ORM;
 
 /**
@@ -21,11 +23,10 @@ class Locality
      */
     private $name;
 
-    /**
-     * @ORM\ManyToOne(targetEntity="App\Entity\ZipCode")
-     * @ORM\JoinColumn(nullable=false)
-     */
-    private $zipcode;
+    public function __construct()
+    {
+        $this->vendors = new ArrayCollection();
+    }
 
     public function getId(): ?int
     {
@@ -40,18 +41,6 @@ class Locality
     public function setName(string $name): self
     {
         $this->name = $name;
-
-        return $this;
-    }
-
-    public function getZipcode(): ?ZipCode
-    {
-        return $this->zipcode;
-    }
-
-    public function setZipcode(?ZipCode $zipcode): self
-    {
-        $this->zipcode = $zipcode;
 
         return $this;
     }

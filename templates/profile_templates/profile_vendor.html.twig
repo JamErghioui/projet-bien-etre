@@ -26,7 +26,13 @@
         {{ form_row(form.street,{ 'attr' : { 'class' : 'form-control' }}) }}
     </div><!-- /.form-group -->
     <div class="form-group col-sm-4">
-        {{ form_row(form.district,{ 'attr' : { 'class' : 'form-control' }}) }}
+        {{ form_row(form.district) }}
+    </div><!-- /.form-group -->
+    <div class="form-group col-sm-4">
+        {{ form_row(form.zipcode) }}
+    </div><!-- /.form-group -->
+    <div class="form-group col-sm-4">
+        {{ form_row(form.locality) }}
     </div><!-- /.form-group -->
     <div class="form-group col-sm-12">
         {{ form_row(form.category) }}

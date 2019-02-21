@@ -5,6 +5,7 @@ namespace App\Entity;
 use Doctrine\Common\Collections\ArrayCollection;
 use Doctrine\Common\Collections\Collection;
 use Doctrine\ORM\Mapping as ORM;
+use Symfony\Component\Validator\Constraints as Assert;
 
 /**
  * @ORM\Entity(repositoryClass="App\Repository\VendorRepository")
@@ -14,51 +15,39 @@ class Vendor extends User
 
     /**
      * @ORM\Column(type="string", length=255, nullable=true)
+     * @Assert\NotBlank()
      */
     private $contact_mail;
 
     /**
      * @ORM\Column(type="string", length=255, nullable=true)
+     * @Assert\NotBlank()
      */
     private $phone;
 
     /**
      * @ORM\Column(type="string", length=255, nullable=true)
+     * @Assert\NotBlank()
      */
     private $vat;
 
     /**
      * @ORM\Column(type="string", length=255, nullable=true)
+     * @Assert\NotBlank()
      */
     private $website;
 
     /**
      * @ORM\Column(type="string", length=255, nullable=true)
+     * @Assert\NotBlank()
      */
     private $door_number;
 
     /**
      * @ORM\Column(type="string", length=255, nullable=true)
+     * @Assert\NotBlank()
      */
     private $street;
-
-    /**
-     * @ORM\ManyToOne(targetEntity="App\Entity\District")
-     * @ORM\JoinColumn(nullable=true)
-     */
-    private $district;
-
-    /**
-     * @ORM\ManyToOne(targetEntity="App\Entity\ZipCode")
-     * @ORM\JoinColumn(nullable=true)
-     */
-    private $zipcode;
-
-    /**
-     * @ORM\ManyToOne(targetEntity="App\Entity\Locality")
-     * @ORM\JoinColumn(nullable=true)
-     */
-    private $locality;
 
     /**
      * @ORM\ManyToMany(targetEntity="App\Entity\Category", inversedBy="vendors")
@@ -69,6 +58,29 @@ class Vendor extends User
      * @ORM\OneToMany(targetEntity="App\Entity\Comment", mappedBy="vendor", orphanRemoval=true)
      */
     private $comments;
+
+    /**
+     * @ORM\ManyToOne(targetEntity="App\Entity\District")
+     * @Assert\NotBlank()
+     */
+    private $district;
+
+    /**
+     * @ORM\ManyToOne(targetEntity="App\Entity\ZipCode")
+     * @Assert\NotBlank()
+     */
+    private $zipcode;
+
+    /**
+     * @ORM\ManyToOne(targetEntity="App\Entity\Locality")
+     * @Assert\NotBlank()
+     */
+    private $locality;
+
+    /**
+     * @ORM\Column(type="boolean")
+     */
+    protected $is_visible = false;
 
     public function __construct()
     {
@@ -149,42 +161,6 @@ class Vendor extends User
         return $this;
     }
 
-    public function getDistrict(): ?District
-    {
-        return $this->district;
-    }
-
-    public function setDistrict(?District $district): self
-    {
-        $this->district = $district;
-
-        return $this;
-    }
-
-    public function getZipcode(): ?ZipCode
-    {
-        return $this->zipcode;
-    }
-
-    public function setZipcode(?ZipCode $zipcode): self
-    {
-        $this->zipcode = $zipcode;
-
-        return $this;
-    }
-
-    public function getLocality(): ?Locality
-    {
-        return $this->locality;
-    }
-
-    public function setLocality(?Locality $locality): self
-    {
-        $this->locality = $locality;
-
-        return $this;
-    }
-
     /**
      * @return Collection|Category[]
      */
@@ -238,6 +214,54 @@ class Vendor extends User
                 $comment->setVendor(null);
             }
         }
+
+        return $this;
+    }
+
+    public function getDistrict(): ?District
+    {
+        return $this->district;
+    }
+
+    public function setDistrict(?District $district): self
+    {
+        $this->district = $district;
+
+        return $this;
+    }
+
+    public function getZipcode(): ?ZipCode
+    {
+        return $this->zipcode;
+    }
+
+    public function setZipcode(?ZipCode $zipcode): self
+    {
+        $this->zipcode = $zipcode;
+
+        return $this;
+    }
+
+    public function getLocality(): ?Locality
+    {
+        return $this->locality;
+    }
+
+    public function setLocality(?Locality $locality): self
+    {
+        $this->locality = $locality;
+
+        return $this;
+    }
+
+    public function getIsVisible(): ?bool
+    {
+        return $this->is_visible;
+    }
+
+    public function setIsVisible(bool $sub_conf): self
+    {
+        $this->is_visible = $sub_conf;
 
         return $this;
     }

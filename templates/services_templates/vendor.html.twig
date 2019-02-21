@@ -62,80 +62,28 @@
             </div>
             <!-- Reviews -->
             <div id="reviews" class="widget">
-                <h2 class="widgettitle">Reviews</h2>
+                <h2 class="widgettitle">Comments</h2>
+                {% for comment in vendor.comments %}
                 <div class="review">
                     <div class="review-image">
                         <img src="https://res.cloudinary.com/dptzlt8ik/image/upload/v1547130102/Bien-Etre/square.jpg" alt="">
                     </div><!-- /.review-image -->
-
                     <div class="review-inner">
                         <div class="review-title">
-                            <h2>Finn the Human</h2>
-
+                            <h2>{{ comment.internaut.username }}</h2>
                             <span class="report">
-                        <span class="separator">&#8226;</span><i class="fa fa-flag" title="Report" data-toggle="tooltip" data-placement="top"></i>
-                    </span>
-
-                            <div class="review-overall-rating">
-                                <span class="overall-rating-title">Total Score:</span>
-                                <i class="fa fa-star"></i>
-                                <i class="fa fa-star"></i>
-                                <i class="fa fa-star"></i>
-                                <i class="fa fa-star-half-o"></i>
-                                <i class="fa fa-star-o"></i>
-                            </div><!-- /.review-rating -->
+                        <span class="separator">&#8226;</span><i class="fa fa-flag" title="Report" data-toggle="tooltip" data-placement="top"></i></span>
                         </div><!-- /.review-title -->
-
                         <div class="review-content-wrapper">
                             <div class="review-content">
                                 <div class="review-pros">
-                                    <p>Quisque aliquet ornare nunc in viverra. Nullam ornare molestie ligula in luctus. Suspendisse ac cursus elit. In congue mattis felis, non hendrerit orci dictum id.</p>
+                                    <p>{{ comment.content }}</p>
                                 </div><!-- /.pros -->
-                                <div class="review-cons">
-                                    <p>Duis et magna vel est tempus vehicula vitae sit amet enim. Sed vitae ligula congue.</p>
-                                </div><!-- /.cons -->
                             </div><!-- /.review-content -->
-
-                            <div class="review-rating">
-                                <dl>
-                                    <dt>Food</dt>
-                                    <dd>
-                                        <i class="fa fa-star"></i>
-                                        <i class="fa fa-star"></i>
-                                        <i class="fa fa-star"></i>
-                                        <i class="fa fa-star"></i>
-                                        <i class="fa fa-star"></i>
-                                    </dd>
-                                    <dt>Staff</dt>
-                                    <dd>
-                                        <i class="fa fa-star"></i>
-                                        <i class="fa fa-star"></i>
-                                        <i class="fa fa-star"></i>
-                                        <i class="fa fa-star"></i>
-                                        <i class="fa fa-star-o"></i>
-                                    </dd>
-                                    <dt>Value</dt>
-                                    <dd>
-                                        <i class="fa fa-star"></i>
-                                        <i class="fa fa-star"></i>
-                                        <i class="fa fa-star"></i>
-                                        <i class="fa fa-star-o"></i>
-                                        <i class="fa fa-star-o"></i>
-                                    </dd>
-                                    <dt>Atmosphere</dt>
-                                    <dd>
-                                        <i class="fa fa-star"></i>
-                                        <i class="fa fa-star"></i>
-                                        <i class="fa fa-star"></i>
-                                        <i class="fa fa-star-o"></i>
-                                        <i class="fa fa-star-o"></i>
-                                    </dd>
-                                </dl>
-                            </div><!-- /.review-rating -->
                         </div><!-- /.review-content-wrapper -->
-
                     </div><!-- /.review-inner -->
                 </div><!-- /.review -->
+                {% endfor %}
             </div><!-- /.reviews -->
         </div>
         <!-- /main -->
@@ -148,7 +96,7 @@
                     <i class="fa fa-heart"></i> <strong>213 </strong>people love it
                 </div>
                 <div class="detail-overview-rating">
-                    <i class="fa fa-star"></i> <strong>4.3 / 5 </strong>from <a href="#reviews">316 reviews</a>
+                    <i class="fa fa-star"></i><a href="#reviews">{{ vendor.comments | length }} comments</a>
                 </div>
 
                 <div class="detail-actions row">
@@ -212,61 +160,25 @@
                     </div><!-- /.detail-follow -->
                 </div>
             </div>
-            <!-- Payments -->
-            <div class="detail-payments">
-                <h3>Accepted Payments</h3>
-                <ul>
-                    <li><a href="#"><i class="fa fa-paypal"></i></a></li>
-                    <li><a href="#"><i class="fa fa-cc-amex"></i></a></li>
-                    <li><a href="#"><i class="fa fa-cc-mastercard"></i></a></li>
-                    <li><a href="#"><i class="fa fa-cc-stripe"></i></a></li>
-                    <li><a href="#"><i class="fa fa-cc-visa"></i></a></li>
-                </ul>
-            </div>
         </div>
         <!-- /sidebar -->
 
         <!-- Clear -->
-        <div class="col-sm-7">
-            <h2>Submit a Review</h2>
-
-            <form class="background-white p20 add-review" method="post" action="?">
-
+        {% if app.user %}
+            <div class="col-sm-7">
+                <h2>Submit a comment</h2>
                 <div class="row">
-                    <div class="form-group input-rating col-sm-12">
-
-                        <div class="rating-title">Vote</div>
-
-                        <input type="radio" value="1" name="food" id="rating-food-1">
-                        <label for="rating-food-1"></label>
-                        <input type="radio" value="2" name="food" id="rating-food-2">
-                        <label for="rating-food-2"></label>
-                        <input type="radio" value="3" name="food" id="rating-food-3">
-                        <label for="rating-food-3"></label>
-                        <input type="radio" value="4" name="food" id="rating-food-4">
-                        <label for="rating-food-4"></label>
-                        <input type="radio" value="5" name="food" id="rating-food-5">
-                        <label for="rating-food-5"></label>
-
-                    </div><!-- /.col-sm-3 -->
-
-                </div><!-- /.row -->
-
-                <div class="row">
-                    <div class="form-group col-sm-12">
-                        <label for="">Cons</label>
-                        <textarea class="form-control" rows="5" id=""></textarea>
-                    </div><!-- /.col-sm-6 -->
-
-                    <div class="col-sm-8">
-                        <p>Required fields are marked <span class="required">*</span></p>
-                    </div><!-- /.col-sm-8 -->
+                    {{ form_start(formComment, { 'attr' : { 'class' : 'background-white p20 add-review'}}) }}
+                    {{ form_row(formComment.content, { 'attr' : { 'class' : 'form-control', 'rows' : 5}}) }}
+                    <div class="row">
                     <div class="col-sm-4">
-                        <button class="btn btn-primary btn-block" type="submit"><i class="fa fa-star"></i>Submit Review</button>
+                        <button class="btn btn-primary btn-block" type="submit"><i class="fa fa-star"></i>Submit comment</button>
                     </div><!-- /.col-sm-4 -->
-                </div><!-- /.row -->
-            </form>
-        </div>
+                    </div>
+                    {{ form_end(formComment) }}
+                </div>
+            </div>
+        {% endif %}
         <!-- /clear -->
     </div>
 {% endblock %}

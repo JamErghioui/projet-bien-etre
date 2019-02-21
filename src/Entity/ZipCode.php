@@ -21,12 +21,6 @@ class ZipCode
      */
     private $number;
 
-    /**
-     * @ORM\ManyToOne(targetEntity="App\Entity\District")
-     * @ORM\JoinColumn(nullable=false)
-     */
-    private $district;
-
     public function getId(): ?int
     {
         return $this->id;
@@ -40,18 +34,6 @@ class ZipCode
     public function setNumber(int $number): self
     {
         $this->number = $number;
-
-        return $this;
-    }
-
-    public function getDistrict(): ?District
-    {
-        return $this->district;
-    }
-
-    public function setDistrict(?District $district): self
-    {
-        $this->district = $district;
 
         return $this;
     }

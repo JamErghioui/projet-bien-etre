@@ -27,6 +27,8 @@ class VendorRepository extends ServiceEntityRepository
     {
         return $this->createQueryBuilder('v')
             ->orderBy('v.id', 'DESC')
+            ->andWhere('v.is_visible = :val')
+            ->setParameter('val', 1)
             ->setMaxResults($value)
             ->getQuery()
             ->getResult();

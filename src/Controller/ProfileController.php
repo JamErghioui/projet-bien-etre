@@ -6,7 +6,6 @@ use App\Entity\Internaut;
 use App\Entity\Vendor;
 use App\Form\InternautType;
 use App\Form\VendorType;
-use App\Repository\ZipCodeRepository;
 use Doctrine\Common\Persistence\ObjectManager;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Request;
@@ -20,10 +19,9 @@ class ProfileController extends AbstractController
      * @param ObjectManager $manager
      * @return \Symfony\Component\HttpFoundation\Response
      */
-    public function editUser(Request $request, ObjectManager $manager, ZipCodeRepository $zipcode)
+    public function editUser(Request $request, ObjectManager $manager)
     {
         $user = $this->getUser();
-        $zipcodes = $zipcode->findAll();
 
         if(get_class($user) == Internaut::class)
         {
@@ -74,8 +72,7 @@ class ProfileController extends AbstractController
 
         return $this->render('profile_templates/profile.html.twig', [
             'form' => $form->createView(),
-            'class' => $class,
-            'zipcodes' => $zipcodes
+            'class' => $class
         ]);
     }
 }

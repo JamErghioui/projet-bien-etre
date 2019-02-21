@@ -3,9 +3,13 @@
 namespace App\Controller;
 
 use App\Entity\Category;
+use App\Entity\Comment;
 use App\Entity\Vendor;
+use App\Form\CommentType;
 use App\Repository\CategoryRepository;
+use Doctrine\Common\Persistence\ObjectManager;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
+use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\Routing\Annotation\Route;
 
 class ServicesController extends AbstractController
@@ -40,13 +44,35 @@ class ServicesController extends AbstractController
 
     /**
      * @Route("/vendor/{id}", name="vendor")
-     * @param Vendor $vendor
+     * @param $id
+     * @param Request $request
      * @return \Symfony\Component\HttpFoundation\Response
      */
-    public function vendor(Vendor $vendor)
+    public function vendor($id, Request $request, ObjectManager $manager)
     {
+        $vendorrepo = $this->getDoctrine()->getRepository(Vendor::class);
+        $vendor = $vendorrepo->find($id);
+
+        $user = $this->getUser();
+
+        $comment = new Comment();
+
+        $form = $this->createForm(CommentType::class, $comment);
+        $form->handleRequest($request);
+
+        if($form->isSubmitted() && $form->isValid()){
+            $comment->setInternaut($user);
+            $comment->setVendor($vendor);
+
+            $manager->persist($comment);
+            $manager->flush();
+
+            return $this->redirectToRoute('vendor', ['id' => $id]);
+        }
+
         return $this->render('services_templates/vendor.html.twig',[
-            'vendor' => $vendor
+            'vendor' => $vendor,
+            'formComment' => $form->createView()
         ]);
     }
 }
