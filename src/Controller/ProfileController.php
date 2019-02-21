@@ -75,4 +75,14 @@ class ProfileController extends AbstractController
             'class' => $class
         ]);
     }
+
+    /**
+     * @Route("/stages", name="stages")
+     * @return \Symfony\Component\HttpFoundation\Response
+     */
+    public function stage()
+    {
+
+        return $this->render('profile_templates/stages.html.twig');
+    }
 }

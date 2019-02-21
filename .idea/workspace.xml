@@ -2,28 +2,10 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="cb0cee65-b1b9-4d87-a2cb-71ded3b1e8b1" name="Default Changelist" comment="">
+      <change afterPath="$PROJECT_DIR$/templates/profile_templates/stages.html.twig" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/newfile.txt" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/src/Controller/ProfileController.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Controller/ProfileController.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Controller/ServicesController.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Controller/ServicesController.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/DataFixtures/DistrictFixtures.php" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/DataFixtures/LocalityFixtures.php" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/DataFixtures/VendorFixtures.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/DataFixtures/VendorFixtures.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/DataFixtures/ZipCodeFixtures.php" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/DataFixtures/belgique.json" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/DataFixtures/only-zip.json" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Entity/Comment.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Entity/Comment.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Entity/Locality.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Entity/Locality.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Entity/User.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Entity/User.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Entity/Vendor.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Entity/Vendor.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Entity/ZipCode.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Entity/ZipCode.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Form/VendorType.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Form/VendorType.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Migrations/Version20190218200231.php" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Repository/VendorRepository.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Repository/VendorRepository.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/templates/inc/header.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/templates/inc/header.html.twig" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/templates/profile_templates/profile_vendor.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/templates/profile_templates/profile_vendor.html.twig" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/templates/search_templates/search_widget.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/templates/search_templates/search_widget.html.twig" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/templates/services_templates/vendor.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/templates/services_templates/vendor.html.twig" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/profile_templates/profile.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/templates/profile_templates/profile.html.twig" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -142,32 +124,32 @@
       <usages-collector id="statistics.file.extensions.open">
         <counts>
           <entry key="env" value="3" />
-          <entry key="php" value="49" />
-          <entry key="twig" value="32" />
+          <entry key="php" value="50" />
+          <entry key="twig" value="35" />
           <entry key="txt" value="1" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.types.open">
         <counts>
           <entry key=".env file" value="3" />
-          <entry key="PHP" value="49" />
+          <entry key="PHP" value="50" />
           <entry key="PLAIN_TEXT" value="1" />
-          <entry key="Twig" value="32" />
+          <entry key="Twig" value="35" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.extensions.edit">
         <counts>
           <entry key="env" value="25" />
-          <entry key="php" value="3552" />
-          <entry key="twig" value="572" />
+          <entry key="php" value="3841" />
+          <entry key="twig" value="640" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.types.edit">
         <counts>
           <entry key=".env file" value="25" />
           <entry key="HTML" value="21" />
-          <entry key="PHP" value="3531" />
-          <entry key="Twig" value="572" />
+          <entry key="PHP" value="3820" />
+          <entry key="Twig" value="640" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.php.new.class">
@@ -192,11 +174,54 @@
           </provider>
         </entry>
       </file>
-      <file pinned="false" current-in-tab="true">
+      <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/templates/services_templates/vendor.html.twig">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="669">
+            <state relative-caret-position="3107">
               <caret line="179" column="18" selection-start-line="179" selection-start-column="18" selection-end-line="179" selection-end-column="18" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/templates/profile_templates/profile_vendor.html.twig">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="920">
+              <caret line="40" selection-start-line="40" selection-end-line="40" selection-end-column="20" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/templates/profile_templates/profile.html.twig">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="853">
+              <caret line="41" column="14" selection-start-line="2" selection-end-line="41" selection-end-column="14" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/templates/profile_templates/stages.html.twig">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="669">
+              <caret line="32" selection-start-line="32" selection-end-line="32" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/src/Controller/ProfileController.php">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="351">
+              <caret line="84" selection-start-line="84" selection-end-line="84" />
+              <folding>
+                <element signature="e#34#59#0#PHP" expanded="true" />
+                <element signature="e#701#2206#0#PHP" />
+                <element signature="e#911#1116#0#PHP" />
+                <element signature="e#1135#2206#0#PHP" />
+                <element signature="e#1341#2196#0#PHP" />
+              </folding>
             </state>
           </provider>
         </entry>
@@ -227,8 +252,6 @@
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
       <list>
-        <option value="$PROJECT_DIR$/templates/services/index.html.twig" />
-        <option value="$PROJECT_DIR$/templates/emb/list-cards.html.twig" />
         <option value="$PROJECT_DIR$/templates/emb/vendor-list-cards.html.twig" />
         <option value="$PROJECT_DIR$/templates/emb/banner.html.twig" />
         <option value="$PROJECT_DIR$/templates/inc/vendor-list-cards-grid.html.twig" />
@@ -260,7 +283,6 @@
         <option value="$PROJECT_DIR$/templates/mails_templates/confirmation.html.twig" />
         <option value="$PROJECT_DIR$/src/Service/Mailer.php" />
         <option value="$PROJECT_DIR$/src/Controller/UserController.php" />
-        <option value="$PROJECT_DIR$/src/Controller/ProfileController.php" />
         <option value="$PROJECT_DIR$/src/Entity/ZipCode.php" />
         <option value="$PROJECT_DIR$/src/Entity/District.php" />
         <option value="$PROJECT_DIR$/templates/profile_templates/profile_vendor.html.twig" />
@@ -278,6 +300,9 @@
         <option value="$PROJECT_DIR$/src/Entity/Comment.php" />
         <option value="$PROJECT_DIR$/.env" />
         <option value="$PROJECT_DIR$/templates/services_templates/vendor.html.twig" />
+        <option value="$PROJECT_DIR$/templates/profile_templates/profile.html.twig" />
+        <option value="$PROJECT_DIR$/templates/profile_templates/stages.html.twig" />
+        <option value="$PROJECT_DIR$/src/Controller/ProfileController.php" />
       </list>
     </option>
   </component>
@@ -424,7 +449,7 @@
               <item name="projet-bien-etre" type="b2602c69:ProjectViewProjectNode" />
               <item name="projet-bien-etre" type="462c0819:PsiDirectoryNode" />
               <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="Repository" type="462c0819:PsiDirectoryNode" />
+              <item name="Controller" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
               <item name="projet-bien-etre" type="b2602c69:ProjectViewProjectNode" />
@@ -435,7 +460,7 @@
               <item name="projet-bien-etre" type="b2602c69:ProjectViewProjectNode" />
               <item name="projet-bien-etre" type="462c0819:PsiDirectoryNode" />
               <item name="templates" type="462c0819:PsiDirectoryNode" />
-              <item name="search_templates" type="462c0819:PsiDirectoryNode" />
+              <item name="profile_templates" type="462c0819:PsiDirectoryNode" />
             </path>
           </expand>
           <select />
@@ -497,18 +522,17 @@
       <workItem from="1543770389396" duration="30480000" />
       <workItem from="1545211455808" duration="2368000" />
       <workItem from="1546282656926" duration="18913000" />
-      <workItem from="1550519959800" duration="50409000" />
+      <workItem from="1550519959800" duration="53753000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="209632000" />
+    <option name="totallyTimeSpent" value="212976000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="0" y="0" width="1680" height="1050" extended-state="0" />
-    <editor active="true" />
     <layout>
-      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.22222222" />
+      <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.22222222" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
       <window_info id="Favorites" order="2" side_tool="true" />
       <window_info anchor="bottom" id="Message" order="0" />
@@ -521,7 +545,7 @@
       <window_info anchor="bottom" id="Docker" order="7" show_stripe_button="false" />
       <window_info anchor="bottom" id="Database Changes" order="8" />
       <window_info anchor="bottom" id="Version Control" order="9" weight="0.32987553" />
-      <window_info anchor="bottom" id="Terminal" order="10" weight="0.32987553" />
+      <window_info active="true" anchor="bottom" id="Terminal" order="10" visible="true" weight="0.32987553" />
       <window_info anchor="bottom" id="Event Log" order="11" side_tool="true" weight="0.32987553" />
       <window_info anchor="bottom" id="Database Console" order="12" weight="0.32987553" />
       <window_info anchor="right" id="Commander" internal_type="SLIDING" order="0" type="SLIDING" weight="0.4" />
@@ -537,14 +561,6 @@
     <option name="myLimit" value="2678400000" />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/../Test/unfold.php" />
-    <entry file="file://$PROJECT_DIR$/src/DataFixtures/DistrictFixtures.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="186">
-          <caret line="13" column="37" lean-forward="true" selection-start-line="13" selection-start-column="37" selection-end-line="13" selection-end-column="37" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/templates/emb/banner.html.twig">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="345">
@@ -781,13 +797,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/templates/profile_templates/profile_vendor.html.twig">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="916">
-          <caret line="40" selection-start-line="40" selection-end-line="40" selection-end-column="20" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/Form/CommentType.php">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="276">
@@ -811,16 +820,6 @@
           <caret line="21" column="25" selection-start-line="21" selection-start-column="25" selection-end-line="21" selection-end-column="25" />
           <folding>
             <element signature="e#30#62#0#PHP" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/Controller/ProfileController.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="561">
-          <caret line="27" column="27" selection-start-line="27" selection-start-column="27" selection-end-line="27" selection-end-column="27" />
-          <folding>
-            <element signature="e#34#59#0#PHP" expanded="true" />
           </folding>
         </state>
       </provider>
@@ -866,6 +865,41 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/.env">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="345">
+          <caret line="15" column="13" lean-forward="true" selection-start-line="15" selection-start-column="13" selection-end-line="15" selection-end-column="55" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/templates/services_templates/vendor.html.twig">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="3107">
+          <caret line="179" column="18" selection-start-line="179" selection-start-column="18" selection-end-line="179" selection-end-column="18" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/templates/profile_templates/profile_vendor.html.twig">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="920">
+          <caret line="40" selection-start-line="40" selection-end-line="40" selection-end-column="20" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/templates/profile_templates/profile.html.twig">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="853">
+          <caret line="41" column="14" selection-start-line="2" selection-end-line="41" selection-end-column="14" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/templates/profile_templates/stages.html.twig">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="669">
+          <caret line="32" selection-start-line="32" selection-end-line="32" />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/src/Controller/ServicesController.php">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="1587">
@@ -877,17 +911,17 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/.env">
+    <entry file="file://$PROJECT_DIR$/src/Controller/ProfileController.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="345">
-          <caret line="15" column="13" lean-forward="true" selection-start-line="15" selection-start-column="13" selection-end-line="15" selection-end-column="55" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/templates/services_templates/vendor.html.twig">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="669">
-          <caret line="179" column="18" selection-start-line="179" selection-start-column="18" selection-end-line="179" selection-end-column="18" />
+        <state relative-caret-position="351">
+          <caret line="84" selection-start-line="84" selection-end-line="84" />
+          <folding>
+            <element signature="e#34#59#0#PHP" expanded="true" />
+            <element signature="e#701#2206#0#PHP" />
+            <element signature="e#911#1116#0#PHP" />
+            <element signature="e#1135#2206#0#PHP" />
+            <element signature="e#1341#2196#0#PHP" />
+          </folding>
         </state>
       </provider>
     </entry>
