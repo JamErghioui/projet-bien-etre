@@ -10,7 +10,9 @@ use App\Form\StageType;
 use App\Form\VendorType;
 use App\Repository\StageRepository;
 use Doctrine\Common\Persistence\ObjectManager;
+use Sensio\Bundle\FrameworkExtraBundle\Configuration\Method;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
+use Symfony\Component\ExpressionLanguage\Tests\Node\Obj;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\Routing\Annotation\Route;
 
@@ -117,12 +119,49 @@ class ProfileController extends AbstractController
             $manager->persist($stage);
             $manager->flush();
 
-            return $this->redirectToRoute('profile');
+            return $this->redirectToRoute('stages');
         }
 
         return $this->render('profile_templates/stages_create.html.twig', [
             'formStage' => $form->createView(),
             'vendor' => $vendor
         ]);
+    }
+
+    /**
+     * @Route("/stage/edit/{id}", name="edit_stage")
+     * @param Stage $stage
+     * @param Request $request
+     * @param ObjectManager $manager
+     * @return \Symfony\Component\HttpFoundation\Response
+     */
+    public function editStage(Stage $stage, Request $request, ObjectManager $manager)
+    {
+        $form = $this->createForm(StageType::class, $stage);
+        $form->handleRequest($request);
+
+        if($form->isSubmitted() && $form->isValid()){
+            $manager->persist($stage);
+            $manager->flush();
+        }
+
+        return $this->render('profile_templates/stages_edit.html.twig', [
+            'formStage' => $form->createView(),
+        ]);
+
+    }
+
+    /**
+     * @Route("/stages/delete/{id}", name="delete_stage")
+     * @param Stage $stage
+     * @param ObjectManager $manager
+     * @return \Symfony\Component\HttpFoundation\RedirectResponse
+     */
+    public function deleteStage(Stage $stage, ObjectManager $manager)
+    {
+        $manager->remove($stage);
+        $manager->flush();
+
+        return $this->redirectToRoute('stages');
     }
 }

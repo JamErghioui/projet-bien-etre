@@ -46,6 +46,8 @@ class UserController extends AbstractController
             $manager->persist($user);
             $manager->flush();
 
+            dd($request);
+
             // Get Type from User
             $type = $request->request->get('user')['choose'];
 

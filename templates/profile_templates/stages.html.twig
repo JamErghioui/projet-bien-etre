@@ -50,7 +50,8 @@
                                 <div class="post-meta-author">By <a href="#">{{ stage.vendor.username }}</a></div><!-- /.post-meta-author -->
                                 <div class="post-meta-date">{{ stage.dateBegin |date('d-m-Y') }}</div><!-- /.post-meta-date -->
                                 <div class="post-meta-categories"><i class="fa fa-tags"></i> <a href="#">{{ stage.price }} $</a></div><!-- /.post-meta-categories -->
-                                <div class="post-meta-more"><a href="#">Delete <i class="fa fa-trash-o"></i></a></div><!-- /.post-meta-more -->
+                                <div class="post-meta-more"><a href="{{ path('delete_stage', { id : stage.id }) }}">Delete <i class="fa fa-trash-o"></i></a></div><!-- /.post-meta-more -->
+                                <div class="post-meta-more"><a href="{{ path('edit_stage', { id : stage.id }) }}">Edit <i class="fa fa-cog"></i>&nbsp; &nbsp;</a></div><!-- /.post-meta-more -->
                             </div><!-- /.post-meta -->
                         </div><!-- /.post -->
                         {% endfor %}
