@@ -16,7 +16,7 @@
                 </div><!-- /.widget -->
                 <div class="widget">
                     <ul class="menu-advanced">
-                        <li><a href="#"><i class="fa fa-user"></i> Edit Profile</a></li>
+                        <li><a href="{{ path('profile') }}"><i class="fa fa-user"></i> Edit Profile</a></li>
                         <li class="active"><a href="#"><i class="fa fa-clipboard"></i> Stages</a></li>
                         <li><a href="#"><i class="fa fa-key"></i> Password</a></li>
                         <li><a href="{{ path('user_logout') }}"><i class="fa fa-sign-out"></i> Logout</a></li>
@@ -27,10 +27,34 @@
         <div class="col-sm-8 col-lg-9">
             <div class="content">
                 <div class="page-title">
-                    <h1>Stages</h1>
+                    <h1 style="display: inline-block;">Stages</h1>
+                    <a style="display: inline-block" href="{{ path('stages_create') }}" class="header-action-inner" title="Add Stage" data-toggle="tooltip" data-placement="Right">
+                        <i class="fa fa-plus"></i>
+                    </a><!-- /.header-action-inner -->
                 </div><!-- /.page-title -->
-                <div class="background-white p20 mb30">
 
+                <div class="posts">
+                    {% if app.user %}
+                        {% for stage in stages %}
+                        <div class="post post-boxed">
+                            <div class="post-image">
+                                <img src="https://res.cloudinary.com/dptzlt8ik/image/upload/v1547065039/Bien-Etre/by_housevisit_2560.jpg" alt="A Clockwork Origin">
+                            </div><!-- /.post-image -->
+
+                            <div class="post-content">
+                                <h2><a href="blog-detail.html">{{ stage.name }}<a></h2>
+                                <p>{{ stage.description }}</p>
+                            </div><!-- /.post-content -->
+
+                            <div class="post-meta clearfix">
+                                <div class="post-meta-author">By <a href="#">{{ stage.vendor.username }}</a></div><!-- /.post-meta-author -->
+                                <div class="post-meta-date">{{ stage.dateBegin |date('d-m-Y') }}</div><!-- /.post-meta-date -->
+                                <div class="post-meta-categories"><i class="fa fa-tags"></i> <a href="#">{{ stage.price }} $</a></div><!-- /.post-meta-categories -->
+                                <div class="post-meta-more"><a href="#">Delete <i class="fa fa-trash-o"></i></a></div><!-- /.post-meta-more -->
+                            </div><!-- /.post-meta -->
+                        </div><!-- /.post -->
+                        {% endfor %}
+                    {% endif %}
                 </div>
             </div><!-- /.content -->
         </div><!-- /.col-* -->

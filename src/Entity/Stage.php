@@ -56,6 +56,12 @@ class Stage
      */
     private $price;
 
+    /**
+     * @ORM\ManyToOne(targetEntity="App\Entity\Vendor", inversedBy="stage")
+     * @ORM\JoinColumn(nullable=false)
+     */
+    private $vendor;
+
     public function getId(): ?int
     {
         return $this->id;
@@ -153,6 +159,18 @@ class Stage
     public function setPrice(int $price): self
     {
         $this->price = $price;
+
+        return $this;
+    }
+
+    public function getVendor(): ?Vendor
+    {
+        return $this->vendor;
+    }
+
+    public function setVendor(?Vendor $vendor): self
+    {
+        $this->vendor = $vendor;
 
         return $this;
     }

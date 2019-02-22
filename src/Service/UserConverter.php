@@ -21,6 +21,7 @@ class UserConverter{
 
                 case "vendor":
                     $newUser = new Vendor();
+                    $newUser->setRoles(['ROLE_VENDOR']);
 
                     break;
 

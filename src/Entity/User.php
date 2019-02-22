@@ -35,6 +35,11 @@ class User implements UserInterface
     protected $email;
 
     /**
+     * @ORM\column(type="array")
+     */
+    protected $roles = ['ROLE_USER'];
+
+    /**
      * @ORM\Column(type="date")
      */
     protected $sub_date;
@@ -132,10 +137,17 @@ class User implements UserInterface
         return $this;
     }
 
-    public function getRoles()
-{
-        return ['ROLE_USER'];
-}
+    public function getRoles(): ?array
+    {
+        return $this->roles;
+    }
+
+    public function setRoles(array $roles): self
+    {
+        $this->roles = $roles;
+
+        return $this;
+    }
 
     public function getSalt()
     {

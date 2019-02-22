@@ -7,14 +7,24 @@ use App\Entity\Comment;
 use App\Entity\District;
 use App\Entity\Internaut;
 use App\Entity\Locality;
+use App\Entity\Stage;
+use App\Entity\User;
 use App\Entity\Vendor;
 use App\Entity\ZipCode;
 use Doctrine\Bundle\FixturesBundle\Fixture;
 use Doctrine\Common\Persistence\ObjectManager;
 use Faker;
+use Symfony\Component\Security\Core\Encoder\UserPasswordEncoderInterface;
 
 class VendorFixtures extends Fixture
 {
+    private $encoder;
+
+    public function __construct(UserPasswordEncoderInterface $encoder)
+    {
+        $this->encoder = $encoder;
+    }
+
     public function load(ObjectManager $manager)
     {
 
@@ -57,6 +67,15 @@ class VendorFixtures extends Fixture
         $highlight = true;
         $number = 1;
 
+        $admin = new User();
+        $admin->setRoles(['ROLE_ADMIN'])
+            ->setEmail('admin@admin.com')
+            ->setSubDate(new \DateTime())
+            ->setPassword($this->encoder->encodePassword($admin, 'admin'))
+            ->setUsername('Admin');
+
+        $manager->persist($admin);
+
         for($i=1 ; $i<=3 ; $i++){
 
             $category = new Category();
@@ -81,10 +100,10 @@ class VendorFixtures extends Fixture
                     $vendors = new Vendor();
                     $vendors->setBanned(false)
                         ->setEmail($faker->email)
-                        ->setIsVisible(true)
                         ->setSubDate(new \DateTime())
-                        ->setPassword($faker->password)
+                        ->setPassword($this->encoder->encodePassword($vendors, 'vendor'))
                         ->setUsername($faker->userName)
+                        ->setRoles(['ROLE_VENDOR'])
                     ;
 
                     $vendors->setDistrict($district)
@@ -97,6 +116,7 @@ class VendorFixtures extends Fixture
                         ->setDoorNumber($faker->numberBetween(1,100))
                         ->setStreet($faker->streetName)
                         ->addCategory($category)
+                        ->setIsVisible(true)
                     ;
 
                     $vendorarray[] = $vendors;
@@ -104,7 +124,7 @@ class VendorFixtures extends Fixture
 
                     $internaut = new Internaut();
                     $internaut->setUsername($faker->userName)
-                        ->setPassword($faker->password)
+                        ->setPassword($this->encoder->encodePassword($internaut, 'internaut'))
                         ->setSubDate(new \DateTime())
                         ->setEmail($faker->email)
                         ->setBanned(false)
@@ -121,6 +141,20 @@ class VendorFixtures extends Fixture
 
                     $manager->persist($comment);
 
+                    for($m=1 ; $m<=rand(1,4) ; $m++) {
+                        $stage = new Stage();
+                        $stage->setVendor($vendors)
+                            ->setName($faker->sentence)
+                            ->setDescription($faker->paragraph)
+                            ->setInfo($faker->sentence)
+                            ->setPrice($faker->numberBetween(1, 999))
+                            ->setDateBegin(new \DateTime())
+                            ->setDateEnd(new \DateTime())
+                            ->setShowDateBegin(new \DateTime())
+                            ->setShowDateEnd(new \DateTime());
+
+                        $manager->persist($stage);
+                    }
                 }
             }
             $highlight = false;

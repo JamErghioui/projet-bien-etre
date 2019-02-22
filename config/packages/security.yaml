@@ -29,5 +29,6 @@ security:
               target: home
 
     access_control:
-        # - { path: ^/admin, roles: ROLE_ADMIN }
-        # - { path: ^/profile, roles: ROLE_USER }
+         - { path: ^/profile, roles: [ROLE_USER, ROLE_VENDOR] }
+         - { path: ^/stages, roles: [ROLE_VENDOR] }
+         - { path: ^/admin, roles: ROLE_ADMIN }

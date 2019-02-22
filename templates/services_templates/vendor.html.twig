@@ -160,24 +160,52 @@
                     </div><!-- /.detail-follow -->
                 </div>
             </div>
+            <!-- Stages -->
+            <!-- Widget last Vendors -->
+            {% if stages %}
+            <div class="widget">
+                <h2 class="widgettitle">Stages</h2>
+                    {% for stage in stages %}
+                    <div class="cards-small">
+                        <div class="card-small">
+                            <div class="card-small-image">
+                                <a href="listing-detail.html">
+                                    <img src="https://res.cloudinary.com/dptzlt8ik/image/upload/v1547065039/Bien-Etre/by_housevisit_2560.jpg" alt="Image">
+                                </a>
+                            </div><!-- /.card-small-image -->
+
+                            <div class="card-small-content">
+                                <h3><a href="#">{{ stage.name }}</a></h3>
+                                <h4><a href="#">{{ stage.dateBegin |date('d-m-Y') }}</a></h4>
+                                <div class="card-small-price">{{ stage.price }} $</div>
+                            </div><!-- /.card-small-content -->
+                        </div><!-- /.card-small -->
+                    </div><!-- /.cards-small -->
+                    {% endfor %}
+            </div>
+            {% endif %}
         </div>
         <!-- /sidebar -->
 
         <!-- Clear -->
         {% if app.user %}
-            <div class="col-sm-7">
-                <h2>Submit a comment</h2>
-                <div class="row">
-                    {{ form_start(formComment, { 'attr' : { 'class' : 'background-white p20 add-review'}}) }}
-                    {{ form_row(formComment.content, { 'attr' : { 'class' : 'form-control', 'rows' : 5}}) }}
+            {% for key, value in app.user.roles %}
+                {% if value == 'ROLE_USER' %}
+                <div class="col-sm-7">
+                    <h2>Submit a comment</h2>
                     <div class="row">
-                    <div class="col-sm-4">
-                        <button class="btn btn-primary btn-block" type="submit"><i class="fa fa-star"></i>Submit comment</button>
-                    </div><!-- /.col-sm-4 -->
+                        {{ form_start(formComment, { 'attr' : { 'class' : 'background-white p20 add-review'}}) }}
+                        {{ form_row(formComment.content, { 'attr' : { 'class' : 'form-control', 'rows' : 5}}) }}
+                        <div class="row">
+                        <div class="col-sm-4">
+                            <button class="btn btn-primary btn-block" type="submit"><i class="fa fa-star"></i>Submit comment</button>
+                        </div><!-- /.col-sm-4 -->
+                        </div>
+                        {{ form_end(formComment) }}
                     </div>
-                    {{ form_end(formComment) }}
                 </div>
-            </div>
+                {% endif %}
+            {% endfor %}
         {% endif %}
         <!-- /clear -->
     </div>

@@ -82,10 +82,16 @@ class Vendor extends User
      */
     protected $is_visible = false;
 
+    /**
+     * @ORM\OneToMany(targetEntity="App\Entity\Stage", mappedBy="vendor", orphanRemoval=true)
+     */
+    private $stage;
+
     public function __construct()
     {
         $this->category = new ArrayCollection();
         $this->comments = new ArrayCollection();
+        $this->stage = new ArrayCollection();
     }
 
 
@@ -262,6 +268,37 @@ class Vendor extends User
     public function setIsVisible(bool $sub_conf): self
     {
         $this->is_visible = $sub_conf;
+
+        return $this;
+    }
+
+    /**
+     * @return Collection|Stage[]
+     */
+    public function getStage(): Collection
+    {
+        return $this->stage;
+    }
+
+    public function addStage(Stage $stage): self
+    {
+        if (!$this->stage->contains($stage)) {
+            $this->stage[] = $stage;
+            $stage->setVendor($this);
+        }
+
+        return $this;
+    }
+
+    public function removeStage(Stage $stage): self
+    {
+        if ($this->stage->contains($stage)) {
+            $this->stage->removeElement($stage);
+            // set the owning side to null (unless already changed)
+            if ($stage->getVendor() === $this) {
+                $stage->setVendor(null);
+            }
+        }
 
         return $this;
     }

@@ -4,6 +4,7 @@ namespace App\Controller;
 
 use App\Entity\Category;
 use App\Entity\Comment;
+use App\Entity\Stage;
 use App\Entity\Vendor;
 use App\Form\CommentType;
 use App\Repository\CategoryRepository;
@@ -46,6 +47,7 @@ class ServicesController extends AbstractController
      * @Route("/vendor/{id}", name="vendor")
      * @param $id
      * @param Request $request
+     * @param ObjectManager $manager
      * @return \Symfony\Component\HttpFoundation\Response
      */
     public function vendor($id, Request $request, ObjectManager $manager)
@@ -54,6 +56,11 @@ class ServicesController extends AbstractController
         $vendor = $vendorrepo->find($id);
 
         $user = $this->getUser();
+
+        $stagerepo = $this->getDoctrine()->getRepository(Stage::class);
+        $stages = $stagerepo->findBy([
+            'vendor' => $id
+        ]);
 
         $comment = new Comment();
 
@@ -72,6 +79,7 @@ class ServicesController extends AbstractController
 
         return $this->render('services_templates/vendor.html.twig',[
             'vendor' => $vendor,
+            'stages' => $stages,
             'formComment' => $form->createView()
         ]);
     }
