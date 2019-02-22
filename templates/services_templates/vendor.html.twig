@@ -160,8 +160,19 @@
                     </div><!-- /.detail-follow -->
                 </div>
             </div>
+            <!-- Categories -->
+                <div class="sidebar">
+                    <!-- Menu Category -->
+                    <div class="widget">
+                        <h2 class="widgettitle">Categories</h2>
+                        <ul class="menu">
+                            {% for category in vendor.category %}
+                                <li><a href="#">{{ category.name }}</a></li>
+                            {% endfor %}
+                        </ul>
+                    </div>
+                </div>
             <!-- Stages -->
-            <!-- Widget last Vendors -->
             {% if stages %}
             <div class="widget">
                 <h2 class="widgettitle">Stages</h2>
