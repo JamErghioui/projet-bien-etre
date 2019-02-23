@@ -17,7 +17,7 @@ Symfony 4 : Annuaire
 1. Consulter la description d'un service
 2. Rechercher des prestataires
 3. Consulter la fiche signalétique d'un prestataire
-4. Consulter les catégoires de services d'un prestataire
+4. Consulter les catégories de services d'un prestataire
 
 > 1.2
 
