@@ -19,6 +19,39 @@ class InternautRepository extends ServiceEntityRepository
         parent::__construct($registry, Internaut::class);
     }
 
+    /**
+     * @param $value
+     * @return Internaut[] Returns an array of Internaut objects
+     */
+    public function findLast($value)
+    {
+        return $this->createQueryBuilder('i')
+            ->orderBy('i.id', 'DESC')
+            ->setMaxResults($value)
+            ->getQuery()
+            ->getResult();
+    }
+
+    /**
+     * @param $value
+     * @return Internaut[] Returns an array of Internaut objects
+     */
+    public function findUsernameMail($value)
+    {
+        $qb = $this->createQueryBuilder('i')
+            ->orderBy('i.username', 'ASC');
+
+        if(!empty($value)){
+            $qb->andWhere('i.username LIKE :value OR i.email LIKE :value')
+                ->setParameter(':value', "%$value%");
+        }
+
+        return $qb
+
+            ->getQuery()
+            ->getResult();
+    }
+
 //    /**
 //     * @return Internaut[] Returns an array of Internaut objects
 //     */

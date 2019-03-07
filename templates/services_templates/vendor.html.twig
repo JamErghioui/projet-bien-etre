@@ -85,6 +85,27 @@
                 </div><!-- /.review -->
                 {% endfor %}
             </div><!-- /.reviews -->
+            <!-- Clear -->
+            {% if app.user %}
+                {% for key, value in app.user.roles %}
+                    {% if value == 'ROLE_USER' %}
+                        <div class="col-sm-12">
+                            <h2>Submit a comment</h2>
+                            <div class="row">
+                                {{ form_start(formComment, { 'attr' : { 'class' : 'background-white p20 add-review'}}) }}
+                                {{ form_row(formComment.content, { 'attr' : { 'class' : 'form-control', 'rows' : 5}}) }}
+                                <div class="row">
+                                    <div class="col-sm-4">
+                                        <button class="btn btn-primary btn-block" type="submit"><i class="fa fa-star"></i>Submit comment</button>
+                                    </div><!-- /.col-sm-4 -->
+                                </div>
+                                {{ form_end(formComment) }}
+                            </div>
+                        </div>
+                    {% endif %}
+                {% endfor %}
+            {% endif %}
+            <!-- /clear -->
         </div>
         <!-- /main -->
 
@@ -197,27 +218,5 @@
             {% endif %}
         </div>
         <!-- /sidebar -->
-
-        <!-- Clear -->
-        {% if app.user %}
-            {% for key, value in app.user.roles %}
-                {% if value == 'ROLE_USER' %}
-                <div class="col-sm-7">
-                    <h2>Submit a comment</h2>
-                    <div class="row">
-                        {{ form_start(formComment, { 'attr' : { 'class' : 'background-white p20 add-review'}}) }}
-                        {{ form_row(formComment.content, { 'attr' : { 'class' : 'form-control', 'rows' : 5}}) }}
-                        <div class="row">
-                        <div class="col-sm-4">
-                            <button class="btn btn-primary btn-block" type="submit"><i class="fa fa-star"></i>Submit comment</button>
-                        </div><!-- /.col-sm-4 -->
-                        </div>
-                        {{ form_end(formComment) }}
-                    </div>
-                </div>
-                {% endif %}
-            {% endfor %}
-        {% endif %}
-        <!-- /clear -->
     </div>
 {% endblock %}

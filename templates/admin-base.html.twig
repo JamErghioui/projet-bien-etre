@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>{% block title %}Welcome!{% endblock %}</title>
+    <!-- Include head -->
+    {{ include('inc/head.html.twig') }}
+    {% block stylesheets %}{% endblock %}
+</head>
+<body>
+<div class="page-wrapper">
+    <!-- Header navbar -->
+    {{ include('inc/header.html.twig') }}
+
+    {% block breadcrumb %}
+    {% endblock %}
+
+    <!-- Body -->
+    <!-- Main -->
+    <div class="main">
+        <div class="outer-admin">
+            <div class="wrapper-admin">
+                <div class="sidebar-admin">
+                    <ul>
+                        {% block navigation %}{% endblock %}
+                    </ul>
+                </div><!-- /.sidebar-admin-->
+
+                <div class="content-admin">
+                    <div class="content-admin-wrapper">
+                        <div class="content-admin-main">
+                            <div class="content-admin-main-inner">
+                                <div class="container-fluid">
+                                    <div class="row">
+                                        <div class="col-sm-12">
+
+                                        {% block body %}{% endblock %}
+
+                                        </div><!-- /.col-* -->
+                                    </div>
+                                </div><!-- /.container-fluid -->
+                            </div><!-- /.content-admin-main-inner -->
+                        </div><!-- /.content-admin-main -->
+                    </div><!-- /.content-admin-wrapper -->
+                </div><!-- /.content-admin -->
+
+            </div><!-- /.wrapper-admin -->
+        </div><!-- /.outer-admin -->
+    </div><!-- /.main -->
+
+    {% block javascripts %}{% endblock %}
+
+    <!-- Include scripts -->
+    {{ include('inc/script.html.twig') }}
+</div>
+</body>
+</html>

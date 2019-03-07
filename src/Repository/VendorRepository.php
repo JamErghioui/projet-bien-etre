@@ -35,6 +35,26 @@ class VendorRepository extends ServiceEntityRepository
     }
 
     /**
+     * @param $value
+     * @return Vendor[] Returns an array of Vendor objects
+     */
+    public function findUsernameMail($value)
+    {
+        $qb = $this->createQueryBuilder('v')
+            ->orderBy('v.username', 'ASC');
+
+        if(!empty($value)){
+            $qb->andWhere('v.username LIKE :value OR v.email LIKE :value')
+                ->setParameter(':value', "%$value%");
+        }
+
+        return $qb
+
+            ->getQuery()
+            ->getResult();
+    }
+
+    /**
      * @param $username
      * @param $category
      * @param $district
@@ -52,12 +72,12 @@ class VendorRepository extends ServiceEntityRepository
 
             if(!empty($category)){
                 $qb->innerJoin('v.category', 'cat', 'WITH', "cat.id LIKE :category")
-                ->setParameter(':category', "%$category%");
+                ->setParameter(':category', "$category");
             }
 
             if(!empty($district)){
                 $qb->innerJoin('v.district', 'dis', 'WITH', "dis.id LIKE :district")
-                    ->setParameter(':district', "%$district%");
+                    ->setParameter(':district', "$district");
             }
 
             return $qb

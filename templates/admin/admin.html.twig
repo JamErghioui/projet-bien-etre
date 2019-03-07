@@ -1,0 +1,92 @@
+{% extends 'admin-base.html.twig' %}
+
+{% block title %}Admin{% endblock %}
+
+{% block breadcrumb %}
+    <!-- Bread Crumb -->
+    <div class="header-statusbar">
+        <div class="header-statusbar-inner">
+            <div class="header-statusbar-left">
+                <h1>Dashboard</h1>
+            </div>
+            <div class="header-statusbar-right">
+                <div class="hidden-xs visible-lg">
+                    <ul class="breadcrumb">
+                        <li><a href="#">Dashboard</a></li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+{% endblock %}
+
+{% block navigation %}
+    <li class="active"><a href="#"><i class="fa fa-home"></i></a></li>
+    <li><a href="{{ path('admin_internauts') }}"><i class="fa fa-users"></i></a></li>
+    <li><a href="{{ path('admin_vendors') }}"><i class="fa fa-star"></i></a></li>
+    <li><a href="{{ path('admin_settings') }}"><i class="fa fa-cog"></i></a></li>
+{% endblock %}
+
+{% block body %}
+    <div class="row">
+        <div class="col-sm-12">
+            <div class="message">
+                <h1>Welcome in Dashboard</h1>
+
+                <p>Thanks for checking <a href="#">Superlist</a> backend. If you have any questions, feel free to ask your question using ThemeForest's <a href="#">item comments</a> section. Before asking don't forget to check the template <a href="#">documentation</a>.</p>
+            </div><!-- /.message -->
+        </div><!-- /.col-* -->
+    </div><!-- /.row -->
+
+    <div class="row">
+        <div class="col-sm-12 col-lg-5">
+            <h3>Recent Internauts <a href="{{ path('admin_internauts') }}">View All Internauts <i class="fa fa-chevron-right"></i></a></h3>
+
+            <div class="users">
+                <table class="table">
+                    <tbody>
+                        {% for internaut in internauts %}
+                        <tr>
+                            <td><a class="user" href="#"><img src="assets/img/tmp/agent-1.jpg" alt=""></a></td>
+                            <td class="hidden-xs visible-sm visible-md visible-lg">
+                                <h2><a href="#">{{ internaut.username }}</a></h2>
+                                <h3>Registration : {{ internaut.subDate |date('d-m-Y') }}</h3>
+                            </td>
+                            <td class="right">
+                                <a href="#" class="btn btn-primary btn-xs">Details</a>
+                            </td>
+                        </tr>
+                        {% endfor %}
+                    </tbody>
+                </table>
+            </div><!-- /.users -->
+
+        </div><!-- /.col-* -->
+
+        <div class="col-sm-12 col-lg-7">
+            <h3>Recent Vendors <a href="{{ path('admin_vendors') }}">View All Vendors <i class="fa fa-chevron-right"></i></a></h3>
+
+            <div class="background-white p30 mb50">
+                <div class="cards-system">
+                    {% for vendor in vendors %}
+                    <div class="card-system">
+                        <div class="card-system-inner">
+                            <div class="card-system-image" data-background-image="assets/img/tmp/product-2.jpg">
+                                <a href="listing-detail.html"></a>
+                            </div><!-- /.card-system-image -->
+
+                            <div class="card-system-content">
+                                <h2><a href="{{ path('vendor', { id : vendor.id }) }}">{{ vendor.username }}</a></h2>
+                                <h3>Registration : {{ vendor.subDate |date('d-m-Y') }}</h3>
+                                <a href="#" class="btn btn-primary btn-xs">Details</a>
+                            </div>
+                        </div>
+                    </div><!-- /.card-system -->
+                    {% endfor %}
+
+                </div><!-- /.cards-system -->
+            </div>
+
+        </div><!-- /.col-* -->
+    </div><!-- /.row -->
+{% endblock %}

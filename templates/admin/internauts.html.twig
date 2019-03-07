@@ -1,0 +1,73 @@
+{% extends 'admin-base.html.twig' %}
+
+{% block title %}Admin - Internauts{% endblock %}
+
+{% block breadcrumb %}
+    <!-- Bread Crumb -->
+    <div class="header-statusbar">
+        <div class="header-statusbar-inner">
+            <div class="header-statusbar-left">
+                <h1>Internauts</h1>
+                <div class="display-inline-block">
+                    <div class="hidden-xs visible-lg">
+                        <form method="get" action="?">
+                            <div class="header-statusbar-search">
+                                <input type="text" name="value_internaut" class="form-control" placeholder="Search for...">
+                            </div><!-- /search -->
+                        </form>
+                    </div>
+                </div>
+            </div>
+            <div class="header-statusbar-right">
+                <div class="hidden-xs visible-lg">
+                    <ul class="breadcrumb">
+                        <li><a href="{{ path('admin') }}">Dashboard</a></li>
+                        <li><a href="#">Internauts</a></li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+{% endblock %}
+
+{% block navigation %}
+    <li><a href="{{ path('admin') }}"><i class="fa fa-home"></i></a></li>
+    <li class="active"><a href="#"><i class="fa fa-users"></i></a></li>
+    <li><a href="{{ path('admin_vendors') }}"><i class="fa fa-star"></i></a></li>
+    <li><a href="{{ path('admin_settings') }}"><i class="fa fa-cog"></i></a></li>
+{% endblock %}
+
+{% block body %}
+    <div class="background-white p20 mb50">
+        <h2 class="page-title">Internauts list</h2>
+
+        <table class="table mb0">
+            <thead>
+            <tr>
+                <th>id</th>
+                <th>Username</th>
+                <th>Email</th>
+                <th>Status</th>
+                <th>Action</th>
+            </tr>
+            </thead>
+
+            <tbody>
+            {% for internaut in internauts %}
+                <tr>
+                    <th scope="row">{{ internaut.id }}</th>
+                    <td>{{ internaut.username }}</td>
+                    <td>{{ internaut.email }}</td>
+                    {% if internaut.banned %}
+                        <td>Banned</td>
+                        <td><a href="#" class="btn btn-primary btn-xs">Unban</a></td>
+                    {% else %}
+                        <td>On</td>
+                        <td><a href="#" class="btn btn-danger btn-xs">Ban</a></td>
+                    {% endif %}
+            {% endfor %}
+            </tbody>
+        </table>
+    </div>
+
+{% endblock %}
