@@ -49,24 +49,20 @@
                 <th>Username</th>
                 <th>Email</th>
                 <th>Status</th>
-                <th>Action</th>
+                <th>Detail</th>
             </tr>
             </thead>
 
             <tbody>
             {% for vendor in vendors %}
-            <tr>
-                <th scope="row">{{ vendor.id }}</th>
-                <td>{{ vendor.username }}</td>
-                <td>{{ vendor.email }}</td>
-                {% if vendor.banned %}
-                    <td>Banned</td>
-                    <td><a href="#" class="btn btn-primary btn-xs">Unban</a></td>
-                {% else %}
-                    <td>On</td>
-                    <td><a href="#" class="btn btn-danger btn-xs">Ban</a></td>
-                {% endif %}
-                {% endfor %}
+                <tr>
+                    <th scope="row">{{ vendor.id }}</th>
+                    <td>{{ vendor.username }}</td>
+                    <td>{{ vendor.email }}</td>
+                    {% if vendor.banned %}<td>Banned</td>{% else %}<td>On</td>{% endif %}
+                    <td><a href="{{ path('admin_detail', { type : 'vendor', id: vendor.id }) }}" class="btn btn-primary btn-xs">Detail</a></td>
+                </tr>
+            {% endfor %}
             </tbody>
         </table>
     </div>

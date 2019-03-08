@@ -53,7 +53,7 @@
                                 <h3>Registration : {{ internaut.subDate |date('d-m-Y') }}</h3>
                             </td>
                             <td class="right">
-                                <a href="#" class="btn btn-primary btn-xs">Details</a>
+                                <a href="{{ path('admin_detail', { type : 'internaut', id: internaut.id }) }}" class="btn btn-primary btn-xs">Details</a>
                             </td>
                         </tr>
                         {% endfor %}

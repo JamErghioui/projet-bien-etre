@@ -2,6 +2,8 @@
 
 namespace App\Controller;
 
+use App\Entity\Internaut;
+use App\Form\AdminInternautType;
 use App\Repository\InternautRepository;
 use App\Repository\VendorRepository;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
@@ -66,5 +68,36 @@ class AdminController extends AbstractController
     public function settings()
     {
         return $this->render('admin/settings.html.twig');
+    }
+
+    /**
+     * @Route("/admin/{type}/{id}", name="admin_detail")
+     * @param $type
+     * @param $id
+     * @param InternautRepository $internautRepository
+     * @param VendorRepository $vendorRepository
+     * @return \Symfony\Component\HttpFoundation\Response
+     */
+    public function userDetail($type, $id, InternautRepository $internautRepository, VendorRepository $vendorRepository)
+    {
+        $user = [];
+        $view = [];
+
+        if($type === 'internaut'){
+            $user = $internautRepository->find($id);
+        }elseif($type === 'vendor'){
+            $user = $vendorRepository->find($id);
+        }
+
+        if($user instanceof Internaut){
+            $form = $this->createForm(AdminInternautType::class, $user);
+            $view = $form->createView();
+        }
+
+        return $this->render('admin/detail.html.twig', [
+            'type' => $type,
+            'user' => $user,
+            'form' => $view
+        ]);
     }
 }

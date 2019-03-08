@@ -48,7 +48,7 @@
                 <th>Username</th>
                 <th>Email</th>
                 <th>Status</th>
-                <th>Action</th>
+                <th>Detail</th>
             </tr>
             </thead>
 
@@ -58,13 +58,8 @@
                     <th scope="row">{{ internaut.id }}</th>
                     <td>{{ internaut.username }}</td>
                     <td>{{ internaut.email }}</td>
-                    {% if internaut.banned %}
-                        <td>Banned</td>
-                        <td><a href="#" class="btn btn-primary btn-xs">Unban</a></td>
-                    {% else %}
-                        <td>On</td>
-                        <td><a href="#" class="btn btn-danger btn-xs">Ban</a></td>
-                    {% endif %}
+                    {% if internaut.banned %}<td>Banned</td>{% else %}<td>On</td>{% endif %}
+                    <td><a href="{{ path('admin_detail', { type : 'internaut', id: internaut.id }) }}" class="btn btn-primary btn-xs">Detail</a></td>
             {% endfor %}
             </tbody>
         </table>
