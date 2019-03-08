@@ -1,6 +1,8 @@
 # Bien-Être
 Symfony 4 : Annuaire
 
+Réalisation d’une application où des prestataires de services peuvent s’inscrire gratuitement et mettre en avant leurs services dans le domaine du bien-être.
+
 ## Setup :
 
 1. composer install (cmd)

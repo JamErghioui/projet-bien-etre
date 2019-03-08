@@ -110,6 +110,7 @@ class AdminController extends AbstractController
 
                 if($user->getBanned()){
                     $user->setBanned(false);
+
                 }else{
                     $user->setBanned(true);
                     $user->setIsVisible(false);

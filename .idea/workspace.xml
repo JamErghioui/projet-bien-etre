@@ -2,11 +2,7 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="cb0cee65-b1b9-4d87-a2cb-71ded3b1e8b1" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/Controller/AdminController.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Controller/AdminController.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Controller/ProfileController.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Controller/ProfileController.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/templates/admin/detail.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/templates/admin/detail.html.twig" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/templates/services_templates/vendor.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/templates/services_templates/vendor.html.twig" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -145,7 +141,7 @@
       <usages-collector id="statistics.file.extensions.edit">
         <counts>
           <entry key="env" value="25" />
-          <entry key="php" value="8333" />
+          <entry key="php" value="8334" />
           <entry key="twig" value="4152" />
           <entry key="yaml" value="107" />
         </counts>
@@ -154,7 +150,7 @@
         <counts>
           <entry key=".env file" value="25" />
           <entry key="HTML" value="21" />
-          <entry key="PHP" value="8312" />
+          <entry key="PHP" value="8313" />
           <entry key="Twig" value="4152" />
           <entry key="YAML" value="107" />
         </counts>
@@ -180,10 +176,10 @@
           </provider>
         </entry>
       </file>
-      <file pinned="false" current-in-tab="true">
+      <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/templates/services_templates/vendor.html.twig">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="623">
+            <state relative-caret-position="259">
               <caret line="221" column="14" selection-start-line="221" selection-start-column="14" selection-end-line="221" selection-end-column="14" />
               <folding>
                 <element signature="e#497#3701#0#HTML" />
@@ -210,11 +206,11 @@
           </provider>
         </entry>
       </file>
-      <file pinned="false" current-in-tab="false">
+      <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/Controller/AdminController.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="495">
-              <caret line="114" column="47" selection-start-line="114" selection-start-column="47" selection-end-line="114" selection-end-column="47" />
+            <state relative-caret-position="257">
+              <caret line="112" column="20" selection-start-line="112" selection-start-column="20" selection-end-line="112" selection-end-column="20" />
               <folding>
                 <element signature="e#34#59#0#PHP" expanded="true" />
               </folding>
@@ -347,9 +343,9 @@
         <option value="$PROJECT_DIR$/templates/admin/detail_vendor.html.twig" />
         <option value="$PROJECT_DIR$/src/Form/AdminVendorType.php" />
         <option value="$PROJECT_DIR$/src/Controller/ProfileController.php" />
-        <option value="$PROJECT_DIR$/src/Controller/AdminController.php" />
         <option value="$PROJECT_DIR$/templates/admin/detail.html.twig" />
         <option value="$PROJECT_DIR$/templates/services_templates/vendor.html.twig" />
+        <option value="$PROJECT_DIR$/src/Controller/AdminController.php" />
       </list>
     </option>
   </component>
@@ -587,18 +583,18 @@
       <workItem from="1545211455808" duration="2368000" />
       <workItem from="1546282656926" duration="18913000" />
       <workItem from="1550519959800" duration="85601000" />
-      <workItem from="1551015370276" duration="49892000" />
+      <workItem from="1551015370276" duration="50566000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="294716000" />
+    <option name="totallyTimeSpent" value="295390000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="0" y="0" width="1680" height="1050" extended-state="0" />
     <editor active="true" />
     <layout>
-      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.17582418" />
+      <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.17582418" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
       <window_info id="Favorites" order="2" side_tool="true" />
       <window_info anchor="bottom" id="Message" order="0" />
@@ -611,7 +607,7 @@
       <window_info anchor="bottom" id="Docker" order="7" show_stripe_button="false" />
       <window_info anchor="bottom" id="Database Changes" order="8" />
       <window_info anchor="bottom" id="Version Control" order="9" weight="0.32987553" />
-      <window_info anchor="bottom" id="Terminal" order="10" weight="0.32987553" />
+      <window_info active="true" anchor="bottom" id="Terminal" order="10" visible="true" weight="0.32987553" />
       <window_info anchor="bottom" id="Event Log" order="11" side_tool="true" weight="0.32987553" />
       <window_info anchor="bottom" id="Database Console" order="12" weight="0.32987553" />
       <window_info anchor="right" id="Commander" internal_type="SLIDING" order="0" type="SLIDING" weight="0.4" />
@@ -952,16 +948,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/Controller/AdminController.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="495">
-          <caret line="114" column="47" selection-start-line="114" selection-start-column="47" selection-end-line="114" selection-end-column="47" />
-          <folding>
-            <element signature="e#34#59#0#PHP" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/templates/admin/vendors.html.twig">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="712">
@@ -992,7 +978,7 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/templates/services_templates/vendor.html.twig">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="623">
+        <state relative-caret-position="259">
           <caret line="221" column="14" selection-start-line="221" selection-start-column="14" selection-end-line="221" selection-end-column="14" />
           <folding>
             <element signature="e#497#3701#0#HTML" />
@@ -1002,6 +988,16 @@
             <element signature="e#8191#10588#0#HTML" />
             <element signature="e#10637#11112#0#HTML" />
             <element signature="e#11153#12329#0#Twig" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/Controller/AdminController.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="257">
+          <caret line="112" column="20" selection-start-line="112" selection-start-column="20" selection-end-line="112" selection-end-column="20" />
+          <folding>
+            <element signature="e#34#59#0#PHP" expanded="true" />
           </folding>
         </state>
       </provider>
