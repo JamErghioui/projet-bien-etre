@@ -112,12 +112,13 @@ class AdminController extends AbstractController
                     $user->setBanned(false);
                 }else{
                     $user->setBanned(true);
+                    $user->setIsVisible(false);
                 }
 
                 $manager->persist($user);
                 $manager->flush();
 
-                $this->redirectToRoute('admin');
+                return $this->redirectToRoute('admin_detail', ['type' => $type, 'id' => $id]);
             }
         }
 
