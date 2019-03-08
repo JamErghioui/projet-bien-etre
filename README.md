@@ -12,6 +12,12 @@ Réalisation d’une application où des prestataires de services peuvent s’in
 5. bin/console doctrine:migrations:migrate (cmd)
 6. bin/console doctrine:fixtures:load (cmd)
 
+# Accounts
+
+| Level         | Email           | Password  |
+| :-----------: |:---------------:| :--------:|
+| Admin         | admin@admin.com | admin |
+
 ## Fonctionnalités :
 
 > 1.1
