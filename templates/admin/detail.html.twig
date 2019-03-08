@@ -5,7 +5,7 @@
 {% block stylesheets %}
     <style>
         input[type=checkbox]{
-            display: block;
+            display: none;
         }
     </style>
 {% endblock %}
@@ -22,9 +22,9 @@
                     <ul class="breadcrumb">
                         <li><a href="{{ path('admin') }}">Dashboard</a></li>
                         {% if type == 'internaut' %}
-                        <li><a href="{{ path('admin_internauts') }}">Internauts</a></li>
+                            <li><a href="{{ path('admin_internauts') }}">Internauts</a></li>
                         {% elseif type == 'vendor' %}
-                        <li><a href="{{ path('admin_vendors') }}">Vendors</a></li>
+                            <li><a href="{{ path('admin_vendors') }}">Vendors</a></li>
                         {% endif %}
                         <li><a href="#">Detail</a></li>
                     </ul>
@@ -36,8 +36,8 @@
 
 {% block navigation %}
     <li><a href="{{ path('admin') }}"><i class="fa fa-home"></i></a></li>
-    <li class="active"><a href="{{ path('admin_internauts') }}"><i class="fa fa-users"></i></a></li>
-    <li><a href="{{ path('admin_vendors') }}"><i class="fa fa-star"></i></a></li>
+    <li {% if type == 'internaut' %}class="active"{% endif %}><a href="{{ path('admin_internauts') }}"><i class="fa fa-users"></i></a></li>
+    <li {% if type == 'vendor' %}class="active"{% endif %}><a href="{{ path('admin_vendors') }}"><i class="fa fa-star"></i></a></li>
     <li><a href="#"><i class="fa fa-cog"></i></a></li>
 {% endblock %}
 
@@ -45,6 +45,10 @@
     <div class="background-white p20 mb50">
         {% if type == 'internaut' %}
             {{ include('admin/detail_internaut.html.twig') }}
+        {% elseif type == 'vendor' %}
+            {{ include('admin/detail_vendor.html.twig') }}
+        {% else %}
+            <h1>User not found</h1>
         {% endif %}
     </div>
 {% endblock %}

@@ -3,9 +3,12 @@
 namespace App\Controller;
 
 use App\Entity\Internaut;
+use App\Entity\Vendor;
 use App\Form\AdminInternautType;
+use App\Form\AdminVendorType;
 use App\Repository\InternautRepository;
 use App\Repository\VendorRepository;
+use Doctrine\Common\Persistence\ObjectManager;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\Routing\Annotation\Route;
@@ -74,14 +77,17 @@ class AdminController extends AbstractController
      * @Route("/admin/{type}/{id}", name="admin_detail")
      * @param $type
      * @param $id
+     * @param Request $request
+     * @param ObjectManager $manager
      * @param InternautRepository $internautRepository
      * @param VendorRepository $vendorRepository
      * @return \Symfony\Component\HttpFoundation\Response
      */
-    public function userDetail($type, $id, InternautRepository $internautRepository, VendorRepository $vendorRepository)
+    public function userDetail($type, $id, Request $request, ObjectManager $manager, InternautRepository $internautRepository, VendorRepository $vendorRepository)
     {
         $user = [];
         $view = [];
+        $form = [];
 
         if($type === 'internaut'){
             $user = $internautRepository->find($id);
@@ -92,6 +98,27 @@ class AdminController extends AbstractController
         if($user instanceof Internaut){
             $form = $this->createForm(AdminInternautType::class, $user);
             $view = $form->createView();
+        }elseif($user instanceof Vendor){
+            $form = $this->createForm(AdminVendorType::class, $user);
+            $view = $form->createView();
+        }
+
+        if($form){
+            $form->handleRequest($request);
+
+            if($form->isSubmitted() && $form->isValid()){
+
+                if($user->getBanned()){
+                    $user->setBanned(false);
+                }else{
+                    $user->setBanned(true);
+                }
+
+                $manager->persist($user);
+                $manager->flush();
+
+                $this->redirectToRoute('admin');
+            }
         }
 
         return $this->render('admin/detail.html.twig', [

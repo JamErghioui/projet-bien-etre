@@ -78,7 +78,7 @@
                             <div class="card-system-content">
                                 <h2><a href="{{ path('vendor', { id : vendor.id }) }}">{{ vendor.username }}</a></h2>
                                 <h3>Registration : {{ vendor.subDate |date('d-m-Y') }}</h3>
-                                <a href="#" class="btn btn-primary btn-xs">Details</a>
+                                <a href="{{ path('admin_detail', { type : 'vendor', id: vendor.id }) }}" class="btn btn-primary btn-xs">Details</a>
                             </div>
                         </div>
                     </div><!-- /.card-system -->
