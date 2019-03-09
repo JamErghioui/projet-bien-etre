@@ -31,9 +31,9 @@
     <div class="row">
         <div class="col-sm-12">
             <div class="message">
-                <h1>Welcome in Dashboard</h1>
+                <h1>Admin</h1>
 
-                <p>Thanks for checking <a href="#">Superlist</a> backend. If you have any questions, feel free to ask your question using ThemeForest's <a href="#">item comments</a> section. Before asking don't forget to check the template <a href="#">documentation</a>.</p>
+                <p>Search for users, view their profiles and ban them if you want</p>
             </div><!-- /.message -->
         </div><!-- /.col-* -->
     </div><!-- /.row -->
@@ -77,16 +77,18 @@
 
                             <div class="card-system-content">
                                 <h2><a href="{{ path('vendor', { id : vendor.id }) }}">{{ vendor.username }}</a></h2>
-                                <h3>Registration : {{ vendor.subDate |date('d-m-Y') }}</h3>
+                                {% if vendor.banned %}
+                                    <h3>Banned</h3>
+                                {% else %}
+                                    <h3>Registration : {{ vendor.subDate |date('d-m-Y') }}</h3>
+                                {% endif %}
                                 <a href="{{ path('admin_detail', { type : 'vendor', id: vendor.id }) }}" class="btn btn-primary btn-xs">Details</a>
                             </div>
                         </div>
                     </div><!-- /.card-system -->
                     {% endfor %}
-
                 </div><!-- /.cards-system -->
             </div>
-
         </div><!-- /.col-* -->
     </div><!-- /.row -->
 {% endblock %}

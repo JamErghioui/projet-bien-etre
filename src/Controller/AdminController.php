@@ -2,10 +2,13 @@
 
 namespace App\Controller;
 
+use App\Entity\Category;
 use App\Entity\Internaut;
 use App\Entity\Vendor;
 use App\Form\AdminInternautType;
 use App\Form\AdminVendorType;
+use App\Form\CategoryType;
+use App\Repository\CategoryRepository;
 use App\Repository\InternautRepository;
 use App\Repository\VendorRepository;
 use Doctrine\Common\Persistence\ObjectManager;
@@ -66,15 +69,75 @@ class AdminController extends AbstractController
 
     /**
      * @Route("/admin/settings", name="admin_settings")
+     * @param CategoryRepository $categoryRepository
      * @return \Symfony\Component\HttpFoundation\Response
      */
-    public function settings()
+    public function settings(CategoryRepository $categoryRepository)
     {
-        return $this->render('admin/settings.html.twig');
+        $categories = $categoryRepository->findAll();
+
+        return $this->render('admin/settings.html.twig', [
+            'categories' => $categories
+        ]);
     }
 
     /**
-     * @Route("/admin/{type}/{id}", name="admin_detail")
+     * @Route("/admin/category", name="admin_category")
+     * @Route("/admin/category/{id}", name="admin_category_edit")
+     * @param Category|null $category
+     * @param Request $request
+     * @param ObjectManager $manager
+     * @return \Symfony\Component\HttpFoundation\Response
+     */
+    public function category(Category $category = null, Request $request, ObjectManager $manager)
+    {
+        if(!$category){
+            $category = new Category();
+        }
+
+        $form = $this->createForm(CategoryType::class, $category);
+
+        $form->handleRequest($request);
+
+        if($form->isSubmitted() && $form->isValid()){
+            $manager->persist($category);
+            $manager->flush();
+
+            return $this->redirectToRoute('admin_settings');
+        }
+
+        return $this->render('admin/admin_category.html.twig', [
+            'form' => $form->createView(),
+            'edit' => $category->getId() !== null
+        ]);
+    }
+
+    /**
+     * @Route("/admin/category/highlight/{id}", name="admin_highlight", methods={"POST"})
+     * @param Category $category
+     * @param CategoryRepository $categoryRepository
+     * @param ObjectManager $manager
+     * @return \Symfony\Component\HttpFoundation\RedirectResponse
+     */
+    public function highlight(Category $category, CategoryRepository $categoryRepository, ObjectManager $manager)
+    {
+        $current = $categoryRepository->findOneBy(
+            ['highlight' => true ]
+        );
+
+        $current->setHighlight(false);
+        $category->setHighlight(true);
+
+        $manager->persist($current);
+        $manager->persist($category);
+
+        $manager->flush();
+
+        return $this->redirectToRoute('admin_settings');
+    }
+
+    /**
+     * @Route("/admin/user/{type}/{id}", name="admin_detail")
      * @param $type
      * @param $id
      * @param Request $request

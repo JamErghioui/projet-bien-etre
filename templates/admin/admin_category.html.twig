@@ -1,0 +1,50 @@
+{% extends 'admin-base.html.twig' %}
+
+{% block title %}Admin - Settings{% endblock %}
+
+{% block stylesheets %}{% endblock %}
+
+{% block breadcrumb %}
+    <!-- Bread Crumb -->
+    <div class="header-statusbar">
+        <div class="header-statusbar-inner">
+            <div class="header-statusbar-left">
+                <h1>Category</h1>
+            </div>
+            <div class="header-statusbar-right">
+                <div class="hidden-xs visible-lg">
+                    <ul class="breadcrumb">
+                        <li><a href="{{ path('admin') }}">Dashboard</a></li>
+                        <li><a href="#">Category</a></li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+{% endblock %}
+
+{% block navigation %}
+    <li><a href="{{ path('admin') }}"><i class="fa fa-home"></i></a></li>
+    <li><a href="{{ path('admin_internauts') }}"><i class="fa fa-users"></i></a></li>
+    <li><a href="{{ path('admin_vendors') }}"><i class="fa fa-star"></i></a></li>
+    <li class="active" ><a href="{{ path('admin_settings') }}"><i class="fa fa-cog"></i></a></li>
+{% endblock %}
+
+{% block body %}
+    <div class="background-white p20 mb50">
+        {{ form_start(form, {'action': '#' }) }}
+        <h2 class="page-title">
+            Category
+            <button type="submit" class="btn btn-primary btn-xs pull-right">{% if edit %}Save{% else %}Create{% endif %}</button>
+        </h2>
+        <div class="row">
+            <div class="form-group col-sm-12">
+                {{ form_row(form.name,{ 'attr' : { 'class' : 'form-control' }}) }}
+            </div>
+            <div class="form-group col-sm-12">
+                {{ form_row(form.description,{ 'attr' : { 'class' : 'form-control' }}) }}
+            </div>
+        </div>
+        {{ form_end(form) }}
+    </div>
+{% endblock %}

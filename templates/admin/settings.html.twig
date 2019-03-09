@@ -28,4 +28,43 @@
     <li class="active"><a href="#"><i class="fa fa-cog"></i></a></li>
 {% endblock %}
 
-{% block body %}{% endblock %}
+{% block body %}
+    <div class="row">
+        <div class="col-sm-12">
+            <div class="message">
+                <h1>Categories</h1>
+
+                <p><a href="{{ path('admin_category') }}" class="btn btn-primary btn-xs">Create a new category</a></p>
+            </div><!-- /.message -->
+        </div><!-- /.col-* -->
+    </div><!-- /.row -->
+    <div class="row">
+        <div class="col-sm-12 col-lg-12">
+            <div class="background-white p30 mb50">
+                <div class="cards-system">
+                    {% for category in categories %}
+                        <div class="card-system">
+                            <div class="card-system-inner" {% if category.highlight %}style="background-color: #c6af5c"{% endif %}>
+                                <div class="card-system-image" data-background-image="https://res.cloudinary.com/dptzlt8ik/image/upload/v1541586831/Bien-Etre/l_int04_big.jpg">
+                                </div><!-- /.card-system-image -->
+
+                                <div class="card-system-content">
+                                    <h2><a href="#">{{ category.name }}</a></h2>
+                                    <h3>Highlight : {% if category.highlight %}On{% else %}Off{% endif %}</h3>
+                                    {% if category.highlight %}
+                                        <a href="{{ path('admin_category_edit', { id : category.id }) }}" class="btn btn-info btn-xs" {% if category.highlight %}style="background-color: #000000"{% endif %}>Edit</a>
+                                    {% else %}
+                                        <form action="{{ path('admin_highlight',{'id': category.id} )}}" method="post">
+                                            <a href="{{ path('admin_category_edit', { id : category.id }) }}" class="btn btn-info btn-xs" {% if category.highlight %}style="background-color: #000000"{% endif %}>Edit</a>
+                                            <button type="submit" class="btn btn-primary btn-xs">Highlight</button>
+                                        </form>
+                                    {% endif %}
+                                </div>
+                            </div>
+                        </div><!-- /.card-system -->
+                    {% endfor %}
+                </div><!-- /.cards-system -->
+            </div>
+        </div><!-- /.col-* -->
+    </div>
+{% endblock %}

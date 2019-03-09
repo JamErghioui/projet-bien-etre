@@ -26,7 +26,7 @@ class Category
     /**
      * @ORM\Column(type="boolean")
      */
-    private $highlight;
+    private $highlight = false;
 
     /**
      * @ORM\Column(type="string", length=255)
@@ -36,7 +36,7 @@ class Category
     /**
      * @ORM\Column(type="boolean")
      */
-    private $validity;
+    private $validity = true;
 
     /**
      * @ORM\ManyToMany(targetEntity="App\Entity\Vendor", mappedBy="category")
