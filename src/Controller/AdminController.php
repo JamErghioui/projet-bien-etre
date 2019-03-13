@@ -176,7 +176,9 @@ class AdminController extends AbstractController
 
                 }else{
                     $user->setBanned(true);
-                    $user->setIsVisible(false);
+                    if($type === 'vendor'){
+                        $user->setIsVisible(false);
+                    }
                 }
 
                 $manager->persist($user);

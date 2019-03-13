@@ -80,6 +80,24 @@ class ProfileController extends AbstractController
     }
 
     /**
+     * @Route("/profile/image", name="profile_image")
+     * @return \Symfony\Component\HttpFoundation\Response
+     */
+    public function profileImage()
+    {
+        return $this->render('profile_templates/profile_image.html.twig');
+    }
+
+    /**
+     * @Route("/profile/image/upload", name="profile_image_upload")
+     * @param Request $request
+     */
+    public function tempImage(Request $request)
+    {
+        dd($request->files->get('image'));
+    }
+
+    /**
      * @Route("/stages", name="stages")
      * @param StageRepository $stageRepository
      * @return \Symfony\Component\HttpFoundation\Response

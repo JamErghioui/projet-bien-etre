@@ -27,6 +27,8 @@ class InternautRepository extends ServiceEntityRepository
     {
         return $this->createQueryBuilder('i')
             ->orderBy('i.id', 'DESC')
+            ->andWhere('i.banned = :val')
+            ->setParameter('val', 0)
             ->setMaxResults($value)
             ->getQuery()
             ->getResult();
