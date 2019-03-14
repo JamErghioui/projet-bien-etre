@@ -9,7 +9,7 @@
                 <div class="widget">
                     <div class="user-photo">
                         <a href="#">
-                            <img src="https://res.cloudinary.com/dptzlt8ik/image/upload/v1547130102/Bien-Etre/square.jpg" alt="User Photo">
+                            <img src="{{ asset('uploads/profile/' ~ app.user.profileImage.imageFileName ) }}" alt="User Photo">
                         </a>
                     </div><!-- /.user-photo -->
                 </div><!-- /.widget -->
@@ -33,15 +33,7 @@
                     <h1>Edit Profile Picture</h1>
                 </div><!-- /.page-title -->
                 <div class="background-white p20 mb30">
-                    <form action="{{ path('profile_image_upload') }}" method="POST" enctype="multipart/form-data">
-                        <h3 class="page-title">
-                            Profile picture
-                            <button type="submit" class="btn btn-primary btn-xs pull-right">Upload</button>
-                        </h3>
-                            <div class="form-group">
-                                <input type="file" name="image">
-                            </div><!-- /.form-group -->
-                    </form>
+                    {{ include('profile_templates/image_form.html.twig') }}
                 </div>
             </div><!-- /.content -->
         </div><!-- /.col-* -->

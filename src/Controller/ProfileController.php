@@ -2,15 +2,19 @@
 
 namespace App\Controller;
 
+use App\Entity\Image;
 use App\Entity\Internaut;
 use App\Entity\Stage;
 use App\Entity\Vendor;
 use App\Form\InternautType;
+use App\Form\ProfilePictureType;
 use App\Form\StageType;
 use App\Form\VendorType;
 use App\Repository\StageRepository;
 use Doctrine\Common\Persistence\ObjectManager;
+use Gedmo\Sluggable\Util\Urlizer;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
+use Symfony\Component\HttpFoundation\File\UploadedFile;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\Routing\Annotation\Route;
 
@@ -81,20 +85,52 @@ class ProfileController extends AbstractController
 
     /**
      * @Route("/profile/image", name="profile_image")
+     * @param Request $request
+     * @param ObjectManager $manager
      * @return \Symfony\Component\HttpFoundation\Response
      */
-    public function profileImage()
+    public function profileImage(Request $request, ObjectManager $manager)
     {
-        return $this->render('profile_templates/profile_image.html.twig');
-    }
+        $user = $this->getUser();
 
-    /**
-     * @Route("/profile/image/upload", name="profile_image_upload")
-     * @param Request $request
-     */
-    public function tempImage(Request $request)
-    {
-        dd($request->files->get('image'));
+        $form = $this->createForm(ProfilePictureType::class, $user);
+
+        $form->handleRequest($request);
+
+        if($form->isSubmitted() && $form->isValid()){
+
+            /** @var UploadedFile $uploadedFile */
+            $uploadedFile = $form['image']->getData();
+            $destination = $this->getParameter('kernel.project_dir').'/public/uploads/profile';
+
+            $originalFilename = pathinfo($uploadedFile->getClientOriginalName(), PATHINFO_FILENAME);
+            $newFilename = Urlizer::urlize($originalFilename).'-'.uniqid().'.'.$uploadedFile->guessExtension();
+
+            $uploadedFile->move(
+                $destination,
+                $newFilename
+            );
+
+            if($user->getProfileImage()){
+                $profileImage = $user->getProfileImage();
+            }else{
+                $profileImage = new Image();
+            }
+
+            $profileImage->setImageFilename($newFilename);
+            $manager->persist($profileImage);
+
+            $user->setProfileImage($profileImage);
+            $manager->persist($user);
+
+            $manager->flush();
+
+            return $this->redirectToRoute('profile');
+        }
+
+        return $this->render('profile_templates/profile_image.html.twig', [
+            'form' => $form->createView()
+        ]);
     }
 
     /**

@@ -65,6 +65,11 @@ class User implements UserInterface
      */
     protected $confirmToken;
 
+    /**
+     * @ORM\OneToOne(targetEntity="App\Entity\Image", cascade={"persist", "remove"})
+     */
+    protected $profileImage;
+
     public function getId(): ?int
     {
         return $this->id;
@@ -167,6 +172,18 @@ class User implements UserInterface
     public function setConfirmToken(?string $confirmToken): self
     {
         $this->confirmToken = $confirmToken;
+
+        return $this;
+    }
+
+    public function getProfileImage(): ?Image
+    {
+        return $this->profileImage;
+    }
+
+    public function setProfileImage(?Image $profileImage): self
+    {
+        $this->profileImage = $profileImage;
 
         return $this;
     }

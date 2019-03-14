@@ -69,7 +69,11 @@
                 {% for comment in vendor.comments %}
                 <div class="review">
                     <div class="review-image">
-                        <img src="https://res.cloudinary.com/dptzlt8ik/image/upload/v1547130102/Bien-Etre/square.jpg" alt="">
+                        {% if comment.internaut.profileImage %}
+                            <img src="{{ asset('uploads/profile/' ~ comment.internaut.profileImage.imageFileName ) }}" alt="">
+                        {% else %}
+                            <img src="https://res.cloudinary.com/dptzlt8ik/image/upload/v1547130102/Bien-Etre/square.jpg" alt="">
+                        {% endif %}
                     </div><!-- /.review-image -->
                     <div class="review-inner">
                         <div class="review-title">
