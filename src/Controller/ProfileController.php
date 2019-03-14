@@ -91,6 +91,7 @@ class ProfileController extends AbstractController
      */
     public function profileImage(Request $request, ObjectManager $manager)
     {
+
         $user = $this->getUser();
 
         $form = $this->createForm(ProfilePictureType::class, $user);
@@ -105,6 +106,11 @@ class ProfileController extends AbstractController
 
             $originalFilename = pathinfo($uploadedFile->getClientOriginalName(), PATHINFO_FILENAME);
             $newFilename = Urlizer::urlize($originalFilename).'-'.uniqid().'.'.$uploadedFile->guessExtension();
+
+            \Cloudinary\Uploader::upload($uploadedFile, [
+                'resource_type' => 'image',
+                'public_id' => 'Pictures/Profile/$newFilename'
+            ]);
 
             $uploadedFile->move(
                 $destination,
