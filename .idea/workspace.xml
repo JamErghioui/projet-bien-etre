@@ -2,34 +2,10 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="cb0cee65-b1b9-4d87-a2cb-71ded3b1e8b1" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/src/Service/Uploader.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/config/services.yaml" beforeDir="false" afterPath="$PROJECT_DIR$/config/services.yaml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Controller/AdminController.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Controller/AdminController.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/composer.json" beforeDir="false" afterPath="$PROJECT_DIR$/composer.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/composer.lock" beforeDir="false" afterPath="$PROJECT_DIR$/composer.lock" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/Controller/ProfileController.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Controller/ProfileController.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Controller/UserController.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Controller/UserController.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/DataFixtures/VendorFixtures.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/DataFixtures/VendorFixtures.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Entity/Category.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Entity/Category.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Entity/Image.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Entity/Image.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Entity/User.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Entity/User.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Entity/Vendor.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Entity/Vendor.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Form/CategoryType.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Form/CategoryType.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Form/ProfilePictureType.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Form/ProfilePictureType.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/templates/admin/admin.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/templates/admin/admin.html.twig" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/templates/admin/settings.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/templates/admin/settings.html.twig" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/templates/emb/banner.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/templates/emb/banner.html.twig" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/templates/inc/vendor-list-cards-home.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/templates/inc/vendor-list-cards-home.html.twig" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/templates/inc/vendor-list-cards-search.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/templates/inc/vendor-list-cards-search.html.twig" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/templates/profile_templates/profile.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/templates/profile_templates/profile.html.twig" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/templates/profile_templates/profile_image.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/templates/profile_templates/profile_image.html.twig" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/templates/profile_templates/stages.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/templates/profile_templates/stages.html.twig" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/templates/profile_templates/stages_create.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/templates/profile_templates/stages_create.html.twig" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/templates/profile_templates/stages_edit.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/templates/profile_templates/stages_edit.html.twig" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/templates/repository_templates/last_vendors.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/templates/repository_templates/last_vendors.html.twig" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/templates/search_templates/search-banner.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/templates/search_templates/search-banner.html.twig" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/templates/services_templates/category.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/templates/services_templates/category.html.twig" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/templates/services_templates/index.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/templates/services_templates/index.html.twig" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/templates/services_templates/vendor.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/templates/services_templates/vendor.html.twig" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -154,24 +130,24 @@
           <entry key="foo" value="2" />
           <entry key="gif" value="3" />
           <entry key="gitignore" value="2" />
-          <entry key="jpeg" value="1" />
+          <entry key="jpeg" value="2" />
           <entry key="jpg" value="1" />
           <entry key="md" value="2" />
-          <entry key="php" value="137" />
+          <entry key="php" value="140" />
           <entry key="twig" value="144" />
           <entry key="txt" value="1" />
-          <entry key="yaml" value="9" />
+          <entry key="yaml" value="10" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.types.open">
         <counts>
           <entry key=".env file" value="6" />
-          <entry key="Image" value="5" />
+          <entry key="Image" value="6" />
           <entry key="Markdown" value="2" />
-          <entry key="PHP" value="137" />
+          <entry key="PHP" value="140" />
           <entry key="PLAIN_TEXT" value="5" />
           <entry key="Twig" value="144" />
-          <entry key="YAML" value="9" />
+          <entry key="YAML" value="10" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.extensions.edit">
@@ -179,7 +155,7 @@
           <entry key="env" value="27" />
           <entry key="gitignore" value="18" />
           <entry key="md" value="141" />
-          <entry key="php" value="11953" />
+          <entry key="php" value="12159" />
           <entry key="twig" value="7113" />
           <entry key="yaml" value="203" />
         </counts>
@@ -189,7 +165,7 @@
           <entry key=".env file" value="27" />
           <entry key="HTML" value="21" />
           <entry key="Markdown" value="141" />
-          <entry key="PHP" value="11932" />
+          <entry key="PHP" value="12138" />
           <entry key="PLAIN_TEXT" value="18" />
           <entry key="Twig" value="7113" />
           <entry key="YAML" value="203" />
@@ -205,9 +181,49 @@
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
       <file pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/src/Entity/Stage.php">
+        <entry file="file://$PROJECT_DIR$/src/Controller/ProfileController.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="-343" />
+            <state relative-caret-position="-92">
+              <caret line="121" column="48" selection-start-line="121" selection-start-column="48" selection-end-line="121" selection-end-column="48" />
+              <folding>
+                <element signature="e#34#55#0#PHP" expanded="true" />
+                <element signature="e#838#2774#0#PHP" />
+                <element signature="e#4347#4662#0#PHP" />
+                <element signature="e#4864#5512#0#PHP" />
+                <element signature="e#5740#6259#0#PHP" />
+                <element signature="e#6469#6657#0#PHP" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/Entity/Image.php">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="2">
+              <caret line="41" column="5" selection-start-line="41" selection-start-column="5" selection-end-line="41" selection-end-column="5" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/Service/Uploader.php">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="575">
+              <caret line="36" column="5" selection-start-line="36" selection-start-column="5" selection-end-line="36" selection-end-column="5" />
+              <folding>
+                <element signature="e#112#145#0#PHP" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/config/services.yaml">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="437">
+              <caret line="19" column="27" selection-start-line="19" selection-start-column="27" selection-end-line="19" selection-end-column="47" />
+            </state>
           </provider>
         </entry>
       </file>
@@ -272,13 +288,13 @@
         <option value="$PROJECT_DIR$/templates/profile_templates/stages.html.twig" />
         <option value="$PROJECT_DIR$/templates/services_templates/vendor.html.twig" />
         <option value="$PROJECT_DIR$/templates/profile_templates/stages_edit.html.twig" />
-        <option value="$PROJECT_DIR$/src/Controller/ProfileController.php" />
         <option value="$PROJECT_DIR$/src/DataFixtures/VendorFixtures.php" />
         <option value="$PROJECT_DIR$/templates/inc/vendor-list-cards-home.html.twig" />
         <option value="$PROJECT_DIR$/templates/search_templates/search-banner.html.twig" />
         <option value="$PROJECT_DIR$/templates/inc/vendor-list-cards-search.html.twig" />
         <option value="$PROJECT_DIR$/templates/admin/admin.html.twig" />
         <option value="$PROJECT_DIR$/templates/admin/settings.html.twig" />
+        <option value="$PROJECT_DIR$/src/Controller/ProfileController.php" />
       </list>
     </option>
   </component>
@@ -422,13 +438,48 @@
             <path>
               <item name="projet-bien-etre" type="b2602c69:ProjectViewProjectNode" />
               <item name="projet-bien-etre" type="462c0819:PsiDirectoryNode" />
+              <item name="config" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="projet-bien-etre" type="b2602c69:ProjectViewProjectNode" />
+              <item name="projet-bien-etre" type="462c0819:PsiDirectoryNode" />
+              <item name="public" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="projet-bien-etre" type="b2602c69:ProjectViewProjectNode" />
+              <item name="projet-bien-etre" type="462c0819:PsiDirectoryNode" />
+              <item name="public" type="462c0819:PsiDirectoryNode" />
+              <item name="uploads" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="projet-bien-etre" type="b2602c69:ProjectViewProjectNode" />
+              <item name="projet-bien-etre" type="462c0819:PsiDirectoryNode" />
+              <item name="public" type="462c0819:PsiDirectoryNode" />
+              <item name="uploads" type="462c0819:PsiDirectoryNode" />
+              <item name="profile" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="projet-bien-etre" type="b2602c69:ProjectViewProjectNode" />
+              <item name="projet-bien-etre" type="462c0819:PsiDirectoryNode" />
               <item name="src" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
               <item name="projet-bien-etre" type="b2602c69:ProjectViewProjectNode" />
               <item name="projet-bien-etre" type="462c0819:PsiDirectoryNode" />
               <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="Controller" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="projet-bien-etre" type="b2602c69:ProjectViewProjectNode" />
+              <item name="projet-bien-etre" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
               <item name="Entity" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="projet-bien-etre" type="b2602c69:ProjectViewProjectNode" />
+              <item name="projet-bien-etre" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="Service" type="462c0819:PsiDirectoryNode" />
             </path>
           </expand>
           <select />
@@ -493,18 +544,17 @@
       <workItem from="1546282656926" duration="18913000" />
       <workItem from="1550519959800" duration="85601000" />
       <workItem from="1551015370276" duration="71829000" />
-      <workItem from="1552351154052" duration="51109000" />
+      <workItem from="1552351154052" duration="53924000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="367762000" />
+    <option name="totallyTimeSpent" value="370577000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="0" y="0" width="1680" height="1050" extended-state="0" />
-    <editor active="true" />
     <layout>
-      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.17765568" />
+      <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.17765568" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
       <window_info id="Favorites" order="2" side_tool="true" />
       <window_info anchor="bottom" id="Message" order="0" />
@@ -517,7 +567,7 @@
       <window_info anchor="bottom" id="Docker" order="7" show_stripe_button="false" />
       <window_info anchor="bottom" id="Database Changes" order="8" />
       <window_info anchor="bottom" id="Version Control" order="9" weight="0.32987553" />
-      <window_info anchor="bottom" id="Terminal" order="10" weight="0.32987553" />
+      <window_info active="true" anchor="bottom" id="Terminal" order="10" visible="true" weight="0.32987553" />
       <window_info anchor="bottom" id="Event Log" order="11" side_tool="true" weight="0.32987553" />
       <window_info anchor="bottom" id="Database Console" order="12" weight="0.32987553" />
       <window_info anchor="right" id="Commander" internal_type="SLIDING" order="0" type="SLIDING" weight="0.4" />
@@ -533,13 +583,6 @@
     <option name="myLimit" value="2678400000" />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/public/uploads/.gitignore">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="69">
-          <caret line="3" column="11" selection-start-line="3" selection-start-column="11" selection-end-line="3" selection-end-column="11" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/public/uploads/foo">
       <provider selected="true" editor-type-id="text-editor" />
     </entry>
@@ -629,13 +672,6 @@
     <entry file="file://$PROJECT_DIR$/vendor/cloudinary/cloudinary_php/src/Uploader.php">
       <provider selected="true" editor-type-id="text-editor" />
     </entry>
-    <entry file="file://$PROJECT_DIR$/config/services.yaml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="621">
-          <caret line="27" column="79" selection-start-line="27" selection-start-column="79" selection-end-line="27" selection-end-column="79" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/templates/profile_templates/image_form.html.twig">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="69">
@@ -659,13 +695,6 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/Entity/Internaut.php">
       <provider selected="true" editor-type-id="text-editor" />
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/Entity/Image.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="308">
-          <caret line="41" column="5" selection-start-line="41" selection-start-column="5" selection-end-line="41" selection-end-column="5" />
-        </state>
-      </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/Controller/UserController.php">
       <provider selected="true" editor-type-id="text-editor">
@@ -698,16 +727,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="460">
           <caret line="27" column="14" selection-start-line="27" selection-start-column="14" selection-end-line="27" selection-end-column="14" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/Service/Uploader.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="486">
-          <caret line="36" column="5" selection-start-line="36" selection-start-column="5" selection-end-line="36" selection-end-column="5" />
-          <folding>
-            <element signature="e#112#145#0#PHP" expanded="true" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -788,13 +807,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/Controller/ProfileController.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="614">
-          <caret line="196" column="49" selection-start-line="196" selection-start-column="49" selection-end-line="196" selection-end-column="49" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/templates/profile_templates/profile_image.html.twig">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="259">
@@ -862,8 +874,48 @@
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/Entity/Stage.php">
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/config/services.yaml">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-343" />
+        <state relative-caret-position="437">
+          <caret line="19" column="27" selection-start-line="19" selection-start-column="27" selection-end-line="19" selection-end-column="47" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/public/uploads/profile/54279056-2175126745899946-1003792981594996736-n-5c8d53ceaa8cf.jpeg">
+      <provider selected="true" editor-type-id="images" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/Entity/Image.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="2">
+          <caret line="41" column="5" selection-start-line="41" selection-start-column="5" selection-end-line="41" selection-end-column="5" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/Service/Uploader.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="575">
+          <caret line="36" column="5" selection-start-line="36" selection-start-column="5" selection-end-line="36" selection-end-column="5" />
+          <folding>
+            <element signature="e#112#145#0#PHP" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/Controller/ProfileController.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-92">
+          <caret line="121" column="48" selection-start-line="121" selection-start-column="48" selection-end-line="121" selection-end-column="48" />
+          <folding>
+            <element signature="e#34#55#0#PHP" expanded="true" />
+            <element signature="e#838#2774#0#PHP" />
+            <element signature="e#4347#4662#0#PHP" />
+            <element signature="e#4864#5512#0#PHP" />
+            <element signature="e#5740#6259#0#PHP" />
+            <element signature="e#6469#6657#0#PHP" />
+          </folding>
+        </state>
       </provider>
     </entry>
   </component>

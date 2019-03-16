@@ -13,8 +13,8 @@ use App\Form\VendorType;
 use App\Repository\StageRepository;
 use App\Service\Uploader;
 use Doctrine\Common\Persistence\ObjectManager;
-use Gedmo\Sluggable\Util\Urlizer;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
+use Symfony\Component\Filesystem\Filesystem;
 use Symfony\Component\HttpFoundation\File\UploadedFile;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\Routing\Annotation\Route;
@@ -93,9 +93,10 @@ class ProfileController extends AbstractController
      * @param Request $request
      * @param ObjectManager $manager
      * @param Uploader $uploader
+     * @param Filesystem $filesystem
      * @return \Symfony\Component\HttpFoundation\Response
      */
-    public function profileImage(Request $request, ObjectManager $manager, Uploader $uploader)
+    public function profileImage(Request $request, ObjectManager $manager, Uploader $uploader, Filesystem $filesystem)
     {
 
         $user = $this->getUser();
@@ -111,11 +112,20 @@ class ProfileController extends AbstractController
             if($uploadedFile){
                 $newFilename = $uploader->uploadProfileImage($uploadedFile);
 
-                if($user->getProfileImage()){ $profileImage = $user->getProfileImage(); }else{ $profileImage = new Image(); }
+                if($user->getProfileImage()){
+                    $profileImage = $user->getProfileImage();
+                    $image = $profileImage->getImagePath();
+                    if($filesystem->exists($image)){
+                        unlink($image);
+                    }
+                }else{
+                    $profileImage = new Image();
+                }
 
                 $profileImage->setImageFilename($newFilename)
                             ->setImagePath('uploads/profile/'.$newFilename);
                 $manager->persist($profileImage);
+
 
                 $user->setProfileImage($profileImage);
             }
