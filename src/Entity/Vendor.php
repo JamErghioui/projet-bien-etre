@@ -15,37 +15,37 @@ class Vendor extends User
 
     /**
      * @ORM\Column(type="string", length=255, nullable=true)
-     * @Assert\NotBlank()
+     * @Assert\NotBlank(groups={"vendor_profile"})
      */
     private $contact_mail;
 
     /**
      * @ORM\Column(type="string", length=255, nullable=true)
-     * @Assert\NotBlank()
+     * @Assert\NotBlank(groups={"vendor_profile"})
      */
     private $phone;
 
     /**
      * @ORM\Column(type="string", length=255, nullable=true)
-     * @Assert\NotBlank()
+     * @Assert\NotBlank(groups={"vendor_profile"})
      */
     private $vat;
 
     /**
      * @ORM\Column(type="string", length=255, nullable=true)
-     * @Assert\NotBlank()
+     * @Assert\NotBlank(groups={"vendor_profile"})
      */
     private $website;
 
     /**
      * @ORM\Column(type="string", length=255, nullable=true)
-     * @Assert\NotBlank()
+     * @Assert\NotBlank(groups={"vendor_profile"})
      */
     private $door_number;
 
     /**
      * @ORM\Column(type="string", length=255, nullable=true)
-     * @Assert\NotBlank()
+     * @Assert\NotBlank(groups={"vendor_profile"})
      */
     private $street;
 
@@ -61,19 +61,19 @@ class Vendor extends User
 
     /**
      * @ORM\ManyToOne(targetEntity="App\Entity\District")
-     * @Assert\NotBlank()
+     * @Assert\NotBlank(groups={"vendor_profile"})
      */
     private $district;
 
     /**
      * @ORM\ManyToOne(targetEntity="App\Entity\ZipCode")
-     * @Assert\NotBlank()
+     * @Assert\NotBlank(groups={"vendor_profile"})
      */
     private $zipcode;
 
     /**
      * @ORM\ManyToOne(targetEntity="App\Entity\Locality")
-     * @Assert\NotBlank()
+     * @Assert\NotBlank(groups={"vendor_profile"})
      */
     private $locality;
 

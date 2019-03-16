@@ -9,7 +9,11 @@
                 <div class="widget">
                     <div class="user-photo">
                         <a href="{{ path('profile_image') }}">
-                            <img src="{{ asset('uploads/profile/' ~ app.user.profileImage.imageFileName ) }}" alt="User Photo">
+                            {% if app.user.profileImage %}
+                                <img src="{{ asset( app.user.profileImage.imagePath ) }}" alt="User Photo">
+                            {% else %}
+                                <img src="{{ asset('assets/img/default/profile.png') }}" alt="">
+                            {% endif %}
                             <span class="user-photo-action">Edit your profile picture</span>
                         </a>
                     </div><!-- /.user-photo -->

@@ -43,6 +43,11 @@ class Category
      */
     private $vendors;
 
+    /**
+     * @ORM\OneToOne(targetEntity="App\Entity\Image", cascade={"persist", "remove"})
+     */
+    private $bannerImage;
+
     public function __construct()
     {
         $this->vendors = new ArrayCollection();
@@ -125,6 +130,18 @@ class Category
             $this->vendors->removeElement($vendor);
             $vendor->removeCategory($this);
         }
+
+        return $this;
+    }
+
+    public function getBannerImage(): ?Image
+    {
+        return $this->bannerImage;
+    }
+
+    public function setBannerImage(?Image $bannerImage): self
+    {
+        $this->bannerImage = $bannerImage;
 
         return $this;
     }

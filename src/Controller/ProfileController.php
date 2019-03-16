@@ -11,6 +11,7 @@ use App\Form\ProfilePictureType;
 use App\Form\StageType;
 use App\Form\VendorType;
 use App\Repository\StageRepository;
+use App\Service\Uploader;
 use Doctrine\Common\Persistence\ObjectManager;
 use Gedmo\Sluggable\Util\Urlizer;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
@@ -33,7 +34,9 @@ class ProfileController extends AbstractController
         if(get_class($user) == Internaut::class)
         {
             $class = 'Internaut';
-            $form = $this->createForm(InternautType::class, $user);
+            $form = $this->createForm(InternautType::class, $user, [
+                'validation_groups' => ['internaut_profile']
+            ]);
             $form->handleRequest($request);
 
             if($form->isSubmitted() && $form->isValid())
@@ -47,7 +50,9 @@ class ProfileController extends AbstractController
         elseif (get_class($user) == Vendor::class)
         {
             $class = 'Vendor';
-            $form = $this->createForm(VendorType::class, $user);
+            $form = $this->createForm(VendorType::class, $user, [
+                'validation_groups' => ['vendor_profile']
+            ]);
             $form->handleRequest($request);
 
             if($form->isSubmitted() && $form->isValid())
@@ -87,48 +92,35 @@ class ProfileController extends AbstractController
      * @Route("/profile/image", name="profile_image")
      * @param Request $request
      * @param ObjectManager $manager
+     * @param Uploader $uploader
      * @return \Symfony\Component\HttpFoundation\Response
      */
-    public function profileImage(Request $request, ObjectManager $manager)
+    public function profileImage(Request $request, ObjectManager $manager, Uploader $uploader)
     {
 
         $user = $this->getUser();
 
         $form = $this->createForm(ProfilePictureType::class, $user);
-
         $form->handleRequest($request);
 
         if($form->isSubmitted() && $form->isValid()){
 
             /** @var UploadedFile $uploadedFile */
             $uploadedFile = $form['image']->getData();
-            $destination = $this->getParameter('kernel.project_dir').'/public/uploads/profile';
 
-            $originalFilename = pathinfo($uploadedFile->getClientOriginalName(), PATHINFO_FILENAME);
-            $newFilename = Urlizer::urlize($originalFilename).'-'.uniqid().'.'.$uploadedFile->guessExtension();
+            if($uploadedFile){
+                $newFilename = $uploader->uploadProfileImage($uploadedFile);
 
-            \Cloudinary\Uploader::upload($uploadedFile, [
-                'resource_type' => 'image',
-                'public_id' => 'Pictures/Profile/$newFilename'
-            ]);
+                if($user->getProfileImage()){ $profileImage = $user->getProfileImage(); }else{ $profileImage = new Image(); }
 
-            $uploadedFile->move(
-                $destination,
-                $newFilename
-            );
+                $profileImage->setImageFilename($newFilename)
+                            ->setImagePath('uploads/profile/'.$newFilename);
+                $manager->persist($profileImage);
 
-            if($user->getProfileImage()){
-                $profileImage = $user->getProfileImage();
-            }else{
-                $profileImage = new Image();
+                $user->setProfileImage($profileImage);
             }
 
-            $profileImage->setImageFilename($newFilename);
-            $manager->persist($profileImage);
-
-            $user->setProfileImage($profileImage);
             $manager->persist($user);
-
             $manager->flush();
 
             return $this->redirectToRoute('profile');
@@ -201,6 +193,8 @@ class ProfileController extends AbstractController
         if($form->isSubmitted() && $form->isValid()){
             $manager->persist($stage);
             $manager->flush();
+
+            return $this->redirectToRoute('stages');
         }
 
         return $this->render('profile_templates/stages_edit.html.twig', [

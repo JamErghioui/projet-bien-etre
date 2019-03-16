@@ -3,6 +3,7 @@
 namespace App\Controller;
 
 use App\Entity\Category;
+use App\Entity\Image;
 use App\Entity\Internaut;
 use App\Entity\Vendor;
 use App\Form\AdminInternautType;
@@ -11,8 +12,10 @@ use App\Form\CategoryType;
 use App\Repository\CategoryRepository;
 use App\Repository\InternautRepository;
 use App\Repository\VendorRepository;
+use App\Service\Uploader;
 use Doctrine\Common\Persistence\ObjectManager;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
+use Symfony\Component\HttpFoundation\File\UploadedFile;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\Routing\Annotation\Route;
 
@@ -87,9 +90,10 @@ class AdminController extends AbstractController
      * @param Category|null $category
      * @param Request $request
      * @param ObjectManager $manager
+     * @param Uploader $uploader
      * @return \Symfony\Component\HttpFoundation\Response
      */
-    public function category(Category $category = null, Request $request, ObjectManager $manager)
+    public function category(Category $category = null, Request $request, ObjectManager $manager, Uploader $uploader)
     {
         if(!$category){
             $category = new Category();
@@ -100,6 +104,22 @@ class AdminController extends AbstractController
         $form->handleRequest($request);
 
         if($form->isSubmitted() && $form->isValid()){
+
+            /** @var UploadedFile $uploadedFile */
+            $uploadedFile = $form['image']->getData();
+
+            if($uploadedFile){
+                $newFilename = $uploader->uploadBannerImage($uploadedFile);
+
+                if($category->getBannerImage()){ $bannerImage = $category->getBannerImage(); }else{ $bannerImage = new Image(); }
+
+                $bannerImage->setImageFilename($newFilename)
+                    ->setImagePath('uploads/banner/'.$newFilename);
+                $manager->persist($bannerImage);
+
+                $category->setBannerImage($bannerImage);
+            }
+
             $manager->persist($category);
             $manager->flush();
 

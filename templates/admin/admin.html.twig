@@ -47,7 +47,7 @@
                     <tbody>
                         {% for internaut in internauts %}
                         <tr>
-                            <td><a class="user" href="#"><img src="assets/img/tmp/agent-1.jpg" alt=""></a></td>
+                            <td><a class="user" href="#"><img src="{% if internaut.profileImage %}{{ asset( internaut.profileImage.imagePath ) }}{% else %}{{ asset('assets/img/default/profile.png') }}{% endif %}" alt="User Photo"></a></td>
                             <td class="hidden-xs visible-sm visible-md visible-lg">
                                 <h2><a href="#">{{ internaut.username }}</a></h2>
                                 <h3>Registration : {{ internaut.subDate |date('d-m-Y') }}</h3>
@@ -71,7 +71,7 @@
                     {% for vendor in vendors %}
                     <div class="card-system">
                         <div class="card-system-inner">
-                            <div class="card-system-image" data-background-image="assets/img/tmp/product-2.jpg">
+                            <div class="card-system-image" data-background-image="{% if vendor.profileImage %}{{ asset( vendor.profileImage.imagePath ) }}{% else %}{{ asset('assets/img/default/profile.png') }}{% endif %}">
                                 <a href="listing-detail.html"></a>
                             </div><!-- /.card-system-image -->
 

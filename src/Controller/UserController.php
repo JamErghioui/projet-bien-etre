@@ -26,7 +26,9 @@ class UserController extends AbstractController
     {
         $user = new User();
 
-        $form = $this->createForm(UserType::class, $user);
+        $form = $this->createForm(UserType::class, $user, [
+            'validation_groups' => ['registration']
+        ]);
 
         $form->handleRequest($request);
 
@@ -52,7 +54,7 @@ class UserController extends AbstractController
             // Mail Builder
             $mailer->sendConfirmation($user,$type);
 
-            return $this->redirectToRoute('user_login');
+            //return $this->redirectToRoute('user_login');
         }
 
         return $this->render('user_templates/registration.html.twig',[

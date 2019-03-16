@@ -4,7 +4,7 @@
         <div class="row">
             {% for vendor in vendors if vendor.isVisible %}
                 <div class="col-sm-6 col-lg-4">
-                    <div class="card-simple" data-background-image="https://res.cloudinary.com/dptzlt8ik/image/upload/v1547065039/Bien-Etre/by_housevisit_2560.jpg">
+                    <div class="card-simple" {% if vendor.profileImage %} data-background-image="{{ asset(vendor.profileImage.imagePath) }}" {% endif %} style="background-image: linear-gradient(to left top, #011627, #031829, #051b2c, #071d2e, #091f31)">
                         <div class="card-simple-background">
 
                             <div class="card-simple-content">

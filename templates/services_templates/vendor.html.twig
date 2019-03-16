@@ -70,9 +70,9 @@
                 <div class="review">
                     <div class="review-image">
                         {% if comment.internaut.profileImage %}
-                            <img src="{{ asset('uploads/profile/' ~ comment.internaut.profileImage.imageFileName ) }}" alt="">
+                            <img src="{{ asset( comment.internaut.profileImage.imagePath ) }}" alt="">
                         {% else %}
-                            <img src="https://res.cloudinary.com/dptzlt8ik/image/upload/v1547130102/Bien-Etre/square.jpg" alt="">
+                            <img src="{{ asset('assets/img/default/profile.png') }}" alt="">
                         {% endif %}
                     </div><!-- /.review-image -->
                     <div class="review-inner">
@@ -155,7 +155,7 @@
                 <div class="background-white p20">
                     <div class="detail-vcard">
                         <div class="detail-logo">
-                            <img src="https://res.cloudinary.com/dptzlt8ik/image/upload/v1547146026/Bien-Etre/large.png">
+                            <img src="{% if vendor.profileImage %}{{ asset( vendor.profileImage.imagePath ) }}{% else %}{{ asset('assets/img/default/profile.png') }}{% endif %}">
                         </div><!-- /.detail-logo -->
 
                         <div class="detail-contact">
@@ -209,7 +209,7 @@
                         <div class="card-small">
                             <div class="card-small-image">
                                 <a href="listing-detail.html">
-                                    <img src="https://res.cloudinary.com/dptzlt8ik/image/upload/v1547065039/Bien-Etre/by_housevisit_2560.jpg" alt="Image">
+                                    <img src="{{ asset('assets/img/default/stage.png') }}" alt="Image">
                                 </a>
                             </div><!-- /.card-small-image -->
 

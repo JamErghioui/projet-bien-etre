@@ -9,8 +9,11 @@
                 <div class="widget">
                     <div class="user-photo">
                         <a href="#">
-                            <img src="https://res.cloudinary.com/dptzlt8ik/image/upload/v1547130102/Bien-Etre/square.jpg" alt="User Photo">
-                            <span class="user-photo-action">Click here to reupload</span>
+                            {% if app.user.profileImage %}
+                                <img src="{{ asset( app.user.profileImage.imagePath ) }}" alt="User Photo">
+                            {% else %}
+                                <img src="{{ asset('assets/img/default/profile.png') }}" alt="">
+                            {% endif %}
                         </a>
                     </div><!-- /.user-photo -->
                 </div><!-- /.widget -->

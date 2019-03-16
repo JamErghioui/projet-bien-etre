@@ -93,7 +93,7 @@ class VendorFixtures extends Fixture
 
                 $manager->persist($district);
 
-                for($l=1 ; $l<=10 ; $l++) {
+                for($l=1 ; $l<=4 ; $l++) {
 
                     $rand= rand(1,9);
 

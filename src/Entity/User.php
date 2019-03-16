@@ -30,7 +30,7 @@ class User implements UserInterface
 
     /**
      * @ORM\Column(type="string", length=255)
-     * @Assert\Email
+     * @Assert\Email(groups={"registration"})
      */
     protected $email;
 
@@ -46,17 +46,18 @@ class User implements UserInterface
 
     /**
      * @ORM\Column(type="string", length=255)
-     * @Assert\Length(min="7", minMessage="Minimum 7 caractères")
+     * @Assert\Length(min="7", minMessage="Minimum 7 caractères", groups={"registration"})
      */
     protected $password;
 
     /**
-     * @Assert\EqualTo(propertyPath="password", message="Password et Confirmation ne sont pas identiques")
+     * @Assert\EqualTo(propertyPath="password", message="Password et Confirmation ne sont pas identiques", groups={"registration"})
      */
     public $confirm_password;
 
     /**
      * @ORM\Column(type="string", length=255)
+     * @Assert\Length(min="8", minMessage="Minimum 7 caractères", groups={"registration", "vendor_profile", "internaut_profile"})
      */
     protected $username;
 
@@ -180,6 +181,8 @@ class User implements UserInterface
     {
         return $this->profileImage;
     }
+
+
 
     public function setProfileImage(?Image $profileImage): self
     {

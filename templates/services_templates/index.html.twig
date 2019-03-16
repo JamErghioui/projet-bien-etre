@@ -4,6 +4,7 @@
 
 {% block banner %}
     {% embed 'emb/banner.html.twig' %}
+        {% block background %}{% if category.bannerImage %}url({{ asset(category.bannerImage.imagePath) }}){% else %}linear-gradient(to left top, #011627, #031829, #051b2c, #071d2e, #091f31);{% endif %}{% endblock %}
         {% block bannertype %}Highlight{% endblock %}
         {% block bannertitle %}{{ category.Name }}{% endblock %}
         {% block bannerdescription %}{{ category.Description|raw }}{% endblock %}

@@ -8,7 +8,7 @@
             <div class="card-small">
                 <div class="card-small-image">
                     <a href="{{ path('vendor', { id : vendor.id }) }}">
-                        <img src="https://res.cloudinary.com/dptzlt8ik/image/upload/v1547065039/Bien-Etre/by_housevisit_2560.jpg" alt="Image">
+                        <img src="{% if vendor.profileImage %}{{ asset( vendor.profileImage.imagePath ) }}{% else %}{{ asset('assets/img/default/profile.png') }}{% endif %}">
                     </a>
                 </div><!-- /.card-small-image -->
 

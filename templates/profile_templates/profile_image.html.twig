@@ -9,7 +9,11 @@
                 <div class="widget">
                     <div class="user-photo">
                         <a href="#">
-                            <img src="{{ asset('uploads/profile/' ~ app.user.profileImage.imageFileName ) }}" alt="User Photo">
+                            {% if app.user.profileImage %}
+                                <img src="{{ asset('uploads/profile/' ~ app.user.profileImage.imageFileName ) }}" alt="User Photo">
+                            {% else %}
+                                <img src="{{ asset('assets/img/default/profile.png') }}" alt="">
+                            {% endif %}
                         </a>
                     </div><!-- /.user-photo -->
                 </div><!-- /.widget -->

@@ -7,6 +7,7 @@ use Symfony\Component\Form\AbstractType;
 use Symfony\Component\Form\Extension\Core\Type\FileType;
 use Symfony\Component\Form\FormBuilderInterface;
 use Symfony\Component\OptionsResolver\OptionsResolver;
+use Symfony\Component\Validator\Constraints\Image;
 
 class ProfilePictureType extends AbstractType
 {
@@ -14,7 +15,12 @@ class ProfilePictureType extends AbstractType
     {
         $builder
             ->add('image', FileType::class,[
-                'mapped' => false
+                'mapped' => false,
+                'constraints' => [
+                    new Image([
+                        'maxSize' => '4M'
+                    ])
+                ]
             ])
         ;
     }

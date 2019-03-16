@@ -45,7 +45,7 @@
                     {% for category in categories %}
                         <div class="card-system">
                             <div class="card-system-inner" {% if category.highlight %}style="background-color: #c6af5c"{% endif %}>
-                                <div class="card-system-image" data-background-image="https://res.cloudinary.com/dptzlt8ik/image/upload/v1541586831/Bien-Etre/l_int04_big.jpg">
+                                <div class="card-system-image" data-background-image="{% if category.bannerImage %}{{ asset( category.bannerImage.imagePath ) }}{% else %}{{ asset('assets/img/default/profile.png') }}{% endif %}">
                                 </div><!-- /.card-system-image -->
 
                                 <div class="card-system-content">
