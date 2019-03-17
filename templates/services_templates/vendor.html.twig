@@ -5,6 +5,7 @@
 {% block banner %}
     {% if vendor.isVisible %}
     {% embed 'emb/banner.html.twig' %}
+        {% block background %}{% if vendor.profileImage %}url({{ asset(vendor.profileImage.imagePath) }}){% else %}linear-gradient(to left top, #011627, #031829, #051b2c, #071d2e, #091f31);{% endif %}{% endblock %}
         {% block bannertype %}Vendor{% endblock %}
         {% block bannertitle %}{{ vendor.username }}{% endblock %}
         {% block bannerdescription %}{% endblock %}
@@ -15,25 +16,28 @@
 {% block body %}
     <div class="row detail-content">
         {% if vendor.isVisible %}
-        <!-- Main -->
-        <div class="col-sm-7">
-            <!-- Gallery -->
-            <div class="detail-gallery">
-                <div class="detail-gallery-preview">
-                    <a href="https://res.cloudinary.com/dptzlt8ik/image/upload/v1541586831/Bien-Etre/l_int04_big.jpg">
-                        <img src="https://res.cloudinary.com/dptzlt8ik/image/upload/v1541586831/Bien-Etre/l_int04_big.jpg">
-                    </a>
-                </div>
-                <ul class="detail-gallery-index">
-                    {% for image in vendor.vendorImages %}
-                    <li class="detail-gallery-list-item active">
-                        <a data-target="{{ asset( image.imagePath ) }}">
-                            <img src="{{ asset( image.imagePath ) }}" alt="...">
-                        </a>
-                    </li>
-                    {% endfor %}
-                </ul>
-            </div>
+            <!-- Main -->
+            <div class="col-sm-7">
+                <!-- Gallery -->
+                {% set first = vendor.vendorImages.first() %}
+                {% if first %}
+                    <div class="detail-gallery">
+                        <div class="detail-gallery-preview">
+                                <a href="{{ asset( first.imagePath ) }}">
+                                    <img src="{{ asset( first.imagePath ) }}">
+                                </a>
+                        </div>
+                        <ul class="detail-gallery-index">
+                            {% for image in vendor.vendorImages %}
+                            <li class="detail-gallery-list-item active">
+                                <a data-target="{{ asset( image.imagePath ) }}">
+                                    <img src="{{ asset( image.imagePath ) }}" alt="...">
+                                </a>
+                            </li>
+                            {% endfor %}
+                        </ul>
+                    </div>
+                {% endif %}
             <!-- Reviews -->
             <div id="reviews" class="widget">
                 <h2 class="widgettitle">Comments</h2>
@@ -91,11 +95,8 @@
         <div class="col-sm-5">
             <!-- <3 -->
             <div class="background-white p20">
-                <div class="detail-overview-hearts">
-                    <i class="fa fa-heart"></i> <strong>213 </strong>people love it
-                </div>
                 <div class="detail-overview-rating">
-                    <i class="fa fa-star"></i><a href="#reviews">{{ vendor.comments | length }} comments</a>
+                    <i class="fa fa-star"></i><a href="#reviews">{{ vendor.comments | length }} comment{% if vendor.comments | length > 1 %}s{% endif %}</a>
                 </div>
 
                 <div class="detail-actions row">
