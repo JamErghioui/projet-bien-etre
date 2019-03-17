@@ -165,10 +165,16 @@
                     <!-- Menu Category -->
                     <div class="widget">
                         <h2 class="widgettitle">Categories</h2>
+
+                        <div class="background-white p20">
+                            <ul class="detail-amenities">
+                                {% for category in vendor.category %}
+                                    <li class="yes">{{ category.name }}</li>
+                                {% endfor %}
+                            </ul>
+                        </div><!-- /.detail-amenities -->
                         <ul class="menu">
-                            {% for category in vendor.category %}
-                                <li><a href="#">{{ category.name }}</a></li>
-                            {% endfor %}
+
                         </ul>
                     </div>
                 </div>
