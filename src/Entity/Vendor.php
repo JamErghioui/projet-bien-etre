@@ -87,11 +87,17 @@ class Vendor extends User
      */
     private $stage;
 
+    /**
+     * @ORM\OneToMany(targetEntity="App\Entity\Image", mappedBy="vendor")
+     */
+    private $vendorImages;
+
     public function __construct()
     {
         $this->category = new ArrayCollection();
         $this->comments = new ArrayCollection();
         $this->stage = new ArrayCollection();
+        $this->vendorImages = new ArrayCollection();
     }
 
 
@@ -297,6 +303,37 @@ class Vendor extends User
             // set the owning side to null (unless already changed)
             if ($stage->getVendor() === $this) {
                 $stage->setVendor(null);
+            }
+        }
+
+        return $this;
+    }
+
+    /**
+     * @return Collection|Image[]
+     */
+    public function getVendorImages(): Collection
+    {
+        return $this->vendorImages;
+    }
+
+    public function addVendorImage(Image $vendorImage): self
+    {
+        if (!$this->vendorImages->contains($vendorImage)) {
+            $this->vendorImages[] = $vendorImage;
+            $vendorImage->setVendor($this);
+        }
+
+        return $this;
+    }
+
+    public function removeVendorImage(Image $vendorImage): self
+    {
+        if ($this->vendorImages->contains($vendorImage)) {
+            $this->vendorImages->removeElement($vendorImage);
+            // set the owning side to null (unless already changed)
+            if ($vendorImage->getVendor() === $this) {
+                $vendorImage->setVendor(null);
             }
         }
 

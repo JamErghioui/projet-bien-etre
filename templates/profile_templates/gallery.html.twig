@@ -1,0 +1,69 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Gallery{% endblock %}
+
+{% block body %}
+    <div class="row">
+        <div class="col-sm-4 col-lg-3">
+        <div class="sidebar">
+            <div class="widget">
+                <div class="user-photo">
+                    <a href="#">
+                        {% if app.user.profileImage %}
+                            <img src="{{ asset( app.user.profileImage.imagePath ) }}" alt="User Photo">
+                        {% else %}
+                            <img src="{{ asset('assets/img/default/profile.png') }}" alt="">
+                        {% endif %}
+                    </a>
+                </div><!-- /.user-photo -->
+            </div><!-- /.widget -->
+            <div class="widget">
+                <ul class="menu-advanced">
+                    <li><a href="{{ path('profile') }}"><i class="fa fa-user"></i> Edit Profile</a></li>
+                    {% for key, value in app.user.roles %}
+                        {% if value == 'ROLE_VENDOR' %}
+                            <li class="active"><a href="#"><i class="fa fa-clipboard"></i> Gallery</a></li>
+                            <li><a href="{{ path('stages') }}"><i class="fa fa-clipboard"></i> Stages</a></li>
+                        {% endif %}
+                    {% endfor %}
+                    <li><a href="#"><i class="fa fa-key"></i> Password</a></li>
+                    <li><a href="{{ path('user_logout') }}"><i class="fa fa-sign-out"></i> Logout</a></li>
+                </ul>
+            </div><!-- /.widget -->
+        </div><!-- /.sidebar -->
+    </div><!-- /.col-* -->
+        <div class="col-sm-8 col-lg-9">
+            <div class="content">
+                <div class="page-title">
+                    <h1>Gallery</h1>
+                </div><!-- /.page-title -->
+                <div class="background-white p20 mb30">
+                    {{ include('profile_templates/gallery_form.html.twig') }}
+                </div>
+                <div class="cards-simple-wrapper">
+                    <div class="row">
+                        {% for image in app.user.vendorImages %}
+                        <div class="col-sm-6 col-md-4 col-lg-3">
+                            <div class="card-simple" data-background-image="{{ asset(image.imagePath) }}">
+                                <div class="card-simple-background">
+                                    <div class="card-simple-content">
+                                        <div class="card-simple-rating">
+                                            <p>Delete</p>
+                                        </div><!-- /.card-rating -->
+                                        <div class="card-simple-actions">
+                                            <a href="{{ path('gallery_delete', { id : image.id }) }}" class="fa fa-trash-o"></a>
+                                        </div><!-- /.card-simple-actions -->
+                                    </div><!-- /.card-simple-content -->
+
+                                </div><!-- /.card-simple-background -->
+                            </div><!-- /.card-simple -->
+                        </div><!-- /.col-* -->
+                        {% endfor %}
+
+                    </div><!-- /.row -->
+                </div><!-- /.cards-simple-wrapper -->
+            </div><!-- /.content -->
+        </div><!-- /.col-* -->
+    </div>
+
+{% endblock %}

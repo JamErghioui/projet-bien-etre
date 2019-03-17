@@ -31,6 +31,11 @@ class Image
      */
     private $imagePath;
 
+    /**
+     * @ORM\ManyToOne(targetEntity="App\Entity\Vendor", inversedBy="vendorImages")
+     */
+    private $vendor;
+
     public function getId(): ?int
     {
         return $this->id;
@@ -68,6 +73,18 @@ class Image
     public function setImagePath(?string $imagePath): self
     {
         $this->imagePath = $imagePath;
+
+        return $this;
+    }
+
+    public function getVendor(): ?Vendor
+    {
+        return $this->vendor;
+    }
+
+    public function setVendor(?Vendor $vendor): self
+    {
+        $this->vendor = $vendor;
 
         return $this;
     }

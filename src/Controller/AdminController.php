@@ -15,6 +15,7 @@ use App\Repository\VendorRepository;
 use App\Service\Uploader;
 use Doctrine\Common\Persistence\ObjectManager;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
+use Symfony\Component\Filesystem\Filesystem;
 use Symfony\Component\HttpFoundation\File\UploadedFile;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\Routing\Annotation\Route;
@@ -91,9 +92,10 @@ class AdminController extends AbstractController
      * @param Request $request
      * @param ObjectManager $manager
      * @param Uploader $uploader
+     * @param Filesystem $filesystem
      * @return \Symfony\Component\HttpFoundation\Response
      */
-    public function category(Category $category = null, Request $request, ObjectManager $manager, Uploader $uploader)
+    public function category(Category $category = null, Request $request, ObjectManager $manager, Uploader $uploader, Filesystem $filesystem)
     {
         if(!$category){
             $category = new Category();
@@ -111,7 +113,15 @@ class AdminController extends AbstractController
             if($uploadedFile){
                 $newFilename = $uploader->uploadBannerImage($uploadedFile);
 
-                if($category->getBannerImage()){ $bannerImage = $category->getBannerImage(); }else{ $bannerImage = new Image(); }
+                if($category->getBannerImage()){
+                    $bannerImage = $category->getBannerImage();
+                    $image = $bannerImage->getImagePath();
+                    if($filesystem->exists($image)){
+                        unlink($image);
+                    }
+                }else{
+                    $bannerImage = new Image();
+                }
 
                 $bannerImage->setImageFilename($newFilename)
                     ->setImagePath('uploads/banner/'.$newFilename);

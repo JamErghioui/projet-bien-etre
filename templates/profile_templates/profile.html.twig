@@ -23,6 +23,7 @@
                         <li class="active"><a href="#"><i class="fa fa-user"></i> Edit Profile</a></li>
                         {% for key, value in app.user.roles %}
                             {% if value == 'ROLE_VENDOR' %}
+                                <li><a href="{{ path('gallery') }}"><i class="fa fa-clipboard"></i> Gallery</a></li>
                                 <li><a href="{{ path('stages') }}"><i class="fa fa-clipboard"></i> Stages</a></li>
                             {% endif %}
                         {% endfor %}
@@ -46,5 +47,5 @@
                 </div>
             </div><!-- /.content -->
         </div><!-- /.col-* -->
-</div><!-- /.row -->
+    </div><!-- /.row -->
 {% endblock %}

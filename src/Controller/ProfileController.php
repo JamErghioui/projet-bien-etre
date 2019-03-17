@@ -6,6 +6,7 @@ use App\Entity\Image;
 use App\Entity\Internaut;
 use App\Entity\Stage;
 use App\Entity\Vendor;
+use App\Form\GalleryPictureType;
 use App\Form\InternautType;
 use App\Form\ProfilePictureType;
 use App\Form\StageType;
@@ -126,7 +127,6 @@ class ProfileController extends AbstractController
                             ->setImagePath('uploads/profile/'.$newFilename);
                 $manager->persist($profileImage);
 
-
                 $user->setProfileImage($profileImage);
             }
 
@@ -139,6 +139,70 @@ class ProfileController extends AbstractController
         return $this->render('profile_templates/profile_image.html.twig', [
             'form' => $form->createView()
         ]);
+    }
+
+    /**
+     * @Route("/gallery", name="gallery")
+     * @param Request $request
+     * @param ObjectManager $manager
+     * @param Uploader $uploader
+     * @return \Symfony\Component\HttpFoundation\Response
+     */
+    public function gallery(Request $request, ObjectManager $manager, Uploader $uploader)
+    {
+        $user = $this->getUser();
+        $form = $this->createForm(GalleryPictureType::class, $user);
+
+        $form->handleRequest($request);
+
+        if($form->isSubmitted() && $form->isValid()){
+
+            /** @var UploadedFile $uploadedFile */
+            $uploadedFile = $form['image']->getData();
+
+            if($uploadedFile){
+                $newFilename = $uploader->uploadGalleryImage($uploadedFile);
+
+                $galleryImage = new Image();
+
+                $galleryImage->setImageFilename($newFilename)
+                    ->setImagePath('uploads/gallery/'.$newFilename)
+                    ->setVendor($user);
+                $manager->persist($galleryImage);
+                $manager->flush();
+            }
+
+            return $this->redirectToRoute('gallery');
+
+        }
+
+        return $this->render('profile_templates/gallery.html.twig', [
+            'form' => $form->createView()
+        ]);
+    }
+
+    /**
+     * @Route("/gallery/delete/{id}", name="gallery_delete")
+     * @param Image $image
+     * @param Filesystem $filesystem
+     * @param ObjectManager $manager
+     * @return \Symfony\Component\HttpFoundation\RedirectResponse
+     */
+    public function deleteGallery(Image $image, Filesystem $filesystem, ObjectManager $manager)
+    {
+        $imagePath = $image->getImagePath();
+
+        if($image){
+            if($filesystem->exists($imagePath)){
+                unlink($imagePath);
+                $manager->remove($image);
+                $manager->flush();
+
+                return $this->redirectToRoute('gallery');
+            }
+        }
+
+        return $this->redirectToRoute('gallery');
     }
 
     /**
