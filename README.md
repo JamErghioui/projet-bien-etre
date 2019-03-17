@@ -40,7 +40,14 @@ Réalisation d’une application où des prestataires de services peuvent s’in
 3. Tenir à jour sa liste de catégories de services
 4. Ajouter un stage
 
+> 2
+
+1. Gestion du service du mois
+
 > 3
 
 1. Laisser un commentaire
 2. S'inscrire à la newsletter
+3. Gestion des membres
+4. Bannir un compte
+5. Gestion des images

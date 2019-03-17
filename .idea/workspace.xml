@@ -2,7 +2,8 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="cb0cee65-b1b9-4d87-a2cb-71ded3b1e8b1" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/templates/services_templates/vendor.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/templates/services_templates/vendor.html.twig" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/README.md" beforeDir="false" afterPath="$PROJECT_DIR$/README.md" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -129,7 +130,7 @@
           <entry key="gitignore" value="2" />
           <entry key="jpeg" value="2" />
           <entry key="jpg" value="1" />
-          <entry key="md" value="2" />
+          <entry key="md" value="3" />
           <entry key="php" value="151" />
           <entry key="twig" value="158" />
           <entry key="txt" value="1" />
@@ -140,7 +141,7 @@
         <counts>
           <entry key=".env file" value="6" />
           <entry key="Image" value="6" />
-          <entry key="Markdown" value="2" />
+          <entry key="Markdown" value="3" />
           <entry key="PHP" value="151" />
           <entry key="PLAIN_TEXT" value="5" />
           <entry key="Twig" value="158" />
@@ -151,7 +152,7 @@
         <counts>
           <entry key="env" value="27" />
           <entry key="gitignore" value="18" />
-          <entry key="md" value="141" />
+          <entry key="md" value="231" />
           <entry key="php" value="13247" />
           <entry key="twig" value="7904" />
           <entry key="yaml" value="203" />
@@ -161,7 +162,7 @@
         <counts>
           <entry key=".env file" value="27" />
           <entry key="HTML" value="21" />
-          <entry key="Markdown" value="141" />
+          <entry key="Markdown" value="231" />
           <entry key="PHP" value="13226" />
           <entry key="PLAIN_TEXT" value="18" />
           <entry key="Twig" value="7904" />
@@ -207,7 +208,7 @@
         <entry file="file://$PROJECT_DIR$/templates/services_templates/index.html.twig">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="345">
-              <caret line="15" column="14" lean-forward="true" selection-start-line="15" selection-start-column="14" selection-end-line="15" selection-end-column="14" />
+              <caret line="15" column="14" selection-start-line="15" selection-start-column="14" selection-end-line="15" selection-end-column="14" />
             </state>
           </provider>
         </entry>
@@ -232,7 +233,7 @@
         <entry file="file://$PROJECT_DIR$/src/Entity/User.php">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="1856">
-              <caret line="147" column="28" lean-forward="true" selection-start-line="147" selection-start-column="28" selection-end-line="147" selection-end-column="28" />
+              <caret line="147" column="28" selection-start-line="147" selection-start-column="28" selection-end-line="147" selection-end-column="28" />
             </state>
           </provider>
         </entry>
@@ -256,19 +257,22 @@
         </entry>
       </file>
       <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/templates/services_templates/vendor.html.twig">
+        <entry file="file://$PROJECT_DIR$/templates/profile_templates/profile.html.twig">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="659">
-              <caret line="101" column="48" selection-start-line="101" selection-start-column="48" selection-end-line="101" selection-end-column="48" />
+            <state relative-caret-position="1150">
+              <caret line="50" column="14" selection-start-line="50" selection-start-column="14" selection-end-line="50" selection-end-column="14" />
             </state>
           </provider>
         </entry>
       </file>
       <file pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/templates/profile_templates/profile.html.twig">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="1150">
-              <caret line="50" column="14" selection-start-line="50" selection-start-column="14" selection-end-line="50" selection-end-column="14" />
+        <entry file="file://$PROJECT_DIR$/README.md">
+          <provider selected="true" editor-type-id="split-provider[text-editor;markdown-preview-editor]">
+            <state split_layout="SPLIT">
+              <first_editor relative-caret-position="463">
+                <caret line="51" column="19" lean-forward="true" selection-start-line="51" selection-start-column="19" selection-end-line="51" selection-end-column="19" />
+              </first_editor>
+              <second_editor />
             </state>
           </provider>
         </entry>
@@ -309,7 +313,6 @@
         <option value="$PROJECT_DIR$/templates/admin/detail_internaut.html.twig" />
         <option value="$PROJECT_DIR$/templates/admin/detail_vendor.html.twig" />
         <option value="$PROJECT_DIR$/src/Form/AdminVendorType.php" />
-        <option value="$PROJECT_DIR$/README.md" />
         <option value="$PROJECT_DIR$/templates/admin/detail.html.twig" />
         <option value="$PROJECT_DIR$/src/Entity/Category.php" />
         <option value="$PROJECT_DIR$/templates/admin/admin_category.html.twig" />
@@ -350,6 +353,7 @@
         <option value="$PROJECT_DIR$/templates/inc/vendor-list-cards-home.html.twig" />
         <option value="$PROJECT_DIR$/templates/inc/vendor-list-cards-search.html.twig" />
         <option value="$PROJECT_DIR$/templates/services_templates/vendor.html.twig" />
+        <option value="$PROJECT_DIR$/README.md" />
       </list>
     </option>
   </component>
@@ -580,12 +584,12 @@
       <workItem from="1546282656926" duration="18913000" />
       <workItem from="1550519959800" duration="85601000" />
       <workItem from="1551015370276" duration="71829000" />
-      <workItem from="1552351154052" duration="69592000" />
+      <workItem from="1552351154052" duration="70012000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="386245000" />
+    <option name="totallyTimeSpent" value="386665000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="0" y="0" width="1680" height="1050" extended-state="0" />
@@ -604,7 +608,7 @@
       <window_info anchor="bottom" id="Docker" order="7" show_stripe_button="false" />
       <window_info anchor="bottom" id="Database Changes" order="8" />
       <window_info anchor="bottom" id="Version Control" order="9" weight="0.32987553" />
-      <window_info anchor="bottom" id="Terminal" order="10" weight="0.32987553" />
+      <window_info anchor="bottom" id="Terminal" order="10" visible="true" weight="0.32987553" />
       <window_info anchor="bottom" id="Event Log" order="11" side_tool="true" weight="0.32987553" />
       <window_info anchor="bottom" id="Database Console" order="12" weight="0.32987553" />
       <window_info anchor="right" id="Commander" internal_type="SLIDING" order="0" type="SLIDING" weight="0.4" />
@@ -620,15 +624,6 @@
     <option name="myLimit" value="2678400000" />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/src/Form/InternautType.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state>
-          <folding>
-            <element signature="e#28#53#0#PHP" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/Form/ImageType.php">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="276">
@@ -934,7 +929,7 @@
     <entry file="file://$PROJECT_DIR$/src/Entity/User.php">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="1856">
-          <caret line="147" column="28" lean-forward="true" selection-start-line="147" selection-start-column="28" selection-end-line="147" selection-end-column="28" />
+          <caret line="147" column="28" selection-start-line="147" selection-start-column="28" selection-end-line="147" selection-end-column="28" />
         </state>
       </provider>
     </entry>
@@ -948,7 +943,7 @@
     <entry file="file://$PROJECT_DIR$/templates/services_templates/index.html.twig">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="345">
-          <caret line="15" column="14" lean-forward="true" selection-start-line="15" selection-start-column="14" selection-end-line="15" selection-end-column="14" />
+          <caret line="15" column="14" selection-start-line="15" selection-start-column="14" selection-end-line="15" selection-end-column="14" />
         </state>
       </provider>
     </entry>
@@ -963,6 +958,16 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="1150">
           <caret line="50" column="14" selection-start-line="50" selection-start-column="14" selection-end-line="50" selection-end-column="14" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/README.md">
+      <provider selected="true" editor-type-id="split-provider[text-editor;markdown-preview-editor]">
+        <state split_layout="SPLIT">
+          <first_editor relative-caret-position="463">
+            <caret line="51" column="19" lean-forward="true" selection-start-line="51" selection-start-column="19" selection-end-line="51" selection-end-column="19" />
+          </first_editor>
+          <second_editor />
         </state>
       </provider>
     </entry>
