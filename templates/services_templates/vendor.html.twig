@@ -25,42 +25,13 @@
                     </a>
                 </div>
                 <ul class="detail-gallery-index">
+                    {% for image in vendor.vendorImages %}
                     <li class="detail-gallery-list-item active">
-                        <a data-target="https://res.cloudinary.com/dptzlt8ik/image/upload/v1541586831/Bien-Etre/l_int04_big.jpg">
-                            <img src="https://res.cloudinary.com/dptzlt8ik/image/upload/v1541586831/Bien-Etre/l_int04_big.jpg" alt="...">
+                        <a data-target="{{ asset( image.imagePath ) }}">
+                            <img src="{{ asset( image.imagePath ) }}" alt="...">
                         </a>
                     </li>
-                    <li class="detail-gallery-list-item active">
-                        <a data-target="https://res.cloudinary.com/dptzlt8ik/image/upload/v1541586838/Bien-Etre/l_int03_big.jpg">
-                            <img src="https://res.cloudinary.com/dptzlt8ik/image/upload/v1541586838/Bien-Etre/l_int03_big.jpg" alt="...">
-                        </a>
-                    </li>
-                    <li class="detail-gallery-list-item active">
-                        <a data-target="https://res.cloudinary.com/dptzlt8ik/image/upload/v1547065039/Bien-Etre/by_housevisit_2560.jpg">
-                            <img src="https://res.cloudinary.com/dptzlt8ik/image/upload/v1547065039/Bien-Etre/by_housevisit_2560.jpg" alt="...">
-                        </a>
-                    </li>
-                    <li class="detail-gallery-list-item active">
-                        <a data-target="https://res.cloudinary.com/dptzlt8ik/image/upload/v1547065041/Bien-Etre/by_ducks_2560.jpg">
-                            <img src="https://res.cloudinary.com/dptzlt8ik/image/upload/v1547065041/Bien-Etre/by_ducks_2560.jpg" alt="...">
-                        </a>
-                    </li>
-                    <li class="detail-gallery-list-item active">
-                        <a data-target="https://res.cloudinary.com/dptzlt8ik/image/upload/v1547065041/Bien-Etre/Simonstalenhag.jpg">
-                            <img src="https://res.cloudinary.com/dptzlt8ik/image/upload/v1547065041/Bien-Etre/Simonstalenhag.jpg" alt="...">
-                        </a>
-                    </li>
-                    <li class="detail-gallery-list-item active">
-                        <a data-target="https://res.cloudinary.com/dptzlt8ik/image/upload/v1541586831/Bien-Etre/l_int04_big.jpg">
-                            <img src="https://res.cloudinary.com/dptzlt8ik/image/upload/v1541586831/Bien-Etre/l_int04_big.jpg" alt="...">
-                        </a>
-                    </li>
-                    <li class="detail-gallery-list-item active">
-                        <a data-target="https://res.cloudinary.com/dptzlt8ik/image/upload/v1541586838/Bien-Etre/l_int03_big.jpg">
-                            <img src="https://res.cloudinary.com/dptzlt8ik/image/upload/v1541586838/Bien-Etre/l_int03_big.jpg" alt="...">
-                        </a>
-                    </li>
-
+                    {% endfor %}
                 </ul>
             </div>
             <!-- Reviews -->
