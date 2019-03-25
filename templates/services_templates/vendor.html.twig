@@ -37,6 +37,21 @@
                             {% endfor %}
                         </ul>
                     </div>
+                {% else %}
+                    <div class="detail-gallery">
+                        <div class="detail-gallery-preview">
+                            <a href="{{ asset( 'assets/img/default/banner-bg.jpg' ) }}">
+                                <img src="{{ asset( 'assets/img/default/banner-bg.jpg' ) }}">
+                            </a>
+                        </div>
+                        <ul class="detail-gallery-index">
+                            <li class="detail-gallery-list-item active">
+                                <a data-target="{{ asset( 'assets/img/default/banner-bg.jpg' ) }}">
+                                    <img src="{{ asset( 'assets/img/default/banner-bg.jpg' ) }}" alt="...">
+                                </a>
+                            </li>
+                        </ul>
+                    </div>
                 {% endif %}
             <!-- Reviews -->
             <div id="reviews" class="widget">
